@@ -14,13 +14,13 @@ class Utils
 		{
 			return shader;
 		}
-		logMessage("Shader failed:\n"+gl.getShaderInfoLog(shader)+"\nIn:\n"+source);
+		this.logMessage("Shader failed:\n"+gl.getShaderInfoLog(shader)+"\nIn:\n"+source);
 		gl.deleteShader(shader);
 	}
 	static createShaderProgram(gl,vertexCode,fragmentCode)
 	{
-		let vertexShader=createShader(gl,gl.VERTEX_SHADER,vertexCode);
-		let fragmentShader=createShader(gl,gl.FRAGMENT_SHADER,fragmentCode);
+		let vertexShader=this.createShader(gl,gl.VERTEX_SHADER,vertexCode);
+		let fragmentShader=this.createShader(gl,gl.FRAGMENT_SHADER,fragmentCode);
 		var program=gl.createProgram();
 		gl.attachShader(program,vertexShader);
 		gl.attachShader(program,fragmentShader);
@@ -30,7 +30,41 @@ class Utils
 		{
 			return program;
 		}
-		document.getElementById("test").innerHTML="shader failed to compile";
+		this.logMessage("shader failed to compile");
 		gl.deleteProgram(program);
+	}
+	static loadImage(src,finishImageLoad)
+	{
+		let image=new Image();
+		image.src=src;
+		image.onload=function()
+		{
+			try
+			{
+				finishImageLoad(image);
+			}
+			catch(e)
+			{
+				this.logMessage("error:\n"+e.message);
+			}
+		};
+	}
+	async function getTextData(src,onDone)
+	{
+		const url="https://raw.githubusercontent.com/dirtlordthezombieking/Dumgeon-Run/main/"+src;
+		try
+		{
+			const response=await fetch(url);
+			if(!response.ok)
+			{
+				throw new Error("Error: "+response.status);
+			}
+			const text=await response.text();
+			onDone(text);
+		}
+		catch (e)
+		{
+			this.logMessage("Error: "+e.message);
+		}
 	}
 }
