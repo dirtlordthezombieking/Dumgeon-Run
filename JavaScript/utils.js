@@ -1,1 +1,7 @@
-//todo
+class Utils
+{
+	static LogMessage()
+	{
+		
+	}
+}
