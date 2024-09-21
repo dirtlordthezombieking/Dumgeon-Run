@@ -1,0 +1,63 @@
+div
+{
+	margin:0;
+	padding:0;
+}
+body
+{
+	margin:0;
+	padding:0;
+	height:5000px;
+	background-image:url(../images/back_dimer.png);
+	background-repeat:repeat;
+	overflow:unset;
+}
+.logo
+{
+	border-radius:50%;
+	width:100%!important;
+	object-fit:cover;
+}
+.header
+{
+	position:fixed;
+	top:0;
+	width:100%;
+	height:200px;
+	background-image:url(../images/back_brighter.png);
+	align-self:flex-start;
+	background-repeat:repeat;
+}
+.main
+{
+	width:100%;
+	color:#ffffff;
+	padding-top:300px;
+	text-shadow: 0 0 2px #000;
+	text-align:center;
+}
+.holderone
+{
+	display:flex;
+	align-items:center;
+}
+.holdertwo
+{
+	white-space:nowrap;
+	color:#ffffff;
+	left:120px;
+	font-size:60px;
+	text-shadow: 0 0 4px #000;
+	padding-left:50px;
+}
+.link
+{
+	width:200px;
+	height:200px;
+	padding:0;
+}
+.textscale
+{
+	white-space:pre;
+	font-size:150%;
+}
