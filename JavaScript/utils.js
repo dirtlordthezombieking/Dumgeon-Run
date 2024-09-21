@@ -21,7 +21,7 @@ class Utils
 	{
 		let vertexShader=this.createShader(gl,gl.VERTEX_SHADER,vertexCode);
 		let fragmentShader=this.createShader(gl,gl.FRAGMENT_SHADER,fragmentCode);
-		var program=gl.createProgram();
+		let program=gl.createProgram();
 		gl.attachShader(program,vertexShader);
 		gl.attachShader(program,fragmentShader);
 		gl.linkProgram(program);
@@ -49,7 +49,7 @@ class Utils
 			}
 		};
 	}
-	async function getTextData(src,onDone)
+	async getTextData(src,onDone)
 	{
 		const url="https://raw.githubusercontent.com/dirtlordthezombieking/Dumgeon-Run/main/"+src;
 		try
