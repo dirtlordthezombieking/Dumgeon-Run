@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Dumgeon Run</title>
+		<link rel="stylesheet" href="style/main.css"/>
+	</head>
+	<body>
+		<div class="header">
+			<div class="holderone">
+				<a class="link" href="https://dirtlordthezombieking.github.io/">
+					<img class="logo" src="https://raw.githubusercontent.com/dirtlordthezombieking/dirtlordthezombieking.github.io/main/assets/images/logo.png" alt="logo"/>
+				</a>
+				<div class="holdertwo">
+					Dumgeon Run
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<canvas id="canvas" width="640" height="360"></canvas>
+			<br/>
+			<br/>
+			<button onclick="doTheThing()" class="textscale">start</button>
+			<br/>
+			<br/>
+			<p id="log" class="textscale">Output log...</p>
+		</div>
+		<script src="JavaScript/utils.js"></script>
+		<script>
+			function doTheThing()
+			{
+				try
+				{
+					
+				}
+				catch(e)
+				{
+					logMessage("error:\n"+e.message);
+				}
+			}
+		</script>
+	</body>
+</html>
