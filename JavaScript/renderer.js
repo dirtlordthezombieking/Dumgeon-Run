@@ -1,9 +1,9 @@
 class Renderer
 {
-	gl;
-	canvas;
-	floorShader;
-	init(g)
+	//gl;
+	//canvas;
+	//floorShader;
+	static init(g)
 	{
 		try
 		{
@@ -26,11 +26,11 @@ class Renderer
 				throw new Error("web gl not available");
 			}
 			Utils.logMessage("gl");
-			this.gl=g;
-			if(!this.gl);
-			{
-				throw new Error("this web gl not available");
-			}
+			//this.gl=g;
+			//if(!this.gl);
+			//{
+				//throw new Error("this web gl not available");
+			//}
 			Utils.logMessage("this gl");
 			throw new Error(g);
 	//}
