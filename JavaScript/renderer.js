@@ -48,12 +48,12 @@ class Renderer
 	this.floorATexCoord=new Attribute(2,this.program,"a_texCoord",new Float32Array
 		(
 			[
-				0.0,0.0,
-				1.0,0.0,
-				0.0,1.0,
-				0.0,1.0,
-				1.0,0.0,
-				1.0,1.0
+				 0.0, 0.0,
+				40.0, 0.0,
+				 0.0,30.0,
+				 0.0,30.0,
+				40.0, 0.0,
+				40.0,30.0
 			]
 		),this.gl);
 	}
