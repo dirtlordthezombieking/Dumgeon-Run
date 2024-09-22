@@ -59,17 +59,17 @@ Utils.logMessage("step");
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 //floor texcoord
 Utils.logMessage("step");
-		//this.floorATexCoord=new Attribute(2,this.floorShader,"a_texCoord",new Float32Array
-		//(
-			//[
-				// 0.0, 0.0,
-				//40.0, 0.0,
-				// 0.0,30.0,
-				// 0.0,30.0,
-				//40.0, 0.0,
-				//40.0,30.0
-			//]
-		//),this.gl);
+		this.floorATexCoord=new Attribute(2,this.floorShader,"a_texCoord",new Float32Array
+		(
+			[
+				 0.0, 0.0,
+				40.0, 0.0,
+				 0.0,30.0,
+				 0.0,30.0,
+				40.0, 0.0,
+				40.0,30.0
+			]
+		),this.gl);
 //floor texture
 Utils.logMessage("step");
 		//this.floorUTexture=new Texture(this.floorShader,"u_texture",this.floorTex,0,this.gl);
