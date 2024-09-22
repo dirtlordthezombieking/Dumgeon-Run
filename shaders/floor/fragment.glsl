@@ -3,8 +3,8 @@ uniform sampler2D u_texture;
 varying vec2 v_texCoord;
 void main()
 {
-	float ax=floor(v_texCoord.x);
-	float ay=floor(v_texCoord.y);
+	float ax=floor(v_texCoord.x*2.0);
+	float ay=floor(v_texCoord.y*2.0);
 	float bx=ax+0.129;
 	float by=ay+0.371;
 	float cx=mod(9.25*sin(bx),1.0);
