@@ -2,7 +2,10 @@ class Utils
 {
 	static logMessage(msg)
 	{
-		document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"\n"+msg;
+	                        if(!msg);
+                        {
+                                document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"\nWhy... Just why?????";
+                        }	document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"\n"+msg;
 	}
 	static createShader(gl,type,source)
 	{
