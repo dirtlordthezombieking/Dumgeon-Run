@@ -34,17 +34,8 @@
 				try
 				{
 					let c=document.querySelector("#canvas");
-					let g=c.getContext("webgl");
-					if(!c)
-					{
-						throw new Error("What???");
-					}
-					if(!g)
-					{
-						throw new Error("Why????");
-					}
-					let r=new Renderer();
-					Renderer.init("test");
+					let r=new Renderer(c);
+					Renderer.init();
 				}
 				catch(e)
 				{
