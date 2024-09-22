@@ -5,6 +5,8 @@ class Renderer
 	floorShader;
 	async init(c)
 	{
+		try()
+		{
 		Utils.logMessage("start");
 		if(!c);
 		{
@@ -40,5 +42,10 @@ class Renderer
 		Utils.logMessage("shader");
 		this.floorShader=hold;
 		Utils.logMessage("done");
+		}
+		catch(e)
+		{
+			Utils.logMessage("error:\n"+e.message);
+		}
 	}
 }
