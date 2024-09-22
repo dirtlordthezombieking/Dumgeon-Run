@@ -6,6 +6,8 @@ class Renderer
 	floorATexCoord;
 	floorTex;
 	floorUTexture;
+	floorAPos;
+	floorUPos;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -53,7 +55,7 @@ class Renderer
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 //floor texcoord
-	this.floorATexCoord=new Attribute(2,this.program,"a_texCoord",new Float32Array
+	this.floorATexCoord=new Attribute(2,this.floorShader,"a_texCoord",new Float32Array
 		(
 			[
 				 0.0, 0.0,
@@ -65,9 +67,22 @@ class Renderer
 			]
 		),this.gl);
 //floor texture
-		this.floorUTexture=new Texture(this.program,"u_texture",this.floorTex,0,this.gl);
+		this.floorUTexture=new Texture(this.floorShader,"u_texture",this.floorTex,0,this.gl);
 		this.text.push();
-//
+//floor Apos
+		this.floorAPos=new Attribute(2,this.floorShader,"a_pos",new Float32Array
+		(
+			[
+				  0.0,  0.0,
+				640.0,  0.0,
+				  0.0,480.0,
+				  0.0,480.0,
+				640.0,  0.0,
+				640.0,480.0
+			]
+		),this.gl);
+//floor Upos
+		this.floorUPos=new uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
 	}
 	draw()
 	{
@@ -75,6 +90,9 @@ class Renderer
 		this.gl.clear(this gl.COLOR_BUFFER_BIT);
 		this.gl.useProgram(this.floorShader);
 		this.floorATexCoord.use();
-		this.text.use();
+		this.floorUTexture.use();
+		this.floorAPos.use();
+		this.floorUPos.use();
+		this.gl.drawArrays(this.gl.TRIANGLES,0,6);
 	}
 }
