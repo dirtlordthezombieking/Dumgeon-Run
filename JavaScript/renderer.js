@@ -32,7 +32,7 @@ Utils.logMessage("step");
 				hold.floorShader=program;
 			});
 Utils.logMessage("step");
-			Utils.loadImage("images/stand in.png",function(img)
+			Utils.loadImage("graphics/tilesets/floors.png",function(img)
 			{
 Utils.logMessage("step");
 				hold.floorTex=img;
