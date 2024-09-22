@@ -1,21 +1,26 @@
 class Renderer
 {
-	constructor(canvas)
+	async init(canvas)
 	{
-		this.canvas=canvas;
-		this.gl=this.canvas.getContext("webgl");
+		//this.canvas=canvas;
 		if(!canvas);
+		{
+			throw new Error("canvas not available");
+		}
+		//this.gl=this.canvas.getContext("webgl");
+		let gl=canvas.getContext("webgl");
+		if(!gl);
 		{
 			throw new Error("web gl not available");
 		}
-	}
-	async init()
-	{
+	//}
+	//async init()
+	//{
 		let hold=0;
-		await Utils.loadProgram(this.gl,"floor",function(program)
+		await Utils.loadProgram(gl,"floor",function(program)
 		{
 			hold=program;
 		});
-		this.floorShader=hold;
+		let floorShader=hold;
 	}
 }
