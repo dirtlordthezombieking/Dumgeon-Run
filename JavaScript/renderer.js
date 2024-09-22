@@ -3,7 +3,7 @@ class Renderer
 	gl;
 	canvas;
 	floorShader;
-	async init(g)
+	init(g)
 	{
 		try
 		{
@@ -37,13 +37,13 @@ class Renderer
 	//async init()
 	//{
 			let hold=0;
-			await Utils.loadProgram(gl,"floor",function(program)
-			{
-				hold=program;
-			});
-			Utils.logMessage("shader");
-			this.floorShader=hold;
-			Utils.logMessage("done");
+			//await Utils.loadProgram(gl,"floor",function(program)
+			//{
+				//hold=program;
+			//});
+			//Utils.logMessage("shader");
+			//this.floorShader=hold;
+			//Utils.logMessage("done");
 		}
 		catch(e)
 		{
