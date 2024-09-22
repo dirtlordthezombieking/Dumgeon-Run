@@ -2,7 +2,7 @@ class Utils
 {
 	static logMessage(msg)
 	{
-	                        if(!msg);
+	                        if(msg==null);
                         {
                                 document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"\nWhy... Just why?????";
                         }	document.getElementById("log").innerHTML=document.getElementById("log").innerHTML+"\n"+msg;
