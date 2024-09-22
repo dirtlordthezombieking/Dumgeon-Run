@@ -8,6 +8,9 @@ class Renderer
 		{
 			throw new Error("web gl not available");
 		}
+	}
+	async init()
+	{
 		let hold=0;
 		await Utils.loadProgram(this.gl,"floor",function(program)
 		{
