@@ -1,6 +1,6 @@
 attribute vec4 a_pos;
 attribute vec2 a_texCoord;
-uniform vec2 u_pos
+uniform vec2 u_pos;
 varying vec2 v_texCoord;
 void main()
 {
