@@ -73,12 +73,12 @@ class Renderer
 		this.floorAPos=new Attribute(2,this.floorShader,"a_pos",new Float32Array
 		(
 			[
-				  0.0,  0.0,
-				640.0,  0.0,
-				  0.0,480.0,
-				  0.0,480.0,
-				640.0,  0.0,
-				640.0,480.0
+				-320.0,-240.0,
+				 320.0,-240.0,
+				-320.0, 240.0,
+				-320.0, 240.0,
+				 320.0,-240.0,
+				 320.0, 240.0
 			]
 		),this.gl);
 //floor Upos
