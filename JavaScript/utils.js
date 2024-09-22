@@ -14,8 +14,8 @@ class Utils
 		{
 			return shader;
 		}
-		this.logMessage("Shader failed:\n"+gl.getShaderInfoLog(shader)+"\nIn:\n"+source);
 		gl.deleteShader(shader);
+		throw new Error("Shader failed:\n"+gl.getShaderInfoLog(shader)+"\nIn:\n"+source);
 	}
 	static createShaderProgram(gl,vertexCode,fragmentCode)
 	{
@@ -30,8 +30,8 @@ class Utils
 		{
 			return program;
 		}
-		this.logMessage("shader failed to compile");
 		gl.deleteProgram(program);
+		throw new Error("shader failed to compile");
 	}
 	static loadImage(src,finishImageLoad)
 	{
