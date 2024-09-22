@@ -4,7 +4,7 @@ class Renderer
 	{
 		this.canvas=canvas;
 		this.gl=this.canvas.getContext("webgl");
-		if(!this.canvas);
+		if(!canvas);
 		{
 			throw new Error("web gl not available");
 		}
