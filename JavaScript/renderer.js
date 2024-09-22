@@ -1,6 +1,6 @@
 class Renderer
 {
-	constructor(canvas)
+	init(canvas)
 	{
 		this.canvas=canvas;
 		this.gl=this.canvas.getContext("webgl");
@@ -8,9 +8,9 @@ class Renderer
 		{
 			throw new Error("web gl not available");
 		}
-	}
-	async init()
-	{
+	//}
+	//async init()
+	//{
 		let hold=0;
 		await Utils.loadProgram(this.gl,"floor",function(program)
 		{
