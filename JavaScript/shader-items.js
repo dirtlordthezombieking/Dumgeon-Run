@@ -1,4 +1,5 @@
-class  Uniform
+Utils.logMessage("shader start");
+class Uniform
 {
 	size;
 	prog;
@@ -93,3 +94,4 @@ class Attribute
 		this.gl.vertexAttribPointer(this.loc,this.size,this.gl.FLOAT,false,0,0);
 	}
 }
+Utils.logMessage("shader end");
