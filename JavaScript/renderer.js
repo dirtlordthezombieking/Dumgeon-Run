@@ -91,9 +91,9 @@ Utils.logMessage("step");
 Utils.logMessage("step");
 		this.floorUPos=new uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
 Utils.logMessage("step");
-		this.draw();
+		//this.draw();
 	}
-	//draw()
+	draw()
 	{
 Utils.logMessage("step");
 		this.gl.clearColor(0,0,0,1);
