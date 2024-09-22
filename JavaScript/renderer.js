@@ -19,7 +19,7 @@ class Renderer
 		{
 			throw new Error("web gl not available");
 		}
-		this.gl=GL;
+		this.gl=gl;
 		if(!this.gl);
 		{
 			throw new Error("this web gl not available");
