@@ -25,18 +25,16 @@ class Renderer
 	{
 		try
 		{
-			let hold=0;
+			let hold=this;
 			await Utils.loadShader(this.gl,"floor",function(program)
 			{
-				hold=program;
+				hold.floorShader=program;
 			});
-			this.floorShader=hold;
-			await loadImage("images/stand in.png",function(img)
+			Utils.loadImage("images/stand in.png",function(img)
 			{
-				hold=img;
+				hold.floorTex=img;
+				init();
 			});
-			this.floorTex=hold;
-			init();
 		}
 		catch(e)
 		{
@@ -48,10 +46,10 @@ class Renderer
 		const displayWidth=this.canvas.clientWidth;
 		const displayHeight=this.canvas.clientHeight;
 		if(this.canvas.width!==displayWidth||this.canvas.height!==displayHeight)
-	{
-		this.canvas.width=displayWidth;
-		this.canvas.height=displayHeight;
-	}
+		{
+			this.canvas.width=displayWidth;
+			this.canvas.height=displayHeight;
+		}
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 //floor texcoord
@@ -83,6 +81,7 @@ class Renderer
 		),this.gl);
 //floor Upos
 		this.floorUPos=new uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
+		draw();
 	}
 	draw()
 	{
