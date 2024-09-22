@@ -29,7 +29,6 @@ class Renderer
 				hold=program;
 			});
 			this.floorShader=hold;
-			Utils.logMessage("done");
 			await loadImage("images/stand in.png",function(img)
 			{
 				hold=img;
