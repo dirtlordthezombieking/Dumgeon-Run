@@ -23,6 +23,7 @@ class Renderer
 	}
 	async loadAssets()
 	{
+Utils.logMessage("step");
 		try
 		{
 			let hold=this;
@@ -30,9 +31,12 @@ class Renderer
 			{
 				hold.floorShader=program;
 			});
+Utils.logMessage("step");
 			Utils.loadImage("images/stand in.png",function(img)
 			{
+Utils.logMessage("step");
 				hold.floorTex=img;
+Utils.logMessage("step");
 				init();
 			});
 		}
@@ -43,6 +47,7 @@ class Renderer
 	}
 	init()
 	{
+Utils.logMessage("step");
 		const displayWidth=this.canvas.clientWidth;
 		const displayHeight=this.canvas.clientHeight;
 		if(this.canvas.width!==displayWidth||this.canvas.height!==displayHeight)
@@ -53,6 +58,7 @@ class Renderer
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 //floor texcoord
+Utils.logMessage("step");
 		this.floorATexCoord=new Attribute(2,this.floorShader,"a_texCoord",new Float32Array
 		(
 			[
@@ -65,9 +71,11 @@ class Renderer
 			]
 		),this.gl);
 //floor texture
+Utils.logMessage("step");
 		this.floorUTexture=new Texture(this.floorShader,"u_texture",this.floorTex,0,this.gl);
 		this.text.push();
 //floor Apos
+Utils.logMessage("step");
 		this.floorAPos=new Attribute(2,this.floorShader,"a_pos",new Float32Array
 		(
 			[
@@ -80,11 +88,14 @@ class Renderer
 			]
 		),this.gl);
 //floor Upos
+Utils.logMessage("step");
 		this.floorUPos=new uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
+Utils.logMessage("step");
 		draw();
 	}
 	draw()
 	{
+Utils.logMessage("step");
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 		this.gl.useProgram(this.floorShader);
@@ -93,5 +104,6 @@ class Renderer
 		this.floorAPos.use();
 		this.floorUPos.use();
 		this.gl.drawArrays(this.gl.TRIANGLES,0,6);
+Utils.logMessage("done");
 	}
 }
