@@ -5,6 +5,8 @@ class Renderer
 	floorShader;
 	async init(c)
 	{
+		try()
+		{
 		Utils.logMessage("start");
 		if(!c);
 		{
