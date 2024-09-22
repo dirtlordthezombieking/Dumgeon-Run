@@ -8,7 +8,7 @@ class Renderer
 		try
 		{
 			Utils.logMessage("start");
-			let c=
+			let c=document.querySelector("#canvas");
 			if(!c);
 			{
 				throw new Error("canvas not available");
