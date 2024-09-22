@@ -4,6 +4,8 @@ class Renderer
 	canvas;
 	floorShader;
 	floorATexCoord;
+	floorTex;
+	floorUTexture;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -28,6 +30,12 @@ class Renderer
 			});
 			this.floorShader=hold;
 			Utils.logMessage("done");
+			await loadImage("images/stand in.png",function(img)
+			{
+				hold=img;
+			});
+			this.floorTex=hold;
+			init();
 		}
 		catch(e)
 		{
@@ -45,6 +53,7 @@ class Renderer
 	}
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
+//floor texcoord
 	this.floorATexCoord=new Attribute(2,this.program,"a_texCoord",new Float32Array
 		(
 			[
@@ -56,10 +65,15 @@ class Renderer
 				40.0,30.0
 			]
 		),this.gl);
+//floor texture
+		this.floorUTexture=new Texture(this.program,"u_texture",this.floorTex,0,this.gl);
+		this.text.push();
 	}
 	draw()
 	{
 		this.gl.clearColor(0,0,0,a);
 		this.gl.clear(this gl.COLOR_BUFFER_BIT);
+		this.gl.useProgram(this.floorShader);
+		this.floorATexCoord.use();
 	}
 }
