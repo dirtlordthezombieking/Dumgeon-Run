@@ -89,7 +89,7 @@ Utils.logMessage("step");
 		//),this.gl);
 //floor Upos
 Utils.logMessage("step");
-		this.floorUPos=new uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
+		this.floorUPos=new Uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
 Utils.logMessage("step");
 		//this.draw();
 	}
