@@ -31,7 +31,7 @@ class Renderer
 				hold=program;
 			});
 			this.floorShader=hold;
-			await loadImage("images/stand in.png",function(img)
+			await Utils.loadImage("images/stand in.png",function(img)
 			{
 				hold=img;
 			});
