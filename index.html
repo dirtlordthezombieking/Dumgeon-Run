@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="main">
-			<canvas id="canvas" width="640" height="360"></canvas>
+			<canvas id="canvas" width="640" height="480"></canvas>
 			<br/>
 			<br/>
 			<button onclick="doTheThing()" class="textscale">start</button>
@@ -27,6 +27,7 @@
 		</div>
 		<script src="JavaScript/utils.js"></script>
 		<script src="JavaScript/renderer.js"></script>
+		<script src="JavaScript/shader-items.js"></script>
 		<script>
 			Utils.logMessage("log works");
 			function doTheThing()
@@ -35,7 +36,7 @@
 				{
 					let c=document.querySelector("#canvas");
 					let r=new Renderer(c);
-					r.init();
+					r.loadAssets();
 				}
 				catch(e)
 				{
