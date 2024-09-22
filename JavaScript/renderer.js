@@ -3,6 +3,7 @@ class Renderer
 	gl;
 	canvas;
 	floorShader;
+	floorATexCoord;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -16,7 +17,7 @@ class Renderer
 			throw new Error("web gl not available");
 		}
 	}
-	async init()
+	async load assets()
 	{
 		try
 		{
@@ -32,5 +33,33 @@ class Renderer
 		{
 			Utils.logMessage("error:\n"+e.message);
 		}
+	}
+	init()
+	{
+		const displayWidth=this.canvas.clientWidth;
+		const displayHeight=this.canvas.clientHeight;
+		if(this.canvas.width!==displayWidth||this.canvas.height!==displayHeight)
+	{
+		this.canvas.width=displayWidth;
+		this.canvas.height=displayHeight;
+	}
+		this.gl.enable(this.gl.CULL_FACE);
+		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
+	this.floorATexCoord=new Attribute(2,this.program,"a_texCoord",new Float32Array
+		(
+			[
+				0.0,0.0,
+				1.0,0.0,
+				0.0,1.0,
+				0.0,1.0,
+				1.0,0.0,
+				1.0,1.0
+			]
+		),this.gl);
+	}
+	draw()
+	{
+		this.gl.clearColor(0,0,0,a);
+		this.gl.clear(this gl.COLOR_BUFFER_BIT);
 	}
 }
