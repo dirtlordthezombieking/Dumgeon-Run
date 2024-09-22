@@ -1,6 +1,6 @@
 class Renderer
 {
-	init(canvas)
+	async init(canvas)
 	{
 		this.canvas=canvas;
 		this.gl=this.canvas.getContext("webgl");
