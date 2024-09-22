@@ -5,6 +5,7 @@ class Texture
 	loc;
 	id;
 	gl;
+	texture;
 	constructor(shaderProgram,location,imageSrc,referenceID,glCore)
 	{
 		this.prog=shaderProgram;
