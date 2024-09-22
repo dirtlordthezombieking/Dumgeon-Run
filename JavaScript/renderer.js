@@ -3,27 +3,27 @@ class Renderer
 	gl;
 	canvas;
 	floorShader;
-	async init(canvas)
+	async init(c)
 	{
 		Utils.logMessage("start");
-		if(!canvas);
+		if(!c);
 		{
 			throw new Error("canvas not available");
 		}
 		Utils.logMessage("canvas");
-		this.canvas=canvas;
+		this.canvas=c;
 		if(!this.canvas);
 		{
 			throw new Error("this canvas not available");
 		}
 		Utils.logMessage("this.camnvas");
-		let gl=canvas.getContext("webgl");
-		if(!gl);
+		let g=canvas.getContext("webgl");
+		if(!g);
 		{
 			throw new Error("web gl not available");
 		}
 		Utils.logMessage("gl");
-		this.gl=gl;
+		this.gl=g;
 		if(!this.gl);
 		{
 			throw new Error("this web gl not available");
