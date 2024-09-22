@@ -1,0 +1,32 @@
+class Texture
+{
+	prog;
+	image:
+	loc;
+	id;
+	gl;
+	constructor(shaderProgram,location,imageSrc,referenceID,glCore)
+	{
+		this.prog=shaderProgram;
+		this.image=imageSrc;
+		this.loc=glCore.getUniformLocation(shaderProgram,location);
+		this.id=referenceID;
+		this.gl=glCore;
+	}
+	push()
+	{
+		this.texture=this.gl.createTexture();
+		this.gl.bindTexture(this.gl.TEXTURE_2D,this.texture);
+		this.gl.texParameteri(this.gl.TEXTURE_2D,this.gl.TEXTURE_WRAP_S,this.gl.CLAMP_TO_EDGE);
+		this.gl.texParameteri(this.gl.TEXTURE_2D,this.gl.TEXTURE_WRAP_T,this.gl.CLAMP_TO_EDGE);
+		this.gl.texParameteri(this.gl.TEXTURE_2D,this.gl.TEXTURE_MIN_FILTER,this.gl.NEAREST);
+		this.gl.texParameteri(this.gl.TEXTURE_2D,this.gl.TEXTURE_MAG_FILTER,this.gl.NEAREST);
+		this.gl.texImage2D(this.gl.TEXTURE_2D,0,this.gl.RGBA,this.gl.RGBA,this.gl.UNSIGNED_BYTE,this.image);
+	}
+	use()
+	{
+		this.gl.uniform1i(this.loc,this.id);
+		this.gl.activeTexture(this.gl.TEXTURE0+this.id);
+		this.gl.bindTexture(this.gl.TEXTURE_2D,this.texture);
+	}
+}
