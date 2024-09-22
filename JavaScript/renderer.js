@@ -67,6 +67,7 @@ class Renderer
 //floor texture
 		this.floorUTexture=new Texture(this.program,"u_texture",this.floorTex,0,this.gl);
 		this.text.push();
+//
 	}
 	draw()
 	{
@@ -74,5 +75,6 @@ class Renderer
 		this.gl.clear(this gl.COLOR_BUFFER_BIT);
 		this.gl.useProgram(this.floorShader);
 		this.floorATexCoord.use();
+		this.text.use();
 	}
 }
