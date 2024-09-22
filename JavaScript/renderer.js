@@ -59,7 +59,7 @@ Utils.logMessage("step");
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 //floor texcoord
 Utils.logMessage("step");
-		this.floorATexCoord=new Attribute(2,this.floorShader,"a_texCoord",new Float32Array
+		//this.floorATexCoord=new Attribute(2,this.floorShader,"a_texCoord",new Float32Array
 		(
 			[
 				 0.0, 0.0,
@@ -72,11 +72,11 @@ Utils.logMessage("step");
 		),this.gl);
 //floor texture
 Utils.logMessage("step");
-		this.floorUTexture=new Texture(this.floorShader,"u_texture",this.floorTex,0,this.gl);
-		this.text.push();
+		//this.floorUTexture=new Texture(this.floorShader,"u_texture",this.floorTex,0,this.gl);
+		//this.text.push();
 //floor Apos
 Utils.logMessage("step");
-		this.floorAPos=new Attribute(2,this.floorShader,"a_pos",new Float32Array
+		//this.floorAPos=new Attribute(2,this.floorShader,"a_pos",new Float32Array
 		(
 			[
 				-320.0,-240.0,
@@ -93,7 +93,7 @@ Utils.logMessage("step");
 Utils.logMessage("step");
 		this.draw();
 	}
-	draw()
+	//draw()
 	{
 Utils.logMessage("step");
 		this.gl.clearColor(0,0,0,1);
