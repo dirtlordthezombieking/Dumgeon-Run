@@ -60,16 +60,16 @@ Utils.logMessage("step");
 //floor texcoord
 Utils.logMessage("step");
 		//this.floorATexCoord=new Attribute(2,this.floorShader,"a_texCoord",new Float32Array
-		(
-			[
-				 0.0, 0.0,
-				40.0, 0.0,
-				 0.0,30.0,
-				 0.0,30.0,
-				40.0, 0.0,
-				40.0,30.0
-			]
-		),this.gl);
+		//(
+			//[
+				// 0.0, 0.0,
+				//40.0, 0.0,
+				// 0.0,30.0,
+				// 0.0,30.0,
+				//40.0, 0.0,
+				//40.0,30.0
+			//]
+		//),this.gl);
 //floor texture
 Utils.logMessage("step");
 		//this.floorUTexture=new Texture(this.floorShader,"u_texture",this.floorTex,0,this.gl);
@@ -77,16 +77,16 @@ Utils.logMessage("step");
 //floor Apos
 Utils.logMessage("step");
 		//this.floorAPos=new Attribute(2,this.floorShader,"a_pos",new Float32Array
-		(
-			[
-				-320.0,-240.0,
-				 320.0,-240.0,
-				-320.0, 240.0,
-				-320.0, 240.0,
-				 320.0,-240.0,
-				 320.0, 240.0
-			]
-		),this.gl);
+		//(
+			//[
+				//-320.0,-240.0,
+				// 320.0,-240.0,
+				//-320.0, 240.0,
+				//-320.0, 240.0,
+				// 320.0,-240.0,
+				// 320.0, 240.0
+			//]
+		//),this.gl);
 //floor Upos
 Utils.logMessage("step");
 		this.floorUPos=new uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
