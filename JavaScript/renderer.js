@@ -8,7 +8,7 @@ class Renderer
 		this.canvas=canvas;
 		if(!this.canvas)
 		{
-			throw new Error("canvas invalid);
+			throw new Error("canvas invalid");
 		}
 		this.gl=this.canvas.getContext("webgl");;
 		if(!this.gl)
