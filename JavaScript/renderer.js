@@ -11,13 +11,13 @@ class Renderer
 			let c=document.querySelector("#canvas");
 			if(!c);
 			{
-				throw new Error("canvas not available");
+				//throw new Error("canvas not available");
 			}
 			Utils.logMessage("canvas");
 			this.canvas=c;
 			if(!this.canvas);
 			{
-				throw new Error("this canvas not available");
+				//throw new Error("this canvas not available");
 			}
 			Utils.logMessage("this.camnvas");
 			let g=canvas.getContext("webgl");
