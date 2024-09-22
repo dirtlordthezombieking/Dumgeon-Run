@@ -19,8 +19,8 @@ class Utils
 	}
 	static createShaderProgram(gl,vertexCode,fragmentCode)
 	{
-		let vertexShader=this.createShader(gl,gl.VERTEX_SHADER,vertexCode);
-		let fragmentShader=this.createShader(gl,gl.FRAGMENT_SHADER,fragmentCode);
+		let vertexShader=Utils.createShader(gl,gl.VERTEX_SHADER,vertexCode);
+		let fragmentShader=Utils.createShader(gl,gl.FRAGMENT_SHADER,fragmentCode);
 		let program=gl.createProgram();
 		gl.attachShader(program,vertexShader);
 		gl.attachShader(program,fragmentShader);
@@ -45,11 +45,11 @@ class Utils
 			}
 			catch(e)
 			{
-				this.logMessage("error:\n"+e.message);
+				Utils.logMessage("error:\n"+e.message);
 			}
 		};
 	}
-	async getTextData(src,onDone)
+	static async getTextData(src,onDone)
 	{
 		const url="https://raw.githubusercontent.com/dirtlordthezombieking/Dumgeon-Run/main/"+src;
 		try
@@ -64,22 +64,29 @@ class Utils
 		}
 		catch (e)
 		{
-			this.logMessage("Error: "+e.message);
+			Utils.logMessage("Error: "+e.message);
 		}
 	}
 	static async loadShader(gl,src,onDone)
 	{
-		let vert="";
-		let frag="";
-		await this.getTextData("shaders/"+src+"/vertex.glsl",function(text)
+		try
 		{
-			vert=text;
-		});
-		await this.getTextData("shaders/"+src+"/fragment.glsl",function(text)
+			let vert="";
+			let frag="";
+			await Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
+			{
+				vert=text;
+			});
+			await Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
+			{
+				frag=text;
+			});
+			let ret=this.createShaderProgram(gl,vert,frag);
+			onDone(ret);
+		}
+		catch (e)
 		{
-			frag=text;
-		});
-		let ret=this.createShaderProgram(gl,vert,frag);
-		onDone(ret);
+			Utils.logMessage("Error: "+e.message);
+		}
 	}
 }
