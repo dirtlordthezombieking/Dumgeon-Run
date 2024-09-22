@@ -32,6 +32,7 @@ class Renderer
 				throw new Error("this web gl not available");
 			}
 			Utils.logMessage("this gl");
+			throw new Error(g);
 	//}
 	//async init()
 	//{
