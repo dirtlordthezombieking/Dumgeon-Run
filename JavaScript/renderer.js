@@ -37,7 +37,7 @@ Utils.logMessage("step");
 Utils.logMessage("step");
 				hold.floorTex=img;
 Utils.logMessage("step");
-				init();
+				hold.init();
 			});
 		}
 		catch(e)
@@ -91,7 +91,7 @@ Utils.logMessage("step");
 Utils.logMessage("step");
 		this.floorUPos=new uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
 Utils.logMessage("step");
-		draw();
+		this.draw();
 	}
 	draw()
 	{
