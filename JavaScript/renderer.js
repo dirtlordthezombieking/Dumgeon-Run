@@ -21,7 +21,7 @@ class Renderer
 		try
 		{
 			let hold=0;
-			await Utils.loadProgram(this.gl,"floor",function(program)
+			await Utils.loadShader(this.gl,"floor",function(program)
 			{
 				hold=program;
 			});
