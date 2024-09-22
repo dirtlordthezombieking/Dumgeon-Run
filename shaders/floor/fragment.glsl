@@ -12,5 +12,5 @@ void main()
 	float dx=floor(4.0*cx);
 	float dy=floor(4.0*cy);
 	vec2 texCoord=floor(vec2(dx+mod(v_texCoord.x,1.0),dy+mod(v_texCoord.y,1.0))*32.0)/128.0;
-	gl_FragColor=texture2D(u_texture,mod(v_texCoord*10.0,1));
+	gl_FragColor=texture2D(u_texture,mod(v_texCoord*10.0,1.0));
 }
