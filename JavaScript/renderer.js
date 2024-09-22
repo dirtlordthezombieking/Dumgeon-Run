@@ -19,7 +19,7 @@ class Renderer
 			throw new Error("web gl not available");
 		}
 	}
-	async load assets()
+	async loadAssets()
 	{
 		try
 		{
