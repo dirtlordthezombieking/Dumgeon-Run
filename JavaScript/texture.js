@@ -1,7 +1,7 @@
 class Texture
 {
 	prog;
-	image:
+	image;
 	loc;
 	id;
 	gl;
