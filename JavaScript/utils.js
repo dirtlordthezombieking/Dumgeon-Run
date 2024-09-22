@@ -80,6 +80,6 @@ class Utils
 			frag=text;
 		});
 		let ret=this.createShaderProgram(gl,vert,frag);
-		onDone(ret):
+		onDone(ret);
 	}
 }
