@@ -3,7 +3,7 @@ class Renderer
 	gl;
 	canvas;
 	floorShader;
-	static init(canvas)
+	constructor(canvas)
 	{
 		this.canvas=canvas;
 		if(!this.canvas)
