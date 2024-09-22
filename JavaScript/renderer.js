@@ -1,17 +1,28 @@
 class Renderer
 {
+	gl;
+	canvas;
+	floorShader;
 	async init(canvas)
 	{
-		//this.canvas=canvas;
 		if(!canvas);
 		{
 			throw new Error("canvas not available");
 		}
-		//this.gl=this.canvas.getContext("webgl");
+		this.canvas=canvas;
+		if(!this.canvas);
+		{
+			throw new Error("this canvas not available");
+		}
 		let gl=canvas.getContext("webgl");
 		if(!gl);
 		{
 			throw new Error("web gl not available");
+		}
+		this.gl=GL;
+		if(!this.gl);
+		{
+			throw new Error("this web gl not available");
 		}
 	//}
 	//async init()
@@ -21,6 +32,7 @@ class Renderer
 		{
 			hold=program;
 		});
-		let floorShader=hold;
+		this.floorShader=hold;
+		Utils.logMessage("done");
 	}
 }
