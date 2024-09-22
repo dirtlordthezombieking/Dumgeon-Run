@@ -33,7 +33,7 @@ class Utils
 		gl.deleteProgram(program);
 		throw new Error("shader failed to compile");
 	}
-	static loadImage(src,finishImageLoad)
+	static loadImage(src,onDone)
 	{
 		let image=new Image();
 		image.src=src;
@@ -41,7 +41,7 @@ class Utils
 		{
 			try
 			{
-				finishImageLoad(image);
+				onDone(image);
 			}
 			catch(e)
 			{
@@ -66,5 +66,20 @@ class Utils
 		{
 			this.logMessage("Error: "+e.message);
 		}
+	}
+	static async loadShader(gl,src,onDone)
+	{
+		let vert="";
+		let frag="";
+		await this.getTextData("shaders/"+src+"/vertex.glsl",function(text)
+		{
+			vert=text;
+		});
+		await this.getTextData("shaders/"+src+"/fragment.glsl",function(text)
+		{
+			frag=text;
+		});
+		let ret=this.createShaderProgram(gl,vert,frag);
+		onDone(ret):
 	}
 }
