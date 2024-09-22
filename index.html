@@ -33,7 +33,12 @@
 			{
 				try
 				{
-					let r=new Renderer(document.querySelector("#canvas"));
+					let c=document.querySelector("#canvas");
+					if(!c)
+					{
+						throw new Error("What???");
+					}
+					let r=new Renderer(c);
 					r.init();
 				}
 				catch(e)
