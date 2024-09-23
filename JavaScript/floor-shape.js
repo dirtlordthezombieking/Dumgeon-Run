@@ -27,7 +27,7 @@ class FloorShape
 		try
 		{
 Utils.logMessage("start");
-			FloorShape.gl=gl;
+			FloorShape.#gl=gl;
 			let hold=0
 			Utils.loadShader(gl,"floor",function(program)
 			{
