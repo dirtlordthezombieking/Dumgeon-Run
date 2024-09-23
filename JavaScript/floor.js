@@ -34,7 +34,11 @@ class Floor
 	}
 	use()
 	{
-		
+		let l=this.#rooms.length;
+		for(let i=0;i<l;i++)
+		{
+			let r=this.#rooms[i];
+		}
 	}
 }
 class RandRect()
