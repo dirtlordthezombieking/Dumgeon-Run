@@ -28,7 +28,6 @@ class FloorShape
 		{
 Utils.logMessage("start");
 			FloorShape.#gl=gl;
-			let hold=0
 			Utils.loadShader(gl,"floor",function(program)
 			{
 				FloorShape.#shader=program;
@@ -65,7 +64,7 @@ Utils.logMessage("end");
 		FloorShape.#vertsP=[];
 		FloorShape.#indexP=[];
 		FloorShape.#size=l*6;
-		for(let i=0;i<l;i++);
+		for(let i=0;i<l;i++)
 		{
 			FloorShape.#vertsP.push(FloorShape.#list[i].#x);
 			FloorShape.#vertsP.push(FloorShape.#list[i].#y);
@@ -86,14 +85,13 @@ Utils.logMessage("end");
 	}
 	static prep()
 	{
-		FloorShape.#vertsB=FloorShape.#gl.createBuffer();
-			FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
-		FloorShape.#gl.bufferData(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indexA),FloorShape.#gl.STATIC_DRAW
-);
+		FloorShape.#indexB=FloorShape.#gl.createBuffer();
+		FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
+		FloorShape.#gl.bufferData(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(FloorShape.#indexP),FloorShape.#gl.STATIC_DRAW);
 		FloorShape.#uTexture=new Texture(FloorShape.#shader,"u_texture",FloorShape.#tex,0,FloorShape.#gl);
 		FloorShape.#uTexture.push();
 		FloorShape.#aPos=new Attribute(2,FloorShape.#shader,"a_pos",new Float32Array(FloorShape.#vertsP),FloorShape.#gl);
-		FloorShape.#uPos=new Uniform(2,FloorShape.#shader,"u_pos",[0.0,0.0],FloorShape.#gl)
+		FloorShape.#uPos=new Uniform(2,FloorShape.#shader,"u_pos",[0.0,0.0],FloorShape.#gl);
 	}
 	static Draw()
 	{
