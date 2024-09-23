@@ -93,7 +93,7 @@ Utils.logMessage("end");
 		FloorShape.#aPos=new Attribute(2,FloorShape.#shader,"a_pos",new Float32Array(FloorShape.#vertsP),FloorShape.#gl);
 		FloorShape.#uPos=new Uniform(2,FloorShape.#shader,"u_pos",[0.0,0.0],FloorShape.#gl);
 	}
-	static Draw()
+	static draw()
 	{
 		FloorShape.#gl.useProgram(FloorShape.#shader);
 		FloorShape.#uTexture.use();
