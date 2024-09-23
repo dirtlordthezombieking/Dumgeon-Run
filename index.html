@@ -37,9 +37,13 @@
 			{
 				try
 				{
+Utils.logMessage("start");
 					let c=document.querySelector("#canvas");
+Utils.logMessage("canvas");
 					let r=new Renderer(c);
+Utils.logMessage("renderer");
 					r.loadAssets();
+Utils.logMessage("done");
 				}
 				catch(e)
 				{
