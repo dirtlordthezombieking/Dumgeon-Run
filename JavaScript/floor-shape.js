@@ -41,6 +41,7 @@ class FloorShape
 		let l=FloorShape.list.length;
 		FloorShape.vertsP=[];
 		FloorShape.indexP=[];
+		FloorShape.size=l*6;
 		for(let i=0;i<l;i++);
 		{
 			FloorShape.vertsP.push(FloorShape.list[i].x);
@@ -68,5 +69,11 @@ class FloorShape
 );
 	}
 	static Draw()
+	{
+
+
+	FloorShape.gl.bindBuffer(FloorShape.gl.ELEMENT_ARRAY_BUFFER,indexB);	FloorShape.gl.drawElements(FloorShape.gl.TRIANGLES,size,FloorShape.gl.UNSIGNED_SHORT,0);
+	}
 }
 //FloorShape.gl.
+//FloorShape.
