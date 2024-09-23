@@ -42,7 +42,7 @@ class Floor
 		}
 	}
 }
-class RandRect()
+class RandRect
 {
 	x;
 	y;
