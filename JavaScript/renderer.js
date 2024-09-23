@@ -47,6 +47,9 @@ class Renderer
 		FloorShape.addFromRectangle(-320,-240,640,480);
 		FloorShape.update();
 		FloorShape.prep();
+		WallShape.addFromRectangle(-320,-240,640,480);
+		WallShape.update();
+		WallShape.prep();
 		this.draw();
 	}
 	draw()
@@ -54,5 +57,6 @@ class Renderer
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 		FloorShape.draw();
+		WallShape.draw();
 	}
 }
