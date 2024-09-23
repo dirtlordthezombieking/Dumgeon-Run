@@ -79,11 +79,11 @@ class RandRect
 	}
 	#overlapsX(other)
 	{
-		return Floor.#overlapsAdjusted(this.x,this.w,other.x,other.w);
+		return RandRect.#overlapsAdjusted(this.x,this.w,other.x,other.w);
 	}
 	#overlapsY(other)
 	{
-		return Floor.#overlapsAdjusted(this.y,this.h,other.y,other.h);
+		return RandRect.#overlapsAdjusted(this.y,this.h,other.y,other.h);
 	}
 	static #overlapAdjusted(s1,l1,s2,l2)
 	{
@@ -103,7 +103,7 @@ class RandRect
 			rs2=re2;
 			re2=t2;
 		}
-		return Floor.#overlapsAxis(rs1,re1,rs2,re2);
+		return RandRect.#overlapsAxis(rs1,re1,rs2,re2);
 	} 
 	static #overlapsAxis(s1,e1,s2,e2)
 	{
