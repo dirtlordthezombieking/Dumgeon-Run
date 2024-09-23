@@ -52,18 +52,6 @@ class Renderer
 		}
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
-//floor texcoord
-		this.floorATexCoord=new Attribute(2,this.floorShader,"a_texCoord",new Float32Array
-		(
-			[
-				 0.0, 0.0,
-				20.0, 0.0,
-				 0.0,15.0,
-				 0.0,15.0,
-				20.0, 0.0,
-				20.0,15.0
-			]
-		),this.gl);
 //floor texture
 		this.floorUTexture=new Texture(this.floorShader,"u_texture",this.floorTex,0,this.gl);
 		this.floorUTexture.push();
