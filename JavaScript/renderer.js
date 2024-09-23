@@ -39,11 +39,14 @@ class Renderer
 		}
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
-//floor texture
+		FloorShape.addFromRectangle(-320,-240,640,480);
+		FloorShape.update();
+		FloorShape.prep();
 		this.draw();
 	}
 	draw()
 	{
+		FloorShape.draw()
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 	}
