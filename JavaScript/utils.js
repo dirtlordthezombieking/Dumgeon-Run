@@ -77,30 +77,30 @@ Utils.logMessage("done");
 	{
 		try
 		{
-			let hold=0
+			//let hold=0
 Utils.logMessage("start");
-			let vert="";
-			let frag="";
-			Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
-			{
-				vert=text;
-				hold=10;
-			});
-			while(hold<5)
-			{}
-			hold=0;
+			//let vert="";
+			//let frag="";
+			//Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
+			//{
+				//vert=text;
+				//hold=10;
+			//});
+			//while(hold<5)
+			//{}
+			//hold=0;
 Utils.logMessage("load vert");
-			Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
-			{
-				frag=text;
-				hold=10;
-			});
-			while(hold<5)
-			{}
+			//Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
+			//{
+				//frag=text;
+				//hold=10;
+			//});
+			//while(hold<5)
+			//{}
 Utils.logMessage("load frag");
-			let ret=this.createShaderProgram(gl,vert,frag);
+			//let ret=this.createShaderProgram(gl,vert,frag);
 Utils.logMessage("create program");
-			onDone(ret);
+			//onDone(ret);
 Utils.logMessage("done");
 		}
 		catch (e)
