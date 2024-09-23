@@ -54,19 +54,19 @@ class RandRect
 		this.y=RandRect.#randInt(95);
 		if(this.x>90)
 		{
-			this.w=1+RandRect.#randInt(100-this.x);
+			this.w=5+RandRect.#randInt((100-this.x)-5);
 		}
 		else
 		{
-			this.w=1+RandRect.#randInt(10);
+			this.w=5+RandRect.#randInt(5);
 		}
 		if(this.y>90)
 		{
-			this.h=1+RandRect.#randInt(100-this.y);
+			this.h=5+RandRect.#randInt((100-this.y)-5);
 		}
 		else
 		{
-			this.h=1+RandRect.#randInt(10);
+			this.h=5+RandRect.#randInt(5);
 		}
 	}
 	static #randInt(max)
