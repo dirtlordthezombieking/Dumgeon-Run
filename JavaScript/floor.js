@@ -17,10 +17,43 @@ class RandRect()
 	h;
 	constructor()
 	{
+		this.x=RandRect.#randInt(95);
+		this.y=RandRect.#randInt(95);
+		if(this.x>90)
+		{
+			this.w=1+RandRect.#randInt(100-this.x);
+		}
+		else
+		{
+			this.w=1+RandRect.#randInt(10);
+		}
+		if(this.y>90)
+		{
+			this.h=1+RandRect.#randInt(100-this.y);
+		}
+		else
+		{
+			this.h=1+RandRect.#randInt(10);
+		}
+	}
+	static #randInt(max)
+	{
+		return Math.floor(Math.random()*max);
+	}
+	overlaps(other)
+	{
 		
 	}
-	randInt(max)
+	#overlapsX(other)
 	{
-		return 
+		
+	}
+	#overlapY(other)
+	{
+		
+	}
+	#overlapAxis(s1,e1,s2,e2)
+	{
+		if(s1
 	}
 }
