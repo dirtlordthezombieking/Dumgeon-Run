@@ -22,7 +22,10 @@ class Renderer
 			let hold=this;
 			FloorShape.setup(this.gl,function()
 			{
-				hold.init();
+				WallShape.setup(hold.gl,function()
+				{
+					hold.init();
+				});
 			});
 		}
 		catch(e)
