@@ -19,7 +19,7 @@ class Floor
 						break;
 					}
 				}
-				if(!over);
+				if(!over)
 				{
 					end=false;
 					break;
