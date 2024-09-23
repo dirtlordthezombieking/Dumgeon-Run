@@ -77,15 +77,15 @@ Utils.logMessage("done");
 	{
 		try
 		{
-			let hold=0
+			let hold=0;
 Utils.logMessage("start");
 			let vert="";
 			let frag="";
-			//Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
-			//{
+			Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
+			{
 				//vert=text;
 				//hold=10;
-			//});
+			});
 			//while(hold<5)
 			//{}
 			//hold=0;
