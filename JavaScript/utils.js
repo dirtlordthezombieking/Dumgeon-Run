@@ -51,22 +51,16 @@ class Utils
 	}
 	static async getTextData(src,onDone)
 	{
-Utils.logMessage("start");
 		const url="https://raw.githubusercontent.com/dirtlordthezombieking/Dumgeon-Run/main/"+src;
 		try
 		{
-Utils.logMessage("try");
 			const response=await fetch(url);
-Utils.logMessage("fetch");
 			if(!response.ok)
 			{
 				throw new Error("Error: "+response.status);
 			}
-Utils.logMessage("err");
 			const text=await response.text();
-Utils.logMessage("text");
 			onDone(text);
-Utils.logMessage("done");
 		}
 		catch (e)
 		{
@@ -78,21 +72,16 @@ Utils.logMessage("done");
 		try
 		{
 			let hold=0;
-Utils.logMessage("start");
 			let vert="";
 			let frag="";
 			Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
 			{
 				vert=text;
-Utils.logMessage("load vert");
 				Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
 				{
 					frag=text;
-Utils.logMessage("load frag");
 					let ret=Utils.createShaderProgram(gl,vert,frag);
-Utils.logMessage("create program");
 					onDone(ret);
-Utils.logMessage("done");
 				});
 			});
 		}
