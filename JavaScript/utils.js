@@ -89,7 +89,7 @@ Utils.logMessage("load vert");
 				{
 					frag=text;
 Utils.logMessage("load frag");
-					let ret=this.createShaderProgram(gl,vert,frag);
+					let ret=Utils.createShaderProgram(gl,vert,frag);
 Utils.logMessage("create program");
 					onDone(ret);
 Utils.logMessage("done");
