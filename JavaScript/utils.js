@@ -87,7 +87,9 @@ Utils.logMessage("start");
 				hold=10;
 			});
 			while(hold<5)
-			{}
+			{
+				hold+=hold;
+			}
 			//hold=0;
 Utils.logMessage("load vert");
 			//Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
