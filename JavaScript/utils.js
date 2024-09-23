@@ -79,8 +79,8 @@ Utils.logMessage("done");
 		{
 			let hold=0
 Utils.logMessage("start");
-			//let vert="";
-			//let frag="";
+			let vert="";
+			let frag="";
 			//Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
 			//{
 				//vert=text;
