@@ -22,7 +22,10 @@ class Renderer
 			let hold=this;
 			FloorShape.setup(this.gl,function()
 			{
-				hold.init();
+				WallShape.setup(hold.gl,function()
+				{
+					hold.init();
+				});
 			});
 		}
 		catch(e)
@@ -44,6 +47,9 @@ class Renderer
 		FloorShape.addFromRectangle(-320,-240,640,480);
 		FloorShape.update();
 		FloorShape.prep();
+		WallShape.addFromRectangle(-270,-190,540,380);
+		WallShape.update();
+		WallShape.prep();
 		this.draw();
 	}
 	draw()
@@ -51,5 +57,6 @@ class Renderer
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 		FloorShape.draw();
+		WallShape.draw();
 	}
 }
