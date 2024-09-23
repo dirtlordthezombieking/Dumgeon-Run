@@ -75,7 +75,7 @@ class RandRect
 	}
 	overlaps(other)
 	{
-		return this.overlapsX(other)&&this.overlapsY(other)
+		return this.overlapsX(other)&&this.overlapsY(other);
 	}
 	#overlapsX(other)
 	{
@@ -103,7 +103,7 @@ class RandRect
 			rs2=re2;
 			re2=t2;
 		}
-		return Floor.#overlapAxis(rs1,re1,rs2,re2)
+		return Floor.#overlapAxis(rs1,re1,rs2,re2);
 	} 
 	static #overlapAxis(s1,e1,s2,e2)
 	{
