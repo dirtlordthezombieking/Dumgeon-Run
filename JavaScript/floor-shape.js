@@ -91,7 +91,7 @@ Utils.logMessage("end");
 		FloorShape.#uTexture=new Texture(FloorShape.#shader,"u_texture",FloorShape.#tex,0,FloorShape.#gl);
 		FloorShape.#uTexture.push();
 		FloorShape.#aPos=new Attribute(2,FloorShape.#shader,"a_pos",new Float32Array(FloorShape.#vertsP),FloorShape.#gl);
-		FloorShape.#uPos=new Uniform(2,FloorShape.#shader,"u_pos",[0.0,0.0],FloorShape.#gl)
+		FloorShape.#uPos=new Uniform(2,FloorShape.#shader,"u_pos",[0.0,0.0],FloorShape.#gl);
 	}
 	static Draw()
 	{
