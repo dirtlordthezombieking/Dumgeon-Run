@@ -51,16 +51,22 @@ class Utils
 	}
 	static async getTextData(src,onDone)
 	{
+Utils.logMessage("start");
 		const url="https://raw.githubusercontent.com/dirtlordthezombieking/Dumgeon-Run/main/"+src;
 		try
 		{
+Utils.logMessage("try");
 			const response=await fetch(url);
+Utils.logMessage("fetch");
 			if(!response.ok)
 			{
 				throw new Error("Error: "+response.status);
 			}
+Utils.logMessage("err");
 			const text=await response.text();
+Utils.logMessage("text");
 			onDone(text);
+Utils.logMessage("done");
 		}
 		catch (e)
 		{
