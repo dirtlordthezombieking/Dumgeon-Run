@@ -50,7 +50,7 @@ class Renderer
 		FloorShape.addFromRectangle(  70,-240,250,480);
 		FloorShape.addFromRectangle( -70,  70,140,170);
 		FloorShape.addFromRectangle( -70,-240,140,170);
-		floor.use();
+		this.floor.use();
 		FloorShape.update();
 		FloorShape.prep();
 		WallShape.addFromRectangle( -70, -70, 15,140);
