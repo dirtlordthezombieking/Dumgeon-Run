@@ -30,7 +30,7 @@ class FloorShape
 			Utils.loadShader(gl,"floor",function(program)
 			{
 				FloorShape.#shader=program;
-				Utils.loadImage("graphics/tilesets/floors.png",function(img)
+				Utils.loadImage("graphics/tilesets/floors2.png",function(img)
 				{
 					FloorShape.#tex=img;
 					onDone();
