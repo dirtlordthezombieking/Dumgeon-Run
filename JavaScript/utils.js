@@ -81,7 +81,7 @@ Utils.logMessage("done");
 Utils.logMessage("start");
 			let vert="";
 			let frag="";
-			await Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
+			Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
 			{
 				vert=text;
 Utils.logMessage("load vert");
