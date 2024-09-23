@@ -47,7 +47,7 @@ class Renderer
 		FloorShape.addFromRectangle(-320,-240,640,480);
 		FloorShape.update();
 		FloorShape.prep();
-		WallShape.addFromRectangle(-270,-190,540,380);
+		WallShape.addFromRectangle(-220,-140,440,280);
 		WallShape.update();
 		WallShape.prep();
 		this.draw();
