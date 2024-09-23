@@ -39,6 +39,11 @@ class FloorShape
 			});
 			while(hold<5)
 			{}
+		}
+		catch(e)
+		{
+			Utils.logMessage("error:\n"+e.message);
+		}
 	}
 	static addFromRectangle(x,y,w,h)
 	{
