@@ -75,15 +75,15 @@ class RandRect
 	}
 	overlaps(other)
 	{
-		return this.overlapsX(other)&&this.overlapsY(other);
+		return this.#overlapsX(other)&&this.#overlapsY(other);
 	}
 	#overlapsX(other)
 	{
-		return Floor.#overlapAdjusted(this.x,this.w,other.x,other.w);
+		return Floor.#overlapsAdjusted(this.x,this.w,other.x,other.w);
 	}
-	#overlapY(other)
+	#overlapsY(other)
 	{
-		return Floor.#overlapAdjusted(this.y,this.h,other.y,other.h);
+		return Floor.#overlapsAdjusted(this.y,this.h,other.y,other.h);
 	}
 	static #overlapAdjusted(s1,l1,s2,l2)
 	{
@@ -103,9 +103,9 @@ class RandRect
 			rs2=re2;
 			re2=t2;
 		}
-		return Floor.#overlapAxis(rs1,re1,rs2,re2);
+		return Floor.#overlapsAxis(rs1,re1,rs2,re2);
 	} 
-	static #overlapAxis(s1,e1,s2,e2)
+	static #overlapsAxis(s1,e1,s2,e2)
 	{
 		return!((e1<s2)||(e2<s1));
 	}
