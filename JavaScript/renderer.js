@@ -20,16 +20,10 @@ class Renderer
 		try
 		{
 			let hold=this;
-Utils.logMessage("start");
-			//Utils.loadShader(this.gl,"floor",function(program)
-			//{
-			Utils.logMessage("shader test");
 			FloorShape.setup(this.gl,function()
 			{
-Utils.logMessage("shape");
 				hold.init();
 			});
-			//});
 		}
 		catch(e)
 		{
@@ -38,7 +32,6 @@ Utils.logMessage("shape");
 	}
 	init()
 	{
-Utils.logMessage("init");
 		const displayWidth=this.canvas.clientWidth;
 		const displayHeight=this.canvas.clientHeight;
 		if(this.canvas.width!==displayWidth||this.canvas.height!==displayHeight)
@@ -48,22 +41,15 @@ Utils.logMessage("init");
 		}
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
-Utils.logMessage("reach");
 		FloorShape.addFromRectangle(-320,-240,640,480);
-Utils.logMessage("add");
 		FloorShape.update();
-Utils.logMessage("update");
 		FloorShape.prep();
-Utils.logMessage("prep");
 		this.draw();
 	}
 	draw()
 	{
-Utils.logMessage("draw");
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-Utils.logMessage("reach");
 		FloorShape.draw();
-Utils.logMessage("done");
 	}
 }
