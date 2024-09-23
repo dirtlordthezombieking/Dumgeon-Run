@@ -65,7 +65,7 @@ Utils.logMessage("end");
 		FloorShape.#vertsP=[];
 		FloorShape.#indexP=[];
 		FloorShape.#size=l*6;
-		for(let i=0;i<l;i++);
+		for(let i=0;i<l;i++)
 		{
 			FloorShape.#vertsP.push(FloorShape.#list[i].#x);
 			FloorShape.#vertsP.push(FloorShape.#list[i].#y);
