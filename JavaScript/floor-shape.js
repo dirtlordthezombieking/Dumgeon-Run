@@ -22,7 +22,7 @@ class FloorShape
 		this.w=w;
 		this.h=h;
 	}
-	static async setup(gl)
+	static setup(gl,onDone)
 	{
 		try
 		{
@@ -32,19 +32,15 @@ Utils.logMessage("start");
 			Utils.loadShader(gl,"floor",function(program)
 			{
 				FloorShape.shader=program;
-			});
 Utils.logMessage("shader");
-			Utils.loadImage("graphics/tilesets/floors.png",function(img)
-			{
+				Utils.loadImage("graphics/tilesets/floors.png",function(img)
+				{
 Utils.logMessage("run");
-				FloorShape.tex=img;
-				hold=10;
-Utils.logMessage("=10");
-			});
-Utils.logMessage("image");
-			while(hold<5)
-			{}
+					FloorShape.tex=img;
+					onDone();
 Utils.logMessage("end");
+				});
+			});
 		}
 		catch(e)
 		{
