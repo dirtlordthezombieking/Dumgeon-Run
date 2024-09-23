@@ -2,6 +2,7 @@ class Renderer
 {
 	gl;
 	canvas;
+	floor;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -19,6 +20,7 @@ class Renderer
 	{
 		try
 		{
+			this.floor=new Floor();
 			let hold=this;
 			FloorShape.setup(this.gl,function()
 			{
@@ -48,6 +50,7 @@ class Renderer
 		FloorShape.addFromRectangle(  70,-240,250,480);
 		FloorShape.addFromRectangle( -70,  70,140,170);
 		FloorShape.addFromRectangle( -70,-240,140,170);
+		floor.use();
 		FloorShape.update();
 		FloorShape.prep();
 		WallShape.addFromRectangle( -70, -70, 15,140);
