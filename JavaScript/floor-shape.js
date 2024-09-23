@@ -87,8 +87,7 @@ Utils.logMessage("end");
 	{
 		FloorShape.#indexB=FloorShape.#gl.createBuffer();
 		FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
-		FloorShape.#gl.bufferData(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indexP),FloorShape.#gl.STATIC_DRAW
-);
+		FloorShape.#gl.bufferData(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indexP),FloorShape.#gl.STATIC_DRAW);
 		FloorShape.#uTexture=new Texture(FloorShape.#shader,"u_texture",FloorShape.#tex,0,FloorShape.#gl);
 		FloorShape.#uTexture.push();
 		FloorShape.#aPos=new Attribute(2,FloorShape.#shader,"a_pos",new Float32Array(FloorShape.#vertsP),FloorShape.#gl);
