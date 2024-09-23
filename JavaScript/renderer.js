@@ -44,10 +44,16 @@ class Renderer
 		}
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
-		FloorShape.addFromRectangle(-320,-240,640,480);
+		FloorShape.addFromRectangle(-320,-240,460,480);
+		FloorShape.addFromRectangle(  60,-240,460,480);
+		FloorShape.addFromRectangle( -60,  60,120,180);
+		FloorShape.addFromRectangle( -60,-240,120,180);
 		FloorShape.update();
 		FloorShape.prep();
-		WallShape.addFromRectangle(-220,-140,440,280);
+		WallShape.addFromRectangle( -60, -60,  5,120);
+		WallShape.addFromRectangle(  55, -60,  5,120);
+		WallShape.addFromRectangle( -55, -60,110,  5);
+		WallShape.addFromRectangle( -55,  55,110,  5);
 		WallShape.update();
 		WallShape.prep();
 		this.draw();
