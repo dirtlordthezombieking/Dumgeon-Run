@@ -12,11 +12,11 @@ void main()
 	float dx=mod(floor(((4.0*cx)*ay)+ax),4.0);
 	float dy=mod(floor(((4.0*cy)*ax)+ay),4.0);
 	vec2 texCoord=floor(vec2(dx+mod(v_texCoord.x,1.0),dy+mod(v_texCoord.y,1.0))*32.0)/128.0;
-	float ex=floor(v_texCoord.x*320.0)/32.0;
+	float ex=floor(v_texCoord.x*1280.0)/32.0;
 	float fx=sin(1.3*ex);
 	float gx=cos(0.8*ex);
 	float hx=(0.25*fx*gx)+0.75;
-	float ey=floor(v_texCoord.y*320.0)/32.0;
+	float ey=floor(v_texCoord.y*1280.0)/32.0;
 	float fy=sin(1.2*ex);
 	float gy=cos(0.9*ex);
 	float hy=(0.25*fy*gy)+0.75;
