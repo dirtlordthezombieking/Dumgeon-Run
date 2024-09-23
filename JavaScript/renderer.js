@@ -46,22 +46,6 @@ class Renderer
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 //floor texture
-		this.floorUTexture=new Texture(this.floorShader,"u_texture",this.floorTex,0,this.gl);
-		this.floorUTexture.push();
-//floor Apos
-		this.floorAPos=new Attribute(2,this.floorShader,"a_pos",new Float32Array
-		(
-			[
-				-320.0,-240.0,
-				 320.0,-240.0,
-				-320.0, 240.0,
-				-320.0, 240.0,
-				 320.0,-240.0,
-				 320.0, 240.0
-			]
-		),this.gl);
-//floor Upos
-		this.floorUPos=new Uniform(2,this.floorShader,"u_pos",[0.0,0.0],this.gl)
 		this.draw();
 	}
 	draw()
