@@ -9,7 +9,7 @@ class Renderer
 		{
 			throw new Error("canvas invalid");
 		}
-		this.gl=this.canvas.getContext("webgl");;
+		this.gl=this.canvas.getContext("webgl");
 		if(!this.gl)
 		{
 			throw new Error("web gl not available");
@@ -45,7 +45,7 @@ class Renderer
 	}
 	draw()
 	{
-		FloorShape.draw()
+		FloorShape.draw();
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 	}
