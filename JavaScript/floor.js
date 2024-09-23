@@ -38,6 +38,7 @@ class Floor
 		for(let i=0;i<l;i++)
 		{
 			let r=this.#rooms[i];
+			FloorShape.addFromRectangle(r.x,r.y,r.w,r.h);
 		}
 	}
 }
