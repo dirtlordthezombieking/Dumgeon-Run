@@ -32,7 +32,7 @@ class Renderer
 		}
 		catch(e)
 		{
-			Utils.logMessage("error:\n"+e.message+"\nOn line: "+e.lineNumber);
+			Utils.logMessage("error:\n"+e.message);
 		}
 	}
 	init()
