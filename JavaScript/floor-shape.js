@@ -95,8 +95,10 @@ class FloorShape
 	}
 	static Draw()
 	{
-
-
+		FloorShape.gl.useProgram(FloorShape.shader);
+		FloorShape.uTexture.use();
+		FloorShape.aPos.use();
+		FloorShape.uPos.use();
 	FloorShape.gl.bindBuffer(FloorShape.gl.ELEMENT_ARRAY_BUFFER,indexB);	FloorShape.gl.drawElements(FloorShape.gl.TRIANGLES,size,FloorShape.gl.UNSIGNED_SHORT,0);
 	}
 }
