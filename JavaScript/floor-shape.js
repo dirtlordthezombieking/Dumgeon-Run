@@ -24,19 +24,21 @@ class FloorShape
 	}
 	static async setup(gl)
 	{
-		FloorShape.gl=gl;
-		let hold=0
-		await Utils.loadShader(gl,"floor",function(program)
+		try
 		{
-			FloorShape.shader=program;
-		});
-		Utils.loadImage("graphics/tilesets/floors.png",function(img)
-		{
-			FloorShape.tex=img;
-			hold=10;
-		});
-		while(hold<5)
-		{}
+			FloorShape.gl=gl;
+			let hold=0
+			await Utils.loadShader(gl,"floor",function(program)
+			{
+				FloorShape.shader=program;
+			});
+			Utils.loadImage("graphics/tilesets/floors.png",function(img)
+			{
+				FloorShape.tex=img;
+				hold=10;
+			});
+			while(hold<5)
+			{}
 	}
 	static addFromRectangle(x,y,w,h)
 	{
