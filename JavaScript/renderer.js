@@ -16,7 +16,7 @@ class Renderer
 			throw new Error("web gl not available");
 		}
 	}
-	async loadAssets()
+	loadAssets()
 	{
 		try
 		{
@@ -32,7 +32,7 @@ class Renderer
 		}
 		catch(e)
 		{
-			Utils.logMessage("error:\n"+e.message);
+			Utils.logMessage("error:\n"+e.message+"\nOn line: "+e.lineNumber);
 		}
 	}
 	init()
