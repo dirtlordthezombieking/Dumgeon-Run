@@ -9,8 +9,18 @@ class Floor
 		}
 	}
 }
-class Rect()
+class RandRect()
 {
-	
-	
+	x;
+	y;
+	w;
+	h;
+	constructor()
+	{
+		
+	}
+	randInt(max)
+	{
+		return 
+	}
 }
