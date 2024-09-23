@@ -15,20 +15,20 @@ void main()
 
 
 	float ex=floor(v_texCoord.x*32.0)/32.0;
-	float fx=sin(1.3ex);
-	float gx=cos(0.8ex);
+	float fx=sin(1.3*ex);
+	float gx=cos(0.8*ex);
 	float hx=(0.25*fx*gx)+0.75;
 
 	float ey=floor(v_texCoord.y*32.0)/32.0;
-	float fy=sin(1.2ex);
-	float gy=cos(0.9ex);
+	float fy=sin(1.2*ex);
+	float gy=cos(0.9*ex);
 	float hy=(0.25*fy*gy)+0.75;
 
 	float c=(hx+hy)/2.0;
 
 	float at=distance(vec2(ex,ey),vec2(0.0,0.0));
-	float bt=sin(1.4at);
-	float ct=cos(0.7at);
+	float bt=sin(1.4*at);
+	float ct=cos(0.7*at);
 	float dt=(0.25*bt*ct)+0.75;
 
 	float grime=((13.0*c)+(7.0*dt))/20.0;
