@@ -44,8 +44,8 @@ class Renderer
 		}
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
-		FloorShape.addFromRectangle(-320,-240,460,480);
-		FloorShape.addFromRectangle(  60,-240,460,480);
+		FloorShape.addFromRectangle(-320,-240,260,480);
+		FloorShape.addFromRectangle(  60,-240,260,480);
 		FloorShape.addFromRectangle( -60,  60,120,180);
 		FloorShape.addFromRectangle( -60,-240,120,180);
 		FloorShape.update();
