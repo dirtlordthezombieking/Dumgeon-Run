@@ -2,12 +2,6 @@ class Renderer
 {
 	gl;
 	canvas;
-	floorShader;
-	floorATexCoord;
-	floorTex;
-	floorUTexture;
-	floorAPos;
-	floorUPos;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
