@@ -15,16 +15,16 @@ void main()
 	float ex=floor(v_texCoord.x*1280.0)/32.0;
 	float fx=sin(1.3*ex);
 	float gx=cos(0.8*ex);
-	float hx=(0.25*fx*gx)+0.75;
+	float hx=(0.05*fx*gx)+0.95;
 	float ey=floor(v_texCoord.y*1280.0)/32.0;
-	float fy=sin(1.2*ex);
-	float gy=cos(0.9*ex);
-	float hy=(0.25*fy*gy)+0.75;
+	float fy=sin(1.2*ey);
+	float gy=cos(0.9*ey);
+	float hy=(0.05*fy*gy)+0.95;
 	float c=(hx+hy)/2.0;
 	float at=distance(vec2(ex,ey),vec2(0.0,0.0));
 	float bt=sin(1.4*at);
 	float ct=cos(0.7*at);
-	float dt=(0.25*bt*ct)+0.75;
+	float dt=(0.05*bt*ct)+0.95;
 	float grime=((37.0*c)+(3.0*dt))/40.0;
 	gl_FragColor=texture2D(u_texture,texCoord)*grime;
 }
