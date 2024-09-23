@@ -26,7 +26,7 @@ void main()
 
 	float c=(hx+hy)/2.0;
 
-	float at=
+	float at=distance(vec2(ex,ey),vec2(0.0,0.0));
 	float bt=sin(1.4at);
 	float ct=cos(0.7at);
 	float dt=(0.25*bt*ct)+0.75;
