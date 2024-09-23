@@ -42,7 +42,7 @@ class RandRect
 	{
 		return RandRect.overlapsAdjusted(this.y,this.h,other.y,other.h);
 	}
-	static overlapAdjusted(s1,l1,s2,l2)
+	static overlapsAdjusted(s1,l1,s2,l2)
 	{
 		let rs1=s1;
 		let re1=s1+l1;
