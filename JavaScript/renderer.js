@@ -26,15 +26,8 @@ class Renderer
 		try
 		{
 			let hold=this;
-			await Utils.loadShader(this.gl,"floor",function(program)
-			{
-				hold.floorShader=program;
-			});
-			Utils.loadImage("graphics/tilesets/floors.png",function(img)
-			{
-				hold.floorTex=img;
-				hold.init();
-			});
+			FloorShape.
+			this.init();
 		}
 		catch(e)
 		{
