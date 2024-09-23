@@ -22,7 +22,7 @@ class FloorShape
 		this.w=w;
 		this.h=h;
 	}
-	static async setup(gl,onDone)
+	static setup(gl,onDone)
 	{
 		try
 		{
