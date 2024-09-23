@@ -20,10 +20,10 @@ class Renderer
 		try
 		{
 Utils.logMessage("start");
-			//Utils.loadShader(this.gl,"floor",function(program)
-			//{
+			Utils.loadShader(this.gl,"floor",function(program)
+			{
 				//FloorShape.shader=program;
-			//});
+			});
 Utils.logMessage("shader test");
 			//FloorShape.setup(this.gl);
 Utils.logMessage("shape");
