@@ -21,15 +21,15 @@ class Renderer
 		{
 			let hold=this;
 Utils.logMessage("start");
-			Utils.loadShader(this.gl,"floor",function(program)
-			{
+			//Utils.loadShader(this.gl,"floor",function(program)
+			//{
 			Utils.logMessage("shader test");
-			FloorShape.setup(hold.gl,function()
+			FloorShape.setup(this.gl,function()
 			{
 Utils.logMessage("shape");
-				//hold.init();
+				hold.init();
 			});
-			});
+			//});
 		}
 		catch(e)
 		{
