@@ -20,14 +20,10 @@ class Renderer
 		try
 		{
 			let hold=this;
-			//Utils.loadShader(this.gl,"floor",function(program)
-			//{
-			Utils.logMessage("shader test");
 			FloorShape.setup(this.gl,function()
 			{
 				hold.init();
 			});
-			//});
 		}
 		catch(e)
 		{
