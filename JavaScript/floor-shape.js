@@ -27,7 +27,7 @@ class FloorShape
 		try
 		{
 Utils.logMessage("start");
-			FloorShape.gl=gl;
+			FloorShape.#gl=gl;
 			let hold=0
 			Utils.loadShader(gl,"floor",function(program)
 			{
@@ -67,14 +67,14 @@ Utils.logMessage("end");
 		FloorShape.#size=l*6;
 		for(let i=0;i<l;i++);
 		{
-			FloorShape.#vertsP.push(FloorShape.list[i].x);
-			FloorShape.#vertsP.push(FloorShape.list[i].y);
-			FloorShape.#vertsP.push(FloorShape.list[i].x+FloorShape.list[i].w);
-			FloorShape.#vertsP.push(FloorShape.list[i].y);
-			FloorShape.#vertsP.push(FloorShape.list[i].x);
-			FloorShape.#vertsP.push(FloorShape.list[i].y+FloorShape.list[i].h);
-			FloorShape.#vertsP.push(FloorShape.list[i].x+FloorShape.list[i].w);
-			FloorShape.#vertsP.push(FloorShape.list[i].y+FloorShape.list[i].h);
+			FloorShape.#vertsP.push(FloorShape.#list[i].#x);
+			FloorShape.#vertsP.push(FloorShape.#list[i].#y);
+			FloorShape.#vertsP.push(FloorShape.#list[i].#x+FloorShape.#list[i].#w);
+			FloorShape.#vertsP.push(FloorShape.#list[i].#y);
+			FloorShape.#vertsP.push(FloorShape.#list[i].#x);
+			FloorShape.#vertsP.push(FloorShape.#list[i].#y+FloorShape.#list[i].#h);
+			FloorShape.#vertsP.push(FloorShape.#list[i].#x+FloorShape.#list[i].#w);
+			FloorShape.#vertsP.push(FloorShape.#list[i].#y+FloorShape.#list[i].#h);
 			let p=i*4;
 			FloorShape.#indexP.push(p);
 			FloorShape.#indexP.push(p+1);
@@ -101,7 +101,8 @@ Utils.logMessage("end");
 		FloorShape.#uTexture.use();
 		FloorShape.#aPos.use();
 		FloorShape.#uPos.use();
-	FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);	FloorShape.#gl.drawElements(FloorShape.#gl.TRIANGLES,FloorShape.#size,FloorShape.#gl.UNSIGNED_SHORT,0);
+		FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
+		FloorShape.#gl.drawElements(FloorShape.#gl.TRIANGLES,FloorShape.#size,FloorShape.#gl.UNSIGNED_SHORT,0);
 	}
 }
 //FloorShape.gl.
