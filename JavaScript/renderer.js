@@ -19,8 +19,7 @@ class Renderer
 	{
 		try
 		{
-			let hold=this;
-			await FloorShape.setup(this gl);
+			await FloorShape.setup(this.gl);
 			this.init();
 		}
 		catch(e)
