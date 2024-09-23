@@ -83,8 +83,8 @@ Utils.logMessage("start");
 			let frag="";
 			Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
 			{
-				//vert=text;
-				//hold=10;
+				vert=text;
+				hold=10;
 			});
 			//while(hold<5)
 			//{}
