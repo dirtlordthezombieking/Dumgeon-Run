@@ -86,9 +86,9 @@ Utils.logMessage("end");
 	}
 	static prep()
 	{
-		FloorShape.#vertsB=FloorShape.#gl.createBuffer();
-			FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
-		FloorShape.#gl.bufferData(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indexA),FloorShape.#gl.STATIC_DRAW
+		FloorShape.#indexB=FloorShape.#gl.createBuffer();
+		FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
+		FloorShape.#gl.bufferData(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indexP),FloorShape.#gl.STATIC_DRAW
 );
 		FloorShape.#uTexture=new Texture(FloorShape.#shader,"u_texture",FloorShape.#tex,0,FloorShape.#gl);
 		FloorShape.#uTexture.push();
