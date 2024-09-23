@@ -3,14 +3,14 @@ class FloorShape
 	static #list=[];
 	static #vertsP=[];
 	static #indexP=[];
-	static #vertsL;
-	static #indexL;
-	static #vertsB;
 	static #indexB;
 	static #size=0;
 	static #gl;
 	static #shader;
 	static #tex;
+	static #uTexture;
+	static #aPos;
+	static #uPos;
 	#x;
 	#y;
 	#w;
@@ -88,6 +88,10 @@ class FloorShape
 			FloorShape.gl.bindBuffer(FloorShape.gl.ELEMENT_ARRAY_BUFFER,indexB);
 		FloorShape.gl.bufferData(FloorShape.gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(indexA),FloorShape.gl.STATIC_DRAW
 );
+		FloorShape.uTexture=new Texture(FloorShape.shader,"u_texture",FloorShape.tex,0,FloorShape.gl);
+		FloorShape.uTexture.push();
+		FloorShape.aPos=new Attribute(2,FloorShape.shader,"a_pos",new Float32Array(FloorShape.vertsP),FloorShape.gl);
+		FloorShape.uPos=new Uniform(2,FloorShape.shader,"u_pos",[0.0,0.0],FloorShape.gl)
 	}
 	static Draw()
 	{
