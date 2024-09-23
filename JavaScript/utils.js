@@ -71,18 +71,23 @@ class Utils
 	{
 		try
 		{
+Utils.logMessage("start");
 			let vert="";
 			let frag="";
 			await Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
 			{
 				vert=text;
 			});
+Utils.logMessage("load vert");
 			await Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
 			{
 				frag=text;
 			});
+Utils.logMessage("load frag");
 			let ret=this.createShaderProgram(gl,vert,frag);
+Utils.logMessage("create program");
 			onDone(ret);
+Utils.logMessage("done");
 		}
 		catch (e)
 		{
