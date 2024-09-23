@@ -5,8 +5,36 @@ class Floor
 	{
 		for(let i1=0;i1<15;i1++)
 		{
-			let r=new rect()
+			let r=0;
+			let end=true;
+			for(let i2=i1;i2<15;i2++)
+			{
+				r=new RandRect();
+				let over=false;
+				for(let i3=0;i3<i1;i3++)
+				{
+					if(r.overlaps(this.#rooms[i3]))
+					{
+						over=true;
+						break;
+					}
+				}
+				if(!over);
+				{
+					end=false;
+					break;
+				}
+			}
+			if(end)
+			{
+				break;
+			}
+			this.#rooms.push(r);
 		}
+	}
+	use()
+	{
+		
 	}
 }
 class RandRect()
@@ -42,18 +70,38 @@ class RandRect()
 	}
 	overlaps(other)
 	{
-		
+		return this.overlapsX(other)&&this.overlapsY(other)
 	}
 	#overlapsX(other)
 	{
-		
+		return Floor.#overlapAdjusted(this.x,this.w,other.x,other.w);
 	}
 	#overlapY(other)
 	{
-		
+		return Floor.#overlapAdjusted(this.y,this.h,other.y,other.h);
 	}
-	#overlapAxis(s1,e1,s2,e2)
+	static #overlapAdjusted(s1,l1,s2,l2)
 	{
-		if(s1
+		let rs1=s1;
+		let re1=s1+l1;
+		if(l1<0)
+		{
+			let t1=rs1;
+			rs1=re1;
+			re1=t1;
+		}
+		let rs2=s2;
+		let re2=s2+l2;
+		if(l2<0)
+		{
+			let t2=rs2;
+			rs2=re2;
+			re2=t2;
+		}
+		return Floor.#overlapAxis(rs1,re1,rs2,re2)
+	} 
+	static #overlapAxis(s1,e1,s2,e2)
+	{
+		return!((e1<s2)||(e2<s1));
 	}
 }
