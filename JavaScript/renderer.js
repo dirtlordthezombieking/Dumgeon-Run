@@ -26,7 +26,7 @@ class Renderer
 		try
 		{
 			let hold=this;
-			FloorShape.
+			await FloorShape.setup(this gl);
 			this.init();
 		}
 		catch(e)
