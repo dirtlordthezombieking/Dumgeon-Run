@@ -23,9 +23,11 @@ Utils.logMessage("start");
 			Utils.loadShader(this.gl,"floor",function(program)
 			{
 			Utils.logMessage("shader test");
-			FloorShape.setup(this.gl);
+			FloorShape.setup(this.gl,function());
+			{
 Utils.logMessage("shape");
-			//this.init();
+				//this.init();
+			}
 			});
 		}
 		catch(e)
