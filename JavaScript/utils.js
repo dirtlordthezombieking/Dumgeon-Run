@@ -73,22 +73,30 @@ Utils.logMessage("done");
 			Utils.logMessage("Error: "+e.message);
 		}
 	}
-	static async loadShader(gl,src,onDone)
+	static loadShader(gl,src,onDone)
 	{
 		try
 		{
+			let hold=0
 Utils.logMessage("start");
 			let vert="";
 			let frag="";
-			await Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
+			Utils.getTextData("shaders/"+src+"/vertex.glsl",function(text)
 			{
 				vert=text;
+				hold=10;
 			});
+			while(hold<5)
+			{}
+			hold=0;
 Utils.logMessage("load vert");
-			await Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
+			Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
 			{
 				frag=text;
+				hold=10;
 			});
+			while(hold<5)
+			{}
 Utils.logMessage("load frag");
 			let ret=this.createShaderProgram(gl,vert,frag);
 Utils.logMessage("create program");
