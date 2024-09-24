@@ -26,6 +26,8 @@ class Renderer
 			{
 				WallShape.setup(hold.gl,function()
 				{
+					FloorShape.reset();
+					WallShape.reset();
 					hold.init();
 				});
 			});
