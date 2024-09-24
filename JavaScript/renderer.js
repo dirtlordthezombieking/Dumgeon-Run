@@ -51,6 +51,7 @@ class Renderer
 			this.canvas.height=displayHeight;
 		}
 		this.gl.enable(this.gl.CULL_FACE);
+		this.gl.enable(this.gl.DEPTH_TEST);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 		//FloorShape.addFromRectangle(-640,-480,500,960);
 		//FloorShape.addFromRectangle( 140,-480,500,960);
@@ -72,7 +73,7 @@ class Renderer
 	draw()
 	{
 		this.gl.clearColor(0,0,0,1);
-		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
+		this.gl.clear(this.gl.COLOR_BUFFER_BIT|this.gl.DEPTH_BUFFER_BIT);
 		FloorShape.draw();
 		WallShape.draw();
 		OverhangShape.draw();
