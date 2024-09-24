@@ -83,7 +83,7 @@ class OverhangShape
 	}
 	static draw()
 	{
-		if(FloorShape.#size===0)
+		if(OverhangShape.#size===0)
 		{
 			return;
 		}
