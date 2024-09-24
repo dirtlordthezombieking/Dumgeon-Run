@@ -3,7 +3,7 @@ class Floor
 	#rooms=[];
 	#halls=[];
 	#connected=[];
-	#Walls=[];
+	#walls=[];
 	constructor()
 	{
 		for(let i1=0;i1<15;i1++)
