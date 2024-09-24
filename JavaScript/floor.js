@@ -32,6 +32,10 @@ class Floor
 			}
 			this.#rooms.push(r);
 		}
+		for(let i1=1;i1<15;i1++)
+		{
+			let r=newRandRect();
+		}
 	}
 	use()
 	{
