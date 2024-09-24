@@ -442,7 +442,7 @@ class Floor
 				}
 			}
 		}
-		Utils.logMessage(""+l+", "+con+", "+lop);
+		//Utils.logMessage(""+l+", "+con+", "+lop);
 	}
 	use()
 	{
