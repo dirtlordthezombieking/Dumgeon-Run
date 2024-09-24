@@ -112,4 +112,24 @@ class RandRect
 		}
 		return new OneDLine(order[1],order[2]);
 	}
+	contains(x,y)
+	{
+		if(x<this.x)
+		{
+			return false;
+		}
+		if(y<this.y)
+		{
+			return false;
+		}
+		if(x>this.x+this.w)
+		{
+			return false;
+		}
+		if(y>this.y+this.h)
+		{
+			return false;
+		}
+		return true;
+	}
 }
