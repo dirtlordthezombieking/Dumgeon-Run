@@ -23,8 +23,8 @@ void main()
 	float prepreeyemult=(pre2+1.0)/2.0;
 
 	float rad3=distance(pix,theta*u_eye.z);
-	float clip3=pi*min(rad3,8.0);
-	float flat3=clip3/8.0;
+	float clip3=pi*min(rad3,4.0);
+	float flat3=clip3/4.0;
 	float wave3=cos(flat3);
 	float pre3=sign(wave3);
 	float prepupmult=(pre3+1.0)/2.0;
