@@ -74,7 +74,7 @@ class Renderer
 		Player.prep()
 		OverhangShape.update();
 		OverhangShape.prep();
-		requestAnimationFrame(this.draw);
+		window.requestAnimationFrame(this.draw);
 	}
 	draw()
 	{
@@ -84,5 +84,6 @@ class Renderer
 		WallShape.draw();
 		Player.draw();
 		OverhangShape.draw();
+		window.requestAnimationFrame(this.draw);
 	}
 }
