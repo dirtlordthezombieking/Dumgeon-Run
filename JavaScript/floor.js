@@ -92,6 +92,7 @@ class Floor
 									if(good)
 									{
 										this.#halls.push(r);
+										this.#connected[i1]=true;
 										Utils.logMessage("room x:\ni1: "+
 										this.#rooms[i1].x+", "+
 										this.#rooms[i1].y+", "+
@@ -151,6 +152,7 @@ class Floor
 									if(good)
 									{
 										this.#halls.push(r);
+										this.#connected[i1]=true;
 										Utils.logMessage("room y:\ni1: "+
 										this.#rooms[i1].x+", "+
 										this.#rooms[i1].y+", "+
@@ -223,6 +225,7 @@ class Floor
 								if(good)
 								{
 									this.#halls.push(r);
+									this.#connected[i1]=true;
 									Utils.logMessage("hall x:\ni1: "+
 									this.#rooms[i1].x+", "+
 									this.#rooms[i1].y+", "+
@@ -285,6 +288,7 @@ class Floor
 								if(good)
 								{
 									this.#halls.push(r);
+									this.#connected[i1]=true;
 									Utils.logMessage("hall y:\ni1: "+
 									this.#rooms[i1].x+", "+
 									this.#rooms[i1].y+", "+
