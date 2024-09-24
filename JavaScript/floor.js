@@ -446,12 +446,12 @@ class Floor
 		//Utils.logMessage(""+l+", "+con+", "+lop);
 		for(let i=0;i<l;i++)
 		{
-			createWalls(this.#rooms[i]);
+			this.createWalls(this.#rooms[i]);
 		}
 		let hl=this.#halls.length;
 		for(let i=0;i<hl;i++)
 		{
-			createWalls(this.#halls[i]);
+			this.createWalls(this.#halls[i]);
 		}
 	}
 	use()
