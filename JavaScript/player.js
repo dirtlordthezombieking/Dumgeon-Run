@@ -25,7 +25,7 @@ class Player()
 		Player.#gl.bindBuffer(Player.#gl.ELEMENT_ARRAY_BUFFER,Player.#indexB);
 		Player.#gl.bufferData(Player.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(Player.#indexP),Player.#gl.STATIC_DRAW);
 		Player.#aPos=new Attribute(2,Player.#shader,"a_pos",new Float32Array(Player.#vertsP),Player.#gl);
-		Player.#uPos=new Uniform(2,Player.#shader,"u_pos",[0.0,0.0],Player.#gl);
+		Player.#uEye=new Uniform(2,Player.#shader,"u_eye",[0.0,16.0,24.0],Player.#gl);
 	}
 	static draw()
 	{
