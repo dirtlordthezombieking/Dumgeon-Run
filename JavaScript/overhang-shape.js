@@ -25,7 +25,7 @@ class OverhangShape
 		try
 		{
 			OverhangShape.#gl=gl;
-			Utils.loadShader(gl,"floor",function(program)
+			Utils.loadShader(gl,"overhang",function(program)
 			{
 				OverhangShape.#shader=program;
 				onDone();
