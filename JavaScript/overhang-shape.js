@@ -78,8 +78,6 @@ class OverhangShape
 		OverhangShape.#indexB=OverhangShape.#gl.createBuffer();
 		OverhangShape.#gl.bindBuffer(OverhangShape.#gl.ELEMENT_ARRAY_BUFFER,OverhangShape.#indexB);
 		OverhangShape.#gl.bufferData(OverhangShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(OverhangShape.#indexP),OverhangShape.#gl.STATIC_DRAW);
-		OverhangShape.#uTexture=new Texture(OverhangShape.#shader,"u_texture",OverhangShape.#tex,0,OverhangShape.#gl);
-		OverhangShape.#uTexture.push();
 		OverhangShape.#aPos=new Attribute(2,OverhangShape.#shader,"a_pos",new Float32Array(OverhangShape.#vertsP),OverhangShape.#gl);
 		OverhangShape.#uPos=new Uniform(2,OverhangShape.#shader,"u_pos",[0.0,0.0],OverhangShape.#gl);
 	}
@@ -90,7 +88,6 @@ class OverhangShape
 			return;
 		}
 		OverhangShape.#gl.useProgram(OverhangShape.#shader);
-		OverhangShape.#uTexture.use();
 		OverhangShape.#aPos.use();
 		OverhangShape.#uPos.use();
 		OverhangShape.#gl.bindBuffer(OverhangShape.#gl.ELEMENT_ARRAY_BUFFER,OverhangShape.#indexB);
