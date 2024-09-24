@@ -23,13 +23,15 @@ class Player()
 	{
 		Player.#indexB=Player.#gl.createBuffer();
 		Player.#gl.bindBuffer(Player.#gl.ELEMENT_ARRAY_BUFFER,Player.#indexB);
-		Player.#gl.bufferData(Player.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(
-				[
-					0,1,2,
-					2,1,3
+		Player.#gl.bufferData(Player.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array
+		(
+			[
+				0,1,2,
+				2,1,3
 				]
-			),Player.#gl.STATIC_DRAW);
-		Player.#aPos=new Attribute(2,Player.#shader,"a_pos",new Float32Array(
+		),Player.#gl.STATIC_DRAW);
+		Player.#aPos=new Attribute(2,Player.#shader,"a_pos",new Float32Array
+		(
 			[
 				-32,-32,
 				 32,-32,
