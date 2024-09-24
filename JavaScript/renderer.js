@@ -88,6 +88,6 @@ class Renderer
 		OverhangShape.draw();
 		requestAnimationFrame(this.draw);
 	}
-	draw
+	//draw
 	//ms', 'moz', 'webkit', 'o
 }
