@@ -52,6 +52,7 @@ class Renderer
 		}
 		this.gl.enable(this.gl.CULL_FACE);
 		this.gl.enable(this.gl.DEPTH_TEST);
+		this.gl.enable(this.gl.BLEND);
 		this.gl.blendFunc(this.gl.SRC_ALPHA,this.gl.ONE_MINUS_SRC_ALPHA);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
 		//FloorShape.addFromRectangle(-640,-480,500,960);
