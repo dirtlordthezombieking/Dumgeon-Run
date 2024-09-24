@@ -68,6 +68,36 @@ class RandRect
 	}
 	static getOverlapX(other)
 	{
-		
+		let rs1=this.x;
+		let re1=this.x+this.w;
+		if(this.w<0)
+		{
+			let t1=rs1;
+			rs1=re1;
+			re1=t1;
+		}
+		let rs2=other.x;
+		let re2=other.x+other.w;
+		if(other.x<0)
+		{
+			let t2=rs2;
+			rs2=re2;
+			re2=t2;
+		}
+		let order=[rs1,re1,rs2,re2];
+		for(int i1=0;i1<4;i1++)
+		{
+			let t=order[i1];
+			let pos=i1;
+			for(int i2=i1-1;i2>-1;i2--)
+			{
+				if(t<order[i2])
+				{
+					order[pos]=order[i2];
+					order[i2]=t;
+					pos--;
+				}
+			}
+		}
 	}
 }
