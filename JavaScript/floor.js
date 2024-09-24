@@ -480,7 +480,7 @@ class Floor
 		let w=rect.w;
 		let s=rect.x;
 		let topY=rect.y+rect.h;
-		let top=[]
+		let top=[];
 		let l=this.#rooms.length;
 		let hl=this.#halls.length;
 		for(let i1=0;i1<w;i1++)
