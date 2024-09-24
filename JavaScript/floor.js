@@ -106,8 +106,8 @@ class Floor
 										r.y+", "+
 										r.w+", "+
 										r.h+"\n");
-										break;
 										i1=0;
+										break;
 									}
 								}
 							}
@@ -166,8 +166,8 @@ class Floor
 										r.y+", "+
 										r.w+", "+
 										r.h+"\n");
-										break;
 										i1=0;
+										break;
 									}
 								}
 							}
