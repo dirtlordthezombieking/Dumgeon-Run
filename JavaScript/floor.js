@@ -93,7 +93,7 @@ class Floor
 									{
 										this.#halls.push(r);
 										this.#connected[i1]=true;
-										Utils.logMessage("room x:\ni1: "+
+										Utils.logMessage("room x: "+i1+"\ni1: "+
 										this.#rooms[i1].x+", "+
 										this.#rooms[i1].y+", "+
 										this.#rooms[i1].w+", "+
@@ -153,7 +153,7 @@ class Floor
 									{
 										this.#halls.push(r);
 										this.#connected[i1]=true;
-										Utils.logMessage("room y:\ni1: "+
+										Utils.logMessage("room y: "+i1+"\ni1: "+
 										this.#rooms[i1].x+", "+
 										this.#rooms[i1].y+", "+
 										this.#rooms[i1].w+", "+
@@ -226,7 +226,7 @@ class Floor
 								{
 									this.#halls.push(r);
 									this.#connected[i1]=true;
-									Utils.logMessage("hall x:\ni1: "+
+									Utils.logMessage("hall x: "+i1+"\ni1: "+
 									this.#rooms[i1].x+", "+
 									this.#rooms[i1].y+", "+
 									this.#rooms[i1].w+", "+
@@ -289,7 +289,7 @@ class Floor
 								{
 									this.#halls.push(r);
 									this.#connected[i1]=true;
-									Utils.logMessage("hall y:\ni1: "+
+									Utils.logMessage("hall y: "+i1+"\ni1: "+
 									this.#rooms[i1].x+", "+
 									this.#rooms[i1].y+", "+
 									this.#rooms[i1].w+", "+
