@@ -316,7 +316,7 @@ class Floor
 					}
 				}
 			}
-			if((i1>13)&&(con<l))
+			if((i1>=(l-1))&&(con<l))
 			{
 				i1=0;
 				let c=Math.random();
