@@ -28,7 +28,7 @@ class Renderer
 				{
 					OverhangShape.setup(hold.gl,function()
 					{
-						Player(hold.gl,function()
+						Player.setup(hold.gl,function()
 						{
 							FloorShape.reset();
 							WallShape.reset();
