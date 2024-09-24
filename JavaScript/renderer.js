@@ -74,7 +74,7 @@ class Renderer
 		Player.prep()
 		OverhangShape.update();
 		OverhangShape.prep();
-		this.draw();
+		requestAnimationFrame(this.draw);
 	}
 	draw()
 	{
