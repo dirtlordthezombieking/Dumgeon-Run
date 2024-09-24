@@ -526,13 +526,10 @@ class Floor
 					this.#walls.push(r);
 				}
 			}
-			else
+			else if(top[i])
 			{
-				if(top[i])
-				{
-					inPut=true;
-					start=i;
-				}
+				inPut=true;
+				start=i;
 			}
 		}
 		if(inPut)
