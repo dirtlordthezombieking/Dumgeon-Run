@@ -1,6 +1,7 @@
 class Floor
 {
 	#rooms=[];
+	#halls;
 	constructor()
 	{
 		for(let i1=0;i1<15;i1++)
@@ -31,6 +32,10 @@ class Floor
 			}
 			this.#rooms.push(r);
 		}
+		for(let i1=1;i1<15;i1++)
+		{
+			let r=newRandRect();
+		}
 	}
 	use()
 	{
@@ -38,7 +43,9 @@ class Floor
 		for(let i=0;i<l;i++)
 		{
 			let r=this.#rooms[i];
-			FloorShape.addFromRectangle(r.x-50,r.y-50,r.w,r.h);
+			FloorShape.addFromRectangle((r.x-50)*2,(r.y-50)*2,r.w*2,r.h*2);
 		}
+		let r=this.#rooms[0];
+		WallShape.addFromRectangle((r.x-50)*2,(r.y-50)*2,r.w*2,r.h*2);
 	}
 }
