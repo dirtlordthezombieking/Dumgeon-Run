@@ -28,6 +28,7 @@ class Renderer
 				{
 					FloorShape.reset();
 					WallShape.reset();
+					OverhangShape.reset();
 					hold.init();
 				});
 			});
@@ -61,6 +62,8 @@ class Renderer
 		//WallShape.addFromRectangle(-110, 120,220, 30);
 		WallShape.update();
 		WallShape.prep();
+		OverhangShape.update();
+		OverhangShape.prep();
 		this.draw();
 	}
 	draw()
@@ -69,5 +72,6 @@ class Renderer
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 		FloorShape.draw();
 		WallShape.draw();
+		OverhangShape.draw();
 	}
 }
