@@ -43,9 +43,9 @@ class Floor
 		for(let i=0;i<l;i++)
 		{
 			let r=this.#rooms[i];
-			FloorShape.addFromRectangle((r.x-50)*2,(r.y-50)*2,r.w*2,r.h*2);
+			FloorShape.addFromRectangle((r.x-50)*4(r.y-50)*4,r.w*4,r.h*4);
 		}
 		let r=this.#rooms[0];
-		WallShape.addFromRectangle((r.x-50)*2,(r.y-50)*2,r.w*2,r.h*2);
+		WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
 	}
 }
