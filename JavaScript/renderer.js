@@ -76,7 +76,7 @@ class Renderer
 		OverhangShape.update();
 		OverhangShape.prep();
 		this.frameTime=Date.now();
-		setTimeout(this.draw,0);
+		setTimeout(function(){this.draw();},0);
 	}
 	draw()
 	{
@@ -92,6 +92,6 @@ class Renderer
 		{
 			time=33;
 		}
-		setTimeout(this.draw,33-time);
+		setTimeout(function(){this.draw();},33-time);
 	}
 }
