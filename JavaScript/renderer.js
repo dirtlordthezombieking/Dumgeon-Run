@@ -82,7 +82,7 @@ class Renderer
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
 		FloorShape.draw();
 		WallShape.draw();
-		player.draw();
+		Player.draw();
 		OverhangShape.draw();
 	}
 }
