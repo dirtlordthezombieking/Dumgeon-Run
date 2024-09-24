@@ -28,7 +28,7 @@ class Player()
 			[
 				0,1,2,
 				2,1,3
-				]
+			]
 		),Player.#gl.STATIC_DRAW);
 		Player.#aPos=new Attribute(2,Player.#shader,"a_pos",new Float32Array
 		(
