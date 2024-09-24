@@ -73,7 +73,7 @@ class Floor
 									{
 										if((i3!==i2)&&(i3!==i1))
 										{
-											if(r.overlaps(this.#rooms[i3])
+											if(r.overlaps(this.#rooms[i3]))
 											{
 												good=false;
 												break;
@@ -82,7 +82,7 @@ class Floor
 									}
 									for(let i3=0;i3<hl;i3++)
 									{
-										if(r.overlaps(this.#halls[i3])
+										if(r.overlaps(this.#halls[i3]))
 										{
 											good=false;
 											break;
@@ -119,7 +119,7 @@ class Floor
 									{
 										if((i3!==i2)&&(i3!==i1))
 										{
-											if(r.overlaps(this.#rooms[i3])
+											if(r.overlaps(this.#rooms[i3]))
 											{
 												good=false;
 												break;
@@ -128,7 +128,7 @@ class Floor
 									}
 									for(let i3=0;i3<hl;i3++)
 									{
-										if(r.overlaps(this.#halls[i3])
+										if(r.overlaps(this.#halls[i3]))
 										{
 											good=false;
 											break;
@@ -175,7 +175,7 @@ class Floor
 								{
 									if(i3!==i1)
 									{
-										if(r.overlaps(this.#rooms[i3])
+										if(r.overlaps(this.#rooms[i3]))
 										{
 											good=false;
 											break;
@@ -186,7 +186,7 @@ class Floor
 								{
 									if(i3!==i2)
 									{
-										if(r.overlaps(this.#halls[i3])
+										if(r.overlaps(this.#halls[i3]))
 										{
 											good=false;
 											break;
@@ -224,7 +224,7 @@ class Floor
 								{
 									if(i3!==i1)
 									{
-										if(r.overlaps(this.#rooms[i3])
+										if(r.overlaps(this.#rooms[i3]))
 										{
 											good=false;
 											break;
@@ -235,7 +235,7 @@ class Floor
 								{
 									if(i3!==i2)
 									{
-										if(r.overlaps(this.#halls[i3])
+										if(r.overlaps(this.#halls[i3]))
 										{
 											good=false;
 											break;
