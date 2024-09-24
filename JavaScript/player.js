@@ -5,7 +5,7 @@ class Player
 	static #uEye;
 	static #gl;
 	static #indexB;
-	static setup(gl)
+	static setup(gl,onDone)
 	{
 		try
 		{
