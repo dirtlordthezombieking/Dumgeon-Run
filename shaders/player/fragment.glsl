@@ -1,6 +1,6 @@
 precision mediump float;
 varying vec2 v_texCoord;
-uniform vec4 u_eye;
+uniform vec3 u_eye;
 void main()
 {
 	float pi=3.1415926535897932384626433832795;
@@ -15,14 +15,14 @@ void main()
 
 	vec2 theta=vec2(sin(u_eye.x),cos(u_eye.x));
 
-	float rad2=distance(pix,theta*u_eye.z);
+	float rad2=distance(pix,theta*u_eye.y);
 	float clip2=pi*min(rad2,8.0);
 	float flat2=clip2/8.0;
 	float wave2=cos(flat2);
 	float pre2=sign(wave2);
 	float prepreeyemult=(pre2+1.0)/2.0;
 
-	float rad3=distance(pix,theta*u_eye.w);
+	float rad3=distance(pix,theta*u_eye.z);
 	float clip3=pi*min(rad3,8.0);
 	float flat3=clip3/8.0;
 	float wave3=cos(flat3);
