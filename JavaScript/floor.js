@@ -4,6 +4,7 @@ class Floor
 	#halls=[];
 	#connected=[];
 	#walls=[];
+	#overhangs=[];
 	constructor()
 	{
 		for(let i1=0;i1<15;i1++)
@@ -447,11 +448,13 @@ class Floor
 		for(let i=0;i<l;i++)
 		{
 			this.createWalls(this.#rooms[i]);
+			this.createOverhangs(this.#rooms[i]);
 		}
 		let hl=this.#halls.length;
 		for(let i=0;i<hl;i++)
 		{
 			this.createWalls(this.#halls[i]);
+			this.createOverhangs(this.#halls[i]);
 		}
 	}
 	use()
@@ -473,6 +476,12 @@ class Floor
 		{
 			let r=this.#walls[i];
 			WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+		}
+		let ol=this.#overhangs.length;
+		for(let i=0;i<ol;i++)
+		{
+			let r=this.#overhangs[i];
+			OverhangShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
 		}
 	}
 	createWalls(rect)
@@ -542,6 +551,75 @@ class Floor
 			r.w=nw;
 			r.h=1;
 			this.#walls.push(r);
+		}
+	}
+	createOverhangs(rect)
+	{
+		let w=rect.w;
+		let s=rect.x;
+		let botY=rect.y;
+		let top=[];
+		let l=this.#rooms.length;
+		let hl=this.#halls.length;
+		for(let i1=0;i1<w;i1++)
+		{
+			let use=true;
+			for(let i2=0;i2<l;i2++)
+			{
+				if(this.#rooms[i2].contains(s+i1+0.5,botY-0.5))
+				{
+					use=false;
+					break;
+				}
+			}
+			if(use)
+			{
+				for(let i2=0;i2<hl;i2++)
+				{
+					if(this.#halls[i2].contains(s+i1+0.5,botY-0.5))
+					{
+						use=false;
+						break;
+					}
+				}
+			}
+			top.push(use);
+		}
+		let inPut=top[0];
+		let start=0;
+		for(let i=1;i<w;i++)
+		{
+			if(inPut)
+			{
+				if(!top[i])
+				{
+					let nw=i-start;
+					let nx=s+start;
+					inPut=false;
+					let r=new RandRect();
+					r.x=nx;
+					r.y=botY;
+					r.w=nw;
+					r.h=1;
+					this.#overhangs.push(r);
+				}
+			}
+			else if(top[i])
+			{
+				inPut=true;
+				start=i;
+			}
+		}
+		if(inPut)
+		{
+			let nw=w-start;
+			let nx=s+start;
+			let r=new RandRect();
+			r.x=nx;
+			r.y=botY;
+			r.w=nw;
+			r.h=1;
+			this.#overhangs.push(r);
 		}
 	}
 }
