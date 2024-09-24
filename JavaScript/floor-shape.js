@@ -91,7 +91,7 @@ class FloorShape
 	}
 	static draw()
 	{
-		if(FloorShape.#size===0);
+		if(FloorShape.#size===0)
 		{
 			return;
 		}

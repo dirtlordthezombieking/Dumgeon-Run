@@ -91,7 +91,7 @@ class WallShape
 	}
 	static draw()
 	{
-		if(WallShape.#size===0);
+		if(WallShape.#size===0)
 		{
 			return;
 		}
