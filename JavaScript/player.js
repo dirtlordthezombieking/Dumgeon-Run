@@ -41,7 +41,7 @@ class Player
 				 32, 32
 			]
 		),Player.#gl);
-		Player.#uEye=new Uniform(3,Player.#shader,"u_eye",[0.0,8.5,12.5],Player.#gl);
+		Player.#uEye=new Uniform(3,Player.#shader,"u_eye",[0.0,8.0,12.0],Player.#gl);
 	}
 	static draw()
 	{
