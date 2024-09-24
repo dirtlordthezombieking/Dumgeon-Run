@@ -4,6 +4,6 @@ varying vec2 v_texCoord;
 void main()
 {
 	vec2 pos=(a_pos-u_pos)/vec2(320.0,240.0);
-	v_texCoord=pos;
+	v_texCoord=a_pos-u_pos;
 	gl_Position=vec4(pos,0.0000002,1);
 }
