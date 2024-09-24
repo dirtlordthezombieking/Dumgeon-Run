@@ -1,7 +1,8 @@
 class Floor
 {
 	#rooms=[];
-	#halls;
+	#halls=[];
+	#connected=[];
 	constructor()
 	{
 		for(let i1=0;i1<15;i1++)
@@ -31,7 +32,9 @@ class Floor
 				break;
 			}
 			this.#rooms.push(r);
+			this.#connected.push(false);
 		}
+		this.#connected[0]=true;
 		for(let i1=1;i1<15;i1++)
 		{
 			let r=new RandRect();
@@ -45,7 +48,13 @@ class Floor
 			let r=this.#rooms[i];
 			FloorShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
 		}
-		let r=this.#rooms[0];
-		WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+		l=this.#connected.length;
+		for(let i=0;i<l;i++)
+		{
+			let r=floor.#rooms[floor.#connected[i]];
+			WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+		}
+		//let r=this.#rooms[0];
+		//WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
 	}
 }
