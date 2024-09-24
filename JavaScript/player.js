@@ -1,10 +1,10 @@
 class Player
 {
-	#shader;
-	#aPos;
-	#uEye;
-	#gl;
-	#indexB;
+	static #shader;
+	static #aPos;
+	static #uEye;
+	static #gl;
+	static #indexB;
 	static setup(gl)
 	{
 		try
