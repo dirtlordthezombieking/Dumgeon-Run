@@ -91,6 +91,10 @@ class WallShape
 	}
 	static draw()
 	{
+		if(WallShape.#size===0);
+		{
+			return;
+		}
 		WallShape.#gl.useProgram(WallShape.#shader);
 		WallShape.#uTexture.use();
 		WallShape.#aPos.use();
