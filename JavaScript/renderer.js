@@ -26,10 +26,13 @@ class Renderer
 			{
 				WallShape.setup(hold.gl,function()
 				{
-					FloorShape.reset();
-					WallShape.reset();
-					OverhangShape.reset();
-					hold.init();
+					OverhangShape.setup(hold.gl,function()
+					{
+						FloorShape.reset();
+						WallShape.reset();
+						OverhangShape.reset();
+						hold.init();
+					});
 				});
 			});
 		}
