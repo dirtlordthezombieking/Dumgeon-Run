@@ -29,10 +29,10 @@ void main()
 	float pre3=sign(wave3);
 	float prepupmult=(pre3+1.0)/2.0;
 	float pupmult=floor((prepupmult+prepreeyemult)*0.55);
-	vec4 pup=vec4(0.9,0.9,0.9,1.0)*pupmult;
+	vec4 pup=vec4(0.5,0.8,0.2,1.0)*pupmult;
 
 	float preeyemult=(((((prepreeyemult-prepupmult)+1.0)/2.0)-bodymult)+1.0)/2.0;
-	vec4 eye=vec4(0.5,0.8,0.2,1.0)*preeyemult;
+	vec4 eye=vec4(0.9,0.9,0.9,1.0)*preeyemult;
 
 	gl_FragColor=body+pup+eye;
 }
