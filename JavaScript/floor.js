@@ -34,7 +34,7 @@ class Floor
 		}
 		for(let i1=1;i1<15;i1++)
 		{
-			let r=newRandRect();
+			let r=new RandRect();
 		}
 	}
 	use()
