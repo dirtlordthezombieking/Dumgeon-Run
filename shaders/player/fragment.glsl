@@ -6,8 +6,8 @@ void main()
 	float pi=3.1415926535897932384626433832795;
 	vec2 pix=floor(v_texCoord/2.0);
 	float rad1=distance(pix,vec2(0.0,0.0));
-	float clip1=pi*min(rad1,16.0);
-	float flat1=clip1/16.0;
+	float clip1=pi*min(rad1,16.5);
+	float flat1=clip1/16.5;
 	float wave1=cos(flat1);
 	float pre1=sign(wave1);
 	float bodymult=(pre1+1.0)/2.0;
@@ -29,10 +29,10 @@ void main()
 	float pre3=sign(wave3);
 	float prepupmult=(pre3+1.0)/2.0;
 	float pupmult=floor((prepupmult+prepreeyemult)*0.55);
-	vec4 pup=vec4(0.9,0.9,0.9,1.0)*pupmult;
+	vec4 pup=vec4(0.5,0.8,0.2,1.0)*pupmult;
 
 	float preeyemult=(((((prepreeyemult-prepupmult)+1.0)/2.0)-bodymult)+1.0)/2.0;
-	vec4 eye=vec4(0.5,0.8,0.2,1.0)*preeyemult;
+	vec4 eye=vec4(0.9,0.9,0.9,1.0)*preeyemult;
 
 	gl_FragColor=body+pup+eye;
 }
