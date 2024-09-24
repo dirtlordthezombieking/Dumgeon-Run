@@ -11,7 +11,6 @@ void main()
 	float wave1=sin(flat1);
 	float pre1=sign(wave1);
 	float bodymult=(pre1+1.0)/2.0;
-	bodymult=1.0;
 	vec4 body=vec4(0.05,0.2,0.8,1.0)*bodymult;
 	gl_FragColor=body;
 }
