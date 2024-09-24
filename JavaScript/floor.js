@@ -314,7 +314,7 @@ class Floor
 					}
 				}
 			}
-			if(i1===14&&con<l)
+			if((i1>13)&&(con<l))
 			{
 				i1=0;
 				let c=Math.random();
@@ -440,6 +440,7 @@ class Floor
 				}
 			}
 		}
+		Utils.logMessage(""+l+", "+con);
 	}
 	use()
 	{
