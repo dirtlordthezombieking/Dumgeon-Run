@@ -91,6 +91,10 @@ class FloorShape
 	}
 	static draw()
 	{
+		if(FloorShape.#size===0);
+		{
+			return;
+		}
 		FloorShape.#gl.useProgram(FloorShape.#shader);
 		FloorShape.#uTexture.use();
 		FloorShape.#aPos.use();
