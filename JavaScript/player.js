@@ -54,3 +54,9 @@ class Player
 }
 //ss,es,se,ee
 //0,1,2,2,1,3
+
+//sin=o/h
+//sin*h=o
+//cos*h=a
+//x=a
+//y=o
