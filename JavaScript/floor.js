@@ -52,7 +52,7 @@ class Floor
 						{
 							if(this.#rooms[i1].overlapsX(this.#rooms[i2]))
 							{
-								let over=this.#rooms[i1].getOverlapX(this.#rooms[i2];
+								let over=this.#rooms[i1].getOverlapX(this.#rooms[i2]);
 								if((over.e-over.s)>=3)
 								{
 									let pos=over.s+Math.floor(Math.random((over.e-over.s)-3));
