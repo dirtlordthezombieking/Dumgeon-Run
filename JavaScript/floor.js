@@ -507,17 +507,17 @@ class Floor
 			}
 			top.push(use)
 		}
-		let in=top[0];
+		let inPut=top[0];
 		let start=0;
 		for(let i=1;i<w;i++)
 		{
-			if(in)
+			if(inPut)
 			{
 				if(!top[i])
 				{
 					let nw=i-start;
 					let nx=s+start;
-					in=false;
+					inPut=false;
 					let r=new RandRect()
 					r.x=nx;
 					r.y=topY;
@@ -530,12 +530,12 @@ class Floor
 			{
 				if(top[i])
 				{
-					in=true;
+					inPut=true;
 					start=i;
 				}
 			}
 		}
-		if(in)
+		if(inPut)
 		{
 			let nw=w-start;
 			let nx=s+start;
