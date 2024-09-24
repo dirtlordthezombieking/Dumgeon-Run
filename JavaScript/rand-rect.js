@@ -66,7 +66,7 @@ class RandRect
 	{
 		return!((e1<s2)||(e2<s1));
 	}
-	static getOverlapX(other)
+	getOverlapX(other)
 	{
 		let rs1=this.x;
 		let re1=this.x+this.w;
@@ -89,7 +89,7 @@ class RandRect
 		}
 		return new OneDLine(order[1],order[2]);
 	}
-	static getOverlapX(other)
+	getOverlapX(other)
 	{
 		let rs1=this.y;
 		let re1=this.y+this.h;
