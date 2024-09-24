@@ -478,7 +478,7 @@ class Floor
 	createWalls(rect)
 	{
 		let w=rect.w;
-		let s=rext.x;
+		let s=rect.x;
 		let topY=rect.y+rect.h;
 		let top=[]
 		let l=this.#rooms.length;
