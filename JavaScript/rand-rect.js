@@ -66,4 +66,8 @@ class RandRect
 	{
 		return!((e1<s2)||(e2<s1));
 	}
+	static getOverlapX(other)
+	{
+		
+	}
 }
