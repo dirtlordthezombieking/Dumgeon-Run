@@ -2,12 +2,12 @@ class Player()
 {
 	#shader;
 	#apos;
-	#u_eye;
+	#uEye;
 	static setup(gl)
 	{
 		try
 		{
-			OverhangShape.#gl=gl;
+			Player.#gl=gl;
 			Utils.loadShader(gl,"player",function(program)
 			{
 				Player.#shader=program;
@@ -21,25 +21,22 @@ class Player()
 	}
 	static prep()
 	{
-		FloorShape.#indexB=FloorShape.#gl.createBuffer();
-		FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
-		FloorShape.#gl.bufferData(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(FloorShape.#indexP),FloorShape.#gl.STATIC_DRAW);
-		FloorShape.#uTexture=new Texture(FloorShape.#shader,"u_texture",FloorShape.#tex,0,FloorShape.#gl);
-		FloorShape.#uTexture.push();
-		FloorShape.#aPos=new Attribute(2,FloorShape.#shader,"a_pos",new Float32Array(FloorShape.#vertsP),FloorShape.#gl);
-		FloorShape.#uPos=new Uniform(2,FloorShape.#shader,"u_pos",[0.0,0.0],FloorShape.#gl);
+		Player.#indexB=Player.#gl.createBuffer();
+		Player.#gl.bindBuffer(Player.#gl.ELEMENT_ARRAY_BUFFER,Player.#indexB);
+		Player.#gl.bufferData(Player.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(Player.#indexP),Player.#gl.STATIC_DRAW);
+		Player.#aPos=new Attribute(2,Player.#shader,"a_pos",new Float32Array(Player.#vertsP),Player.#gl);
+		Player.#uPos=new Uniform(2,Player.#shader,"u_pos",[0.0,0.0],Player.#gl);
 	}
 	static draw()
 	{
-		if(FloorShape.#size===0)
+		if(Player.#size===0)
 		{
 			return;
 		}
-		FloorShape.#gl.useProgram(FloorShape.#shader);
-		FloorShape.#uTexture.use();
-		FloorShape.#aPos.use();
-		FloorShape.#uPos.use();
-		FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
-		FloorShape.#gl.drawElements(FloorShape.#gl.TRIANGLES,FloorShape.#size,FloorShape.#gl.UNSIGNED_SHORT,0);
+		Player.#gl.useProgram(Player.#shader);
+		Player.#aPos.use();
+		Player.#uEye.use();
+		Player.#gl.bindBuffer(Player.#gl.ELEMENT_ARRAY_BUFFER,Player.#indexB);
+		Player.#gl.drawElements(Player.#gl.TRIANGLES,Player.#size,Player.#gl.UNSIGNED_SHORT,0);
 	}
 }
