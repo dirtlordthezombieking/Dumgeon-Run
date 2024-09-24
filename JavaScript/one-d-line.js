@@ -1,4 +1,4 @@
-class OneDLine()
+class OneDLine
 {
 	s;
 	e;
