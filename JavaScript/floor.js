@@ -71,7 +71,7 @@ class Floor
 									let good=true;
 									for(let i3=0;i3<l;i3++)
 									{
-										if((i3!==i2)$$(i3!==i1))
+										if((i3!==i2)&&(i3!==i1))
 										{
 											if(r.overlaps(this.#rooms[i3])
 											{
@@ -117,7 +117,7 @@ class Floor
 									let good=true;
 									for(let i3=0;i3<l;i3++)
 									{
-										if((i3!==i2)$$(i3!==i1))
+										if((i3!==i2)&&(i3!==i1))
 										{
 											if(r.overlaps(this.#rooms[i3])
 											{
