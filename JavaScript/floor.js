@@ -40,10 +40,10 @@ class Floor
 		let failsafe=false;
 		for(let i1=1;i1<l;i1++)
 		{
+			let r=new RandRect();
+			let hl=this.#halls.length;
 			if(!this.#connected[i1])
 			{
-				let r=new RandRect();
-				let hl=this.#halls.length;
 				for(let i2=0;i2<l;i2++)
 				{
 					if(i2!==i1)
@@ -154,7 +154,7 @@ class Floor
 					{
 						if(this.#rooms[i1].overlapsX(this.#halls[i2]))
 						{
-							let over=this.#rooms[i1].getOverlapX(this.#halls[i2];
+							let over=this.#rooms[i1].getOverlapX(this.#halls[i2]);
 							if((over.e-over.s)>=3)
 							{
 								let pos=over.s+Math.floor(Math.random((over.e-over.s)-3));
@@ -203,7 +203,7 @@ class Floor
 						}
 						if(this.#rooms[i1].overlapsY(this.#rooms[i1]))
 						{
-							let over=this.#rooms[i1].getOverlapY(this.#rooms[i1];
+							let over=this.#rooms[i1].getOverlapY(this.#rooms[i1]);
 							if((over.e-over.s)>=3)
 							{
 								let pos=over.s+Math.floor(Math.random((over.e-over.s)-3));
