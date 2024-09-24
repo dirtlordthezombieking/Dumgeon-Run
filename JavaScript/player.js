@@ -49,7 +49,7 @@ class Player
 		Player.#aPos.use();
 		Player.#uEye.use();
 		Player.#gl.bindBuffer(Player.#gl.ELEMENT_ARRAY_BUFFER,Player.#indexB);
-		Player.#gl.drawElements(Player.#gl.TRIANGLES,Player.6,Player.#gl.UNSIGNED_SHORT,0);
+		Player.#gl.drawElements(Player.#gl.TRIANGLES,6,Player.#gl.UNSIGNED_SHORT,0);
 	}
 }
 //ss,es,se,ee
