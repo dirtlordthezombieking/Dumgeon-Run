@@ -90,9 +90,22 @@ class Floor
 									}
 									if(good)
 									{
-										i1=0;
 										this.#halls.push(r);
+										Utils.logMessage("room x:\ni1: "+
+										this.#rooms[i1].x+", "+
+										this.#rooms[i1].y+", "+
+										this.#rooms[i1].w+", "+
+										this.#rooms[i1].h+"\ni2: "+
+										this.#rooms[i2].x+", "+
+										this.#rooms[i2].y+", "+
+										this.#rooms[i2].w+", "+
+										this.#rooms[i2].h+"\nr: "+
+										r.x+", "+
+										r.y+", "+
+										r.w+", "+
+										r.h+"\n");
 										break;
+										i1=0;
 									}
 								}
 							}
@@ -136,9 +149,22 @@ class Floor
 									}
 									if(good)
 									{
-										i1=0;
 										this.#halls.push(r);
+										Utils.logMessage("room y:\ni1: "+
+										this.#rooms[i1].x+", "+
+										this.#rooms[i1].y+", "+
+										this.#rooms[i1].w+", "+
+										this.#rooms[i1].h+"\ni2: "+
+										this.#rooms[i2].x+", "+
+										this.#rooms[i2].y+", "+
+										this.#rooms[i2].w+", "+
+										this.#rooms[i2].h+"\nr: "+
+										r.x+", "+
+										r.y+", "+
+										r.w+", "+
+										r.h+"\n");
 										break;
+										i1=0;
 									}
 								}
 							}
@@ -195,8 +221,21 @@ class Floor
 								}
 								if(good)
 								{
-									i1=0;
 									this.#halls.push(r);
+									Utils.logMessage("hall x:\ni1: "+
+									this.#rooms[i1].x+", "+
+									this.#rooms[i1].y+", "+
+									this.#rooms[i1].w+", "+
+									this.#rooms[i1].h+"\ni2: "+
+									this.#halls[i2].x+", "+
+									this.#halls[i2].y+", "+
+									this.#halls[i2].w+", "+
+									this.#halls[i2].h+"\nr: "+
+									r.x+", "+
+									r.y+", "+
+									r.w+", "+
+									r.h+"\n");
+									i1=0;
 									break;
 								}
 							}
@@ -244,8 +283,21 @@ class Floor
 								}
 								if(good)
 								{
-									i1=0;
 									this.#halls.push(r);
+									Utils.logMessage("hall y:\ni1: "+
+									this.#rooms[i1].x+", "+
+									this.#rooms[i1].y+", "+
+									this.#rooms[i1].w+", "+
+									this.#rooms[i1].h+"\ni2: "+
+									this.#halls[i2].x+", "+
+									this.#halls[i2].y+", "+
+									this.#halls[i2].w+", "+
+									this.#halls[i2].h+"\nr: "+
+									r.x+", "+
+									r.y+", "+
+									r.w+", "+
+									r.h+"\n");
+									i1=0;
 									break;
 								}
 							}
