@@ -3,6 +3,7 @@ class Floor
 	#rooms=[];
 	#halls=[];
 	#connected=[];
+	#Walls=[];
 	constructor()
 	{
 		for(let i1=0;i1<15;i1++)
@@ -443,6 +444,15 @@ class Floor
 			}
 		}
 		//Utils.logMessage(""+l+", "+con+", "+lop);
+		for(let i=0;i<l;i++)
+		{
+			createWalls(this.#rooms[i]);
+		}
+		let hl=this.#halls.length;
+		for(let i=0;i<hl;i++)
+		{
+			createWalls(this.#halls[i]);
+		}
 	}
 	use()
 	{
@@ -450,20 +460,23 @@ class Floor
 		for(let i=0;i<l;i++)
 		{
 			let r=this.#rooms[i];
-			if(this.#connected[i])
-			{
-			WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
-			}
-			else
-			{
 			FloorShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
-			}
 		}
 		let hl=this.#halls.length;
 		for(let i=0;i<hl;i++)
 		{
 			let r=this.#halls[i];
-			WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+			FloorShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
 		}
+		let wl=this.#walls.length;
+		for(let i=0;i<wl;i++)
+		{
+			let r=this.#walls[i];
+			FloorShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+		}
+	}
+	createWalls(rect)
+	{
+		let s=rect.x
 	}
 }
