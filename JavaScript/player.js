@@ -1,8 +1,10 @@
 class Player
 {
 	#shader;
-	#apos;
+	#aPos;
 	#uEye;
+	#gl;
+	#indexB;
 	static setup(gl)
 	{
 		try
@@ -43,15 +45,11 @@ class Player
 	}
 	static draw()
 	{
-		if(Player.#size===0)
-		{
-			return;
-		}
 		Player.#gl.useProgram(Player.#shader);
 		Player.#aPos.use();
 		Player.#uEye.use();
 		Player.#gl.bindBuffer(Player.#gl.ELEMENT_ARRAY_BUFFER,Player.#indexB);
-		Player.#gl.drawElements(Player.#gl.TRIANGLES,Player.#size,Player.#gl.UNSIGNED_SHORT,0);
+		Player.#gl.drawElements(Player.#gl.TRIANGLES,Player.6,Player.#gl.UNSIGNED_SHORT,0);
 	}
 }
 //ss,es,se,ee
