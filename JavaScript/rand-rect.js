@@ -73,11 +73,11 @@ class RandRect
 		let rs2=other.x;
 		let re2=other.x+other.w;
 		let order=[rs1,re1,rs2,re2];
-		for(int i1=0;i1<4;i1++)
+		for(let i1=0;i1<4;i1++)
 		{
 			let t=order[i1];
 			let pos=i1;
-			for(int i2=i1-1;i2>-1;i2--)
+			for(let i2=i1-1;i2>-1;i2--)
 			{
 				if(t<order[i2])
 				{
@@ -89,18 +89,18 @@ class RandRect
 		}
 		return new OneDLine(order[1],order[2]);
 	}
-	getOverlapX(other)
+	getOverlapY(other)
 	{
 		let rs1=this.y;
 		let re1=this.y+this.h;
 		let rs2=other.y;
 		let re2=other.y+other.h;
 		let order=[rs1,re1,rs2,re2];
-		for(int i1=0;i1<4;i1++)
+		for(let i1=0;i1<4;i1++)
 		{
 			let t=order[i1];
 			let pos=i1;
-			for(int i2=i1-1;i2>-1;i2--)
+			for(let i2=i1-1;i2>-1;i2--)
 			{
 				if(t<order[i2])
 				{
