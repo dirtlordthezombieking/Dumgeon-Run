@@ -10,7 +10,7 @@ class Renderer
 		{
 			throw new Error("canvas invalid");
 		}
-		this.gl=this.canvas.getContext("webgl");
+		this.gl=this.canvas.getContext("webgl",{premultipliedAlpha:false});
 		if(!this.gl)
 		{
 			throw new Error("web gl not available");
