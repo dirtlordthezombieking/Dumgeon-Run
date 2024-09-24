@@ -76,7 +76,7 @@ class Renderer
 	{
 		this.gl.clearColor(1,0,1,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT|this.gl.DEPTH_BUFFER_BIT);
-		//FloorShape.draw();
+		FloorShape.draw();
 		//WallShape.draw();
 		OverhangShape.draw();
 	}
