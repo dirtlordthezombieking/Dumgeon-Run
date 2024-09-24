@@ -119,7 +119,7 @@ class Floor
 									let pos=over.s+Math.floor(Math.random((over.e-over.s)-3));
 									r.h=3;
 									r.y=pos;
-									if(this.#rooms[i1].X<this.#rooms[i2].y)
+									if(this.#rooms[i1].x<this.#rooms[i2].x)
 									{
 										r.x=this.#rooms[i1].x+this.#rooms[i1].w;
 										r.w=this.#rooms[i2].x-r.x;
