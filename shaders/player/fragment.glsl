@@ -13,7 +13,7 @@ void main()
 	float bodymult=(pre1+1.0)/2.0;
 	vec4 body=vec4(0.05,0.2,0.8,1.0)*bodymult;
 
-	vec2 theta=vec2(sin(u_eye.x),sin(u_eye.u));
+	vec2 theta=vec2(sin(u_eye.x),cos(u_eye.x));
 
 	float rad2=distance(pix,theta*u_eye.z);
 	float clip2=pi*min(rad2,8.0);
@@ -31,7 +31,7 @@ void main()
 	float pupmult=floor((prepupmult+prepreeyemult)*0.55);
 	vec4 pup=vec4(0.9,0.9,0.9,1.0)*bodymult;
 
-	float preeyemult=((((prepreeyemult-prepupmult)+1.0)/2.0)-bodymult)+1.0)/2.0;
+	float preeyemult=(((((prepreeyemult-prepupmult)+1.0)/2.0)-bodymult)+1.0)/2.0;
 	vec4 eye=vec4(0.5,0.8,0.2,1.0)*bodymult;
 
 	gl_FragColor=body;
