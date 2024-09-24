@@ -109,9 +109,9 @@ class Floor
 									}
 								}
 							}
-							if(this.#rooms[i1].overlapsY(this.#rooms[i1]))
+							if(this.#rooms[i1].overlapsY(this.#rooms[i2]))
 							{
-								let over=this.#rooms[i1].getOverlapY(this.#rooms[i1]);
+								let over=this.#rooms[i1].getOverlapY(this.#rooms[i2]);
 								if((over.e-over.s)>=3)
 								{
 									let pos=over.s+Math.floor(Math.random((over.e-over.s)-3));
@@ -240,9 +240,9 @@ class Floor
 								}
 							}
 						}
-						if(this.#rooms[i1].overlapsY(this.#rooms[i1]))
+						if(this.#rooms[i1].overlapsY(this.#rooms[i2]))
 						{
-							let over=this.#rooms[i1].getOverlapY(this.#rooms[i1]);
+							let over=this.#rooms[i1].getOverlapY(this.#rooms[i2]);
 							if((over.e-over.s)>=3)
 							{
 								let pos=over.s+Math.floor(Math.random((over.e-over.s)-3));
