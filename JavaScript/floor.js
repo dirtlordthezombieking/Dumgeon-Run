@@ -35,9 +35,23 @@ class Floor
 			this.#connected.push(false);
 		}
 		this.#connected[0]=true;
-		for(let i1=1;i1<15;i1++)
+		let l=this.#rooms.length;
+		for(let i1=1;i1<l;i1++)
 		{
-			let r=new RandRect();
+			if(!connected()
+			{
+				let r=new RandRect();
+				for(let i2=0;i2<l;i2++)
+				{
+					if(i2!==i1)
+					{
+						if(this.#rooms[i1].overlapsX(this.#rooms[i1]))
+						{
+							let over=this.#rooms[i1].getOverlapX(this.#rooms[i1]
+						}
+					}
+				}
+			}
 		}
 	}
 	use()
