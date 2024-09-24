@@ -38,8 +38,10 @@ class Floor
 		let l=this.#rooms.length;
 		let con=1;
 		let failsafe=false;
+		let lop=0;
 		for(let i1=1;i1<l;i1++)
 		{
+			lop=i1;
 			let r=new RandRect();
 			let hl=this.#halls.length;
 			if(!this.#connected[i1])
@@ -440,7 +442,7 @@ class Floor
 				}
 			}
 		}
-		Utils.logMessage(""+l+", "+con);
+		Utils.logMessage(""+l+", "+con+", "+lop);
 	}
 	use()
 	{
