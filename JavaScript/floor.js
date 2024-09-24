@@ -485,7 +485,7 @@ class Floor
 		let hl=this.#halls.length;
 		for(let i1=0;i1<w;i1++)
 		{
-			let use=true
+			let use=true;
 			for(let it=0;i2<l;i2++)
 			{
 				if(this.#rooms[i2].contains(s+i1+0.5,topY+0.5))
@@ -505,7 +505,7 @@ class Floor
 					}
 				}
 			}
-			top.push(use)
+			top.push(use);
 		}
 		let inPut=top[0];
 		let start=0;
@@ -518,7 +518,7 @@ class Floor
 					let nw=i-start;
 					let nx=s+start;
 					inPut=false;
-					let r=new RandRect()
+					let r=new RandRect();
 					r.x=nx;
 					r.y=topY;
 					r.w=nw;
@@ -539,7 +539,7 @@ class Floor
 		{
 			let nw=w-start;
 			let nx=s+start;
-			let r=new RandRect()
+			let r=new RandRect();
 			r.x=nx;
 			r.y=topY;
 			r.w=nw;
