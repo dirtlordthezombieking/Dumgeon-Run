@@ -93,19 +93,20 @@ class Floor
 									{
 										this.#halls.push(r);
 										this.#connected[i1]=true;
-										Utils.logMessage("room x: "+i1+"\ni1: "+
-										this.#rooms[i1].x+", "+
-										this.#rooms[i1].y+", "+
-										this.#rooms[i1].w+", "+
-										this.#rooms[i1].h+"\ni2: "+
-										this.#rooms[i2].x+", "+
-										this.#rooms[i2].y+", "+
-										this.#rooms[i2].w+", "+
-										this.#rooms[i2].h+"\nr: "+
-										r.x+", "+
-										r.y+", "+
-										r.w+", "+
-										r.h+"\n");
+										con++;
+										//Utils.logMessage("room x: "+i1+"\ni1: "+
+										//this.#rooms[i1].x+", "+
+										//this.#rooms[i1].y+", "+
+										//this.#rooms[i1].w+", "+
+										//this.#rooms[i1].h+"\ni2: "+
+										//this.#rooms[i2].x+", "+
+										//this.#rooms[i2].y+", "+
+										//this.#rooms[i2].w+", "+
+										//this.#rooms[i2].h+"\nr: "+
+										//r.x+", "+
+										//r.y+", "+
+										//r.w+", "+
+										//r.h+"\n");
 										i1=0;
 										break;
 									}
@@ -153,19 +154,20 @@ class Floor
 									{
 										this.#halls.push(r);
 										this.#connected[i1]=true;
-										Utils.logMessage("room y: "+i1+"\ni1: "+
-										this.#rooms[i1].x+", "+
-										this.#rooms[i1].y+", "+
-										this.#rooms[i1].w+", "+
-										this.#rooms[i1].h+"\ni2: "+
-										this.#rooms[i2].x+", "+
-										this.#rooms[i2].y+", "+
-										this.#rooms[i2].w+", "+
-										this.#rooms[i2].h+"\nr: "+
-										r.x+", "+
-										r.y+", "+
-										r.w+", "+
-										r.h+"\n");
+										con++;
+										//Utils.logMessage("room y: "+i1+"\ni1: "+
+										//this.#rooms[i1].x+", "+
+										//this.#rooms[i1].y+", "+
+										//this.#rooms[i1].w+", "+
+										//this.#rooms[i1].h+"\ni2: "+
+										//this.#rooms[i2].x+", "+
+										//this.#rooms[i2].y+", "+
+										//this.#rooms[i2].w+", "+
+										//this.#rooms[i2].h+"\nr: "+
+										//r.x+", "+
+										//r.y+", "+
+										//r.w+", "+
+										/0r.h+"\n");
 										i1=0;
 										break;
 									}
@@ -226,19 +228,20 @@ class Floor
 								{
 									this.#halls.push(r);
 									this.#connected[i1]=true;
-									Utils.logMessage("hall x: "+i1+"\ni1: "+
-									this.#rooms[i1].x+", "+
-									this.#rooms[i1].y+", "+
-									this.#rooms[i1].w+", "+
-									this.#rooms[i1].h+"\ni2: "+
-									this.#halls[i2].x+", "+
-									this.#halls[i2].y+", "+
-									this.#halls[i2].w+", "+
-									this.#halls[i2].h+"\nr: "+
-									r.x+", "+
-									r.y+", "+
-									r.w+", "+
-									r.h+"\n");
+									con++;
+									//Utils.logMessage("hall x: "+i1+"\ni1: "+
+									//this.#rooms[i1].x+", "+
+									//this.#rooms[i1].y+", "+
+									//this.#rooms[i1].w+", "+
+									//this.#rooms[i1].h+"\ni2: "+
+									//this.#halls[i2].x+", "+
+									//this.#halls[i2].y+", "+
+									//this.#halls[i2].w+", "+
+									//this.#halls[i2].h+"\nr: "+
+									//r.x+", "+
+									//r.y+", "+
+									//r.w+", "+
+									//r.h+"\n");
 									i1=0;
 									break;
 								}
@@ -289,24 +292,150 @@ class Floor
 								{
 									this.#halls.push(r);
 									this.#connected[i1]=true;
-									Utils.logMessage("hall y: "+i1+"\ni1: "+
-									this.#rooms[i1].x+", "+
-									this.#rooms[i1].y+", "+
-									this.#rooms[i1].w+", "+
-									this.#rooms[i1].h+"\ni2: "+
-									this.#halls[i2].x+", "+
-									this.#halls[i2].y+", "+
-									this.#halls[i2].w+", "+
-									this.#halls[i2].h+"\nr: "+
-									r.x+", "+
-									r.y+", "+
-									r.w+", "+
-									r.h+"\n");
+									con++;
+									//Utils.logMessage("hall y: "+i1+"\ni1: "+
+									//this.#rooms[i1].x+", "+
+									//this.#rooms[i1].y+", "+
+									//this.#rooms[i1].w+", "+
+									//this.#rooms[i1].h+"\ni2: "+
+									//this.#halls[i2].x+", "+
+									//this.#halls[i2].y+", "+
+									//this.#halls[i2].w+", "+
+									//this.#halls[i2].h+"\nr: "+
+									//r.x+", "+
+									//r.y+", "+
+									//r.w+", "+
+									//r.h+"\n");
 									i1=0;
 									break;
 								}
 							}
 						}
+					}
+				}
+			}
+			if(i1===14&&con<l)
+			{
+				i1=0;
+				let c=Math.random();
+				let size=5+Math.floor(Math.random()*15);
+				let side=Math.random();
+				if(c>0.5||hl===0)
+				{
+					let sel=Math.floor(Math.random()*l);
+					while(!this.#connected[sel])
+					{
+						sel=Math.floor(Math.random()*l);
+					}
+					let s=this.#rooms[sel];
+					if(side>0.5)
+					{
+						r.h=3;
+						r.y=s.y+Math.floor(Math.random(s.h-3));
+						r.w=size;
+						if(side>0.75)
+						{
+							r.x=s.x+s.w;
+						}
+						else
+						{
+							r.x=s.x-r.w;
+						}
+					}
+					else
+					{
+						r.w=3;
+						r.x=s.x+Math.floor(Math.random(s.w-3));
+						r.h=size;
+						if(side>0.25)
+						{
+							r.y=s.y+s.h;
+						}
+						else
+						{
+							r.y=s.y-r.h;
+						}
+					}
+					let good=true;
+					for(let i3=0;i3<l;i3++)
+					{
+						if(i3!==sel)
+						{
+							if(r.overlaps(this.#rooms[i3]))
+							{
+								good=false;
+								break;
+							}
+						}
+					}
+					for(let i3=0;i3<hl;i3++)
+					{
+						if(r.overlaps(this.#halls[i3]))
+						{
+							good=false;
+							break;
+						}
+					}
+					if(good)
+					{
+						this.#halls.push(r);
+					}
+				}
+				else
+				{
+					let sel=Math.floor(Math.random()*hl);
+					let s=this.#halls[sel];
+					if(side>0.5)
+					{
+						r.h=3;
+						r.y=s.y+Math.floor(Math.random(s.h-3));
+						r.w=size;
+						if(side>0.75)
+						{
+							r.x=s.x+s.w;
+						}
+						else
+						{
+							r.x=s.x-r.w;
+						}
+					}
+					else
+					{
+						r.w=3;
+						r.x=s.x+Math.floor(Math.random(s.w-3));
+						r.h=size;
+						if(side>0.25)
+						{
+							r.y=s.y+s.h;
+						}
+						else
+						{
+							r.y=s.y-r.h;
+						}
+					}
+					let good=true;
+					for(let i3=0;i3<l;i3++)
+					{
+						if(r.overlaps(this.#rooms[i3]))
+						{
+							good=false;
+							break;
+						}
+					}
+					for(let i3=0;i3<hl;i3++)
+					{
+						if(i3!==sel)
+						{
+							if(r.overlaps(this.#halls[i3]))
+							{
+								good=false;
+								break;
+							}
+						}
+					}
+					if(good)
+					{
+						this.#halls.push(r);
 					}
 				}
 			}
