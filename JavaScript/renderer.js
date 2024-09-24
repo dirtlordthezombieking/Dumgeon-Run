@@ -28,10 +28,13 @@ class Renderer
 				{
 					OverhangShape.setup(hold.gl,function()
 					{
-						FloorShape.reset();
-						WallShape.reset();
-						OverhangShape.reset();
-						hold.init();
+						Player(hold.gl,function()
+						{
+							FloorShape.reset();
+							WallShape.reset();
+							OverhangShape.reset();
+							hold.init();
+						});
 					});
 				});
 			});
@@ -68,6 +71,7 @@ class Renderer
 		//WallShape.addFromRectangle(-110, 120,220, 30);
 		WallShape.update();
 		WallShape.prep();
+		Player.prep()
 		OverhangShape.update();
 		OverhangShape.prep();
 		this.draw();
@@ -78,6 +82,7 @@ class Renderer
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
 		FloorShape.draw();
 		WallShape.draw();
+		player.draw();
 		OverhangShape.draw();
 	}
 }

@@ -463,25 +463,25 @@ class Floor
 		for(let i=0;i<l;i++)
 		{
 			let r=this.#rooms[i];
-			FloorShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+			FloorShape.addFromRectangle((r.x-50)*64,(r.y-50)*64,r.w*64,r.h*64);
 		}
 		let hl=this.#halls.length;
 		for(let i=0;i<hl;i++)
 		{
 			let r=this.#halls[i];
-			FloorShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+			FloorShape.addFromRectangle((r.x-50)*64,(r.y-50)*64,r.w*64,r.h*64);
 		}
 		let wl=this.#walls.length;
 		for(let i=0;i<wl;i++)
 		{
 			let r=this.#walls[i];
-			WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+			WallShape.addFromRectangle((r.x-50)*64,(r.y-50)*64,r.w*64,r.h*64);
 		}
 		let ol=this.#overhangs.length;
 		for(let i=0;i<ol;i++)
 		{
 			let r=this.#overhangs[i];
-			OverhangShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+			OverhangShape.addFromRectangle((r.x-50)*64,(r.y-50)*64,r.w*64,r.h*64);
 		}
 	}
 	createWalls(rect)
