@@ -15,23 +15,24 @@ void main()
 
 	vec2 theta=vec2(sin(u_eye.x),sin(u_eye.u));
 
-	float rad2=distance(pix,theta*eye.z);
+	float rad2=distance(pix,theta*u_eye.z);
 	float clip2=pi*min(rad2,8.0);
 	float flat2=clip2/8.0;
 	float wave2=cos(flat2);
 	float pre2=sign(wave2);
-	float preeyemult=(pre2+1.0)/2.0;
+	float prepreeyemult=(pre2+1.0)/2.0;
 
-	float rad3=distance(pix,theta*eye.w);
+	float rad3=distance(pix,theta*u_eye.w);
 	float clip3=pi*min(rad3,8.0);
 	float flat3=clip3/8.0;
 	float wave3=cos(flat3);
 	float pre3=sign(wave3);
 	float prepupmult=(pre3+1.0)/2.0;
-	float pupmult=floor((prepupmult+preeyemult)*0.55);
-	vec4 body=vec4(0.9,0.9,0.9,1.0)*bodymult;
+	float pupmult=floor((prepupmult+prepreeyemult)*0.55);
+	vec4 pup=vec4(0.9,0.9,0.9,1.0)*bodymult;
 
-	float eyemult=(pre2+1.0)/2.0;
+	float preeyemult=((((prepreeyemult-prepupmult)+1.0)/2.0)-bodymult)+1.0)/2.0;
+	vec4 eye=vec4(0.5,0.8,0.2,1.0)*bodymult;
 
 	gl_FragColor=body;
 }
