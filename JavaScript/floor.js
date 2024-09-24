@@ -472,11 +472,38 @@ class Floor
 		for(let i=0;i<wl;i++)
 		{
 			let r=this.#walls[i];
-			FloorShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
+			WallShape.addFromRectangle((r.x-50)*4,(r.y-50)*4,r.w*4,r.h*4);
 		}
 	}
 	createWalls(rect)
 	{
-		let s=rect.x
+		let w=rect.w;
+		let s=rext.x;
+		let topY=rect.y+rect.h;
+		let top=[]
+		let l=this.#rooms.length;
+		let hl=this.#halls.length;
+		for(int i1=0;i1<w;i1++)
+		{
+			let use=true
+			for(int it=0;i2<l;i2++)
+			{
+				if(this.#rooms[i2].contains(s+i1+0.5,topY+0.5))
+				{
+					use=false;
+				}
+			}
+			if(use
+			{
+				for(int it=0;i2<hl;i2++)
+				{
+					if(this.#halls[i2].contains(s+i1+0.5,topY+0.5))
+					{
+						use=false;
+					}
+				}
+			}
+			top.push(use)
+		}
 	}
 }
