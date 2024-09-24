@@ -3,6 +3,8 @@ class Renderer
 	gl;
 	canvas;
 	floor;
+	frameids=[0,0,0,0,0];
+	frameids=[false,false,false,false,false];
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -76,7 +78,7 @@ class Renderer
 		OverhangShape.prep();
 		requestAnimationFrame(this.draw);
 	}
-	draw()
+	draw(t)
 	{
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
@@ -86,4 +88,6 @@ class Renderer
 		OverhangShape.draw();
 		requestAnimationFrame(this.draw);
 	}
+	draw
+	//ms', 'moz', 'webkit', 'o
 }
