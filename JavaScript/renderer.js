@@ -51,7 +51,7 @@ class Renderer
 			this.canvas.height=displayHeight;
 		}
 		this.gl.enable(this.gl.CULL_FACE);
-		this.gl.enable(this.gl.DEPTH_TEST);
+		//this.gl.enable(this.gl.DEPTH_TEST);
 		this.gl.enable(this.gl.BLEND);
 		this.gl.blendFunc(this.gl.SRC_ALPHA,this.gl.ONE_MINUS_SRC_ALPHA);
 		this.gl.viewport(0,0,this.gl.canvas.width,this.gl.canvas.height);
@@ -75,7 +75,7 @@ class Renderer
 	draw()
 	{
 		this.gl.clearColor(1,0,1,1);
-		this.gl.clear(this.gl.COLOR_BUFFER_BIT|this.gl.DEPTH_BUFFER_BIT);
+		this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
 		FloorShape.draw();
 		//WallShape.draw();
 		OverhangShape.draw();
