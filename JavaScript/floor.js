@@ -483,10 +483,10 @@ class Floor
 		let top=[]
 		let l=this.#rooms.length;
 		let hl=this.#halls.length;
-		for(int i1=0;i1<w;i1++)
+		for(let i1=0;i1<w;i1++)
 		{
 			let use=true
-			for(int it=0;i2<l;i2++)
+			for(let it=0;i2<l;i2++)
 			{
 				if(this.#rooms[i2].contains(s+i1+0.5,topY+0.5))
 				{
@@ -496,7 +496,7 @@ class Floor
 			}
 			if(use)
 			{
-				for(int it=0;i2<hl;i2++)
+				for(let it=0;i2<hl;i2++)
 				{
 					if(this.#halls[i2].contains(s+i1+0.5,topY+0.5))
 					{
@@ -509,7 +509,7 @@ class Floor
 		}
 		let in=top[0];
 		let start=0;
-		for(int i=1;i<w;i++)
+		for(let i=1;i<w;i++)
 		{
 			if(in)
 			{
