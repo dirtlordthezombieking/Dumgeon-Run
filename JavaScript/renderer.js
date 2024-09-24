@@ -3,8 +3,7 @@ class Renderer
 	gl;
 	canvas;
 	floor;
-	frameids=[0,0,0,0,0];
-	frameids=[false,false,false,false,false];
+	frameTime;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -76,9 +75,10 @@ class Renderer
 		Player.prep()
 		OverhangShape.update();
 		OverhangShape.prep();
-		requestAnimationFrame(this.draw);
+		this.frameTime=Date.now();
+		setTimeout(this.draw,0);
 	}
-	draw(t)
+	draw()
 	{
 		this.gl.clearColor(0,0,0,1);
 		this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
@@ -86,8 +86,12 @@ class Renderer
 		WallShape.draw();
 		Player.draw();
 		OverhangShape.draw();
-		requestAnimationFrame(this.draw);
+		setTimeout(this.draw);
+		let time=Date.now()-this.frameTime;
+		if(time>33)
+		{
+			time=33;
+		}
+		setTimeout(this.draw,33-time);
 	}
-	//draw
-	//ms', 'moz', 'webkit', 'o
 }
