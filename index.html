@@ -20,7 +20,7 @@
 			<canvas id="canvas" width="640" height="480"></canvas>
 			<br/>
 			<br/>
-			<button onclick="doTheThing()" class="textscale">start</button>
+			<button id="btn" onclick="doTheThing()" class="textscale">Start</button>
 			<br/>
 			<br/>
 			<p id="log" class="textscale">Output log...</p>
@@ -38,14 +38,28 @@
 		<script src="JavaScript/one-d-line.js"></script>
 		<script src="JavaScript/player.js"></script>
 		<script>
-			Utils.logMessage("log works");
+			Utils.logMessage("page loaded");
+			let r;
+			let started=false;
+			let starting=false;
 			function doTheThing()
 			{
+				if(started)
+				{
+					r.fullscreen();
+				}
+				if(starting)
+				{
+					return;
+				}
+				starting=true;
 				try
 				{
 					let c=document.querySelector("#canvas");
-					let r=new Renderer(c);
+					r=new Renderer(c);
 					r.loadAssets();
+					started=true;
+					document.findElementById("btn").innerHTML="Fullscreen";
 				}
 				catch(e)
 				{

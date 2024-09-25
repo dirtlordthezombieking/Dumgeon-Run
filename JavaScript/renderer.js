@@ -80,7 +80,11 @@ class Renderer
 		//Utils.logMessage("time: "+this.frameTime);
 		let tis=this;
 		requestAnimationFrame(function(ts){tis.draw(ts);});//,0);
-		this.canvas.requestFullscreen()
+		this.canvas.requestFullscreen();
+	}
+	fullscreen()
+	{
+		this.canvas.requestFullscreen();
 	}
 	draw(t)
 	{
