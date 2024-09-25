@@ -416,12 +416,14 @@ class Floor
 		{
 			let r=this.#rooms[i];
 			FloorShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
+			BorderShape.addFromRectangle((r.x*64)-16,(r.y*64)-16,(r.w*64)+32,(r.h*64)+96);
 		}
 		let hl=this.#halls.length;
 		for(let i=0;i<hl;i++)
 		{
 			let r=this.#halls[i];
 			FloorShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
+			BorderShape.addFromRectangle((r.x*64)-16,(r.y*64)-16,(r.w*64)+32,(r.h*64)+96);
 		}
 		let wl=this.#walls.length;
 		for(let i=0;i<wl;i++)
