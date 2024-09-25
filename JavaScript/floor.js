@@ -415,27 +415,27 @@ class Floor
 		for(let i=0;i<l;i++)
 		{
 			let r=this.#rooms[i];
-			FloorShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
-			BorderShape.addFromRectangle((r.x*64)-16,(r.y*64)-16,(r.w*64)+32,(r.h*64)+96);
+			FloorShape.addFromRectangle(r.x,r.y,r.w,r.h);
+			BorderShape.addFromRectangle(r.x-0.25,r.y-0.25,r.w+0.5,r.h+0.75);
 		}
 		let hl=this.#halls.length;
 		for(let i=0;i<hl;i++)
 		{
 			let r=this.#halls[i];
-			FloorShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
-			BorderShape.addFromRectangle((r.x*64)-16,(r.y*64)-16,(r.w*64)+32,(r.h*64)+96);
+			FloorShape.addFromRectangle(r.x,r.y,r.w,r.h);
+			BorderShape.addFromRectangle(r.x-0.25,r.y-0.25,r.w+0.5,r.h+0.75);
 		}
 		let wl=this.#walls.length;
 		for(let i=0;i<wl;i++)
 		{
 			let r=this.#walls[i];
-			WallShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
+			WallShape.addFromRectangle(r.x,r.y,r.w,r.h);
 		}
 		let ol=this.#overhangs.length;
 		for(let i=0;i<ol;i++)
 		{
 			let r=this.#overhangs[i];
-			OverhangShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
+			OverhangShape.addFromRectangle(r.x,r.y,r.w,r.h);
 		}
 	}
 	createWalls(rect)
@@ -592,7 +592,7 @@ class Floor
 			}
 			let x=sel.x+Math.floor(Math.random()*sel.w)+0.5;
 			let y=sel.y+Math.floor(Math.random()*sel.h)+0.5;
-			this.pos=[x*64,y*64];
+			this.pos=[x,y];
 		}
 		return this.pos;
 	}
