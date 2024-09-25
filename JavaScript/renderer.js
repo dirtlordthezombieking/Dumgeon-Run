@@ -4,7 +4,7 @@ class Renderer
 	canvas;
 	floor;
 	frameTime;
-	this.errframes=0;
+	errframes=0;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
