@@ -71,7 +71,7 @@ class Renderer
 		this.frameTime=performance.now();
 		//Utils.logMessage("time: "+this.frameTime);
 		this.pos=this.floor.getPos();
-		Utils.logMessage("inpos: "+this.pos[0]+", "+this.pos[1]);
+		//Utils.logMessage("inpos: "+this.pos[0]+", "+this.pos[1]);
 		let tis=this;
 		requestAnimationFrame(function(ts){tis.draw(ts);});
 		this.canvas.requestFullscreen();
@@ -84,7 +84,7 @@ class Renderer
 	{
 		let d=t-this.frameTime;
 		this.frameTime=performance.now();
-		Utils.logMessage("drawpos: "+this.pos[0]+", "+this.pos[1]);
+		//Utils.logMessage("drawpos: "+this.pos[0]+", "+this.pos[1]);
 		try
 		{
 			this.gl.clearColor(0,0,0,1);
@@ -111,7 +111,7 @@ class Renderer
 			else
 			{
 				let tis=this;
-				//requestAnimationFrame(function(ts){tis.draw(ts);});
+				requestAnimationFrame(function(ts){tis.draw(ts);});
 			}
 		}
 		catch(e)
