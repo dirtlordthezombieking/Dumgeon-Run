@@ -6,7 +6,9 @@ class Renderer
 	frameTime;
 	errframes=0;
 	pos;
+	action=-1;
 	off=[0,0]
+	actTime=0;
 	arrowsPressed=[false,false,false,false,false,false,false,false];
 	keyOrder=[0,1,2,3,4,5,6,7];
 	keyTracker=[0,1,2,3,4,5,6,7]
@@ -101,9 +103,20 @@ class Renderer
 		this.frameTime=performance.now();
 		try
 		{
+			if(this.actTime>0)
+			{
+				this.actTime-=d;
+				this.act(d)
+			}
+			else
+			{
+				this.startAct()
+				this.actTime=0;
+			}
+			let playPos=[this.pos[0]+
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-			Back.draw(d,this.pos);
+			Back.draw(d,);
 			BorderShape.draw(d,this.pos);
 			FloorShape.draw(d,this.pos);
 			WallShape.draw(d,this.pos);
@@ -134,7 +147,7 @@ class Renderer
 			Utils.logMessage("error:\n"+e.message);
 		}
 	}
-	keyDown(e)
+	keyUp(e)
 	{
 		switch(e.code)
 		{
@@ -172,7 +185,7 @@ class Renderer
 				break;
 		
 	}
-	keyUp(e)
+	keyDown(e)
 	{
 		switch(e.code)
 		{
