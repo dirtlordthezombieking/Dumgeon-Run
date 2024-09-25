@@ -46,7 +46,7 @@ class Player
 	}
 	static draw()
 	{
-		//Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0])
+		Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0])
 		Player.#gl.useProgram(Player.#shader);
 		Player.#aPos.use();
 		Player.#uEye.use();
