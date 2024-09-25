@@ -95,8 +95,8 @@ class WallShape
 		{
 			return;
 		}
-		WallShape.#uPos.set(off);
 		WallShape.#gl.useProgram(WallShape.#shader);
+		WallShape.#uPos.set(off);
 		WallShape.#uTexture.use();
 		WallShape.#aPos.use();
 		WallShape.#uPos.use();
