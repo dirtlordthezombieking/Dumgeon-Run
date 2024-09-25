@@ -95,9 +95,9 @@ class FloorShape
 		{
 			return;
 		}
-		Utils.logMessage("offpos: "+off[0]+", "+off[1]);
-		FloorShape.#uPos.set(off);
+		//Utils.logMessage("offpos: "+off[0]+", "+off[1]);
 		FloorShape.#gl.useProgram(FloorShape.#shader);
+		FloorShape.#uPos.set(off);
 		FloorShape.#uTexture.use();
 		FloorShape.#aPos.use();
 		FloorShape.#uPos.use();
