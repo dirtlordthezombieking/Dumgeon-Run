@@ -80,6 +80,7 @@ class Renderer
 		this.frameTime=performance.now();
 		//Utils.logMessage("time: "+this.frameTime);
 		this.pos=this.floor.getPos();
+		Utils.logMessage("pos: "+this.pos[0]+", "+this.pos[1]);
 		let tis=this;
 		requestAnimationFrame(function(ts){tis.draw(ts);});//,0);
 		this.canvas.requestFullscreen();
