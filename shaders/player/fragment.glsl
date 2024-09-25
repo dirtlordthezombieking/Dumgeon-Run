@@ -11,7 +11,7 @@ void main()
 	float wave1=cos(flat1);
 	float pre1=sign(wave1);
 	float bodymult=floor((pre1+1.0)/2.0);
-	float bodysmooth=(0.25.wave1*bodymult)+0.75;
+	float bodysmooth=(0.25*wave1*bodymult)+0.75;
 	vec4 body=vec4(0.05,0.2,0.8,1.0)*bodymult*bodysmooth;
 
 	vec2 theta=vec2(sin(u_eye.x),cos(u_eye.x));
@@ -22,7 +22,7 @@ void main()
 	float wave2=cos(flat2);
 	float pre2=sign(wave2);
 	float preeyemult=floor((pre2+1.0)/2.0);
-	float eyesmooth=(0.25.wave2*preeyemult)+0.75;
+	float eyesmooth=(0.25*wave2*preeyemult)+0.75;
 
 	float rad3=distance(pix,theta*u_eye.z);
 	float clip3=pi*min(rad3,4.5);
