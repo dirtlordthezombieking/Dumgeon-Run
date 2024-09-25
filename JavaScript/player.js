@@ -5,7 +5,7 @@ class Player
 	static #uEye;
 	static #gl;
 	static #indexB;
-	static #angle;
+	static #angle=0;
 	static setup(gl,onDone)
 	{
 		try
@@ -42,11 +42,11 @@ class Player
 				 32, 32
 			]
 		),Player.#gl);
-		Player.#uEye=new Uniform(3,Player.#shader,"u_eye",[0.0,8.0,12.0],Player.#gl);
+		Player.#uEye=new Uniform(3,Player.#shader,"u_eye",[Math.PI,8.0,12.0],Player.#gl);
 	}
 	static draw()
 	{
-		Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0])
+		//Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0])
 		Player.#gl.useProgram(Player.#shader);
 		Player.#aPos.use();
 		Player.#uEye.use();
