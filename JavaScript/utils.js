@@ -30,8 +30,9 @@ class Utils
 		{
 			return program;
 		}
+		let s=gl.getProgramInfoLog(program);
 		gl.deleteProgram(program);
-		throw new Error("shader '"+name+"' failed to compile:\n"+gl.getProgramInfoLog(program));
+		throw new Error("shader '"+name+"' failed to compile:\n"+s);
 	}
 	static loadImage(src,onDone)
 	{
