@@ -96,8 +96,8 @@ class Renderer
 		{
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-			BorderShape.draw(d,this.pos);
 			Back.draw(d,this.pos);
+			BorderShape.draw(d,this.pos);
 			FloorShape.draw(d,this.pos);
 			WallShape.draw(d,this.pos);
 			Player.draw(d);
