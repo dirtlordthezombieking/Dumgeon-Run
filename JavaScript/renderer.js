@@ -79,7 +79,7 @@ class Renderer
 		OverhangShape.prep();
 		this.frameTime=performance.now();
 		//Utils.logMessage("time: "+this.frameTime);
-		this.pos=this.floor.getPos;
+		this.pos=this.floor.getPos();
 		let tis=this;
 		requestAnimationFrame(function(ts){tis.draw(ts);});//,0);
 		this.canvas.requestFullscreen();
