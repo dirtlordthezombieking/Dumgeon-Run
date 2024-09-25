@@ -5,7 +5,7 @@ class Player
 	static #uEye;
 	static #gl;
 	static #indexB;
-	static #angle=0;
+	static angle=0;
 	static setup(gl,onDone)
 	{
 		try
@@ -47,10 +47,10 @@ class Player
 	static draw(t)
 	{
 		Player.#gl.useProgram(Player.#shader);
-		Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0]);
+		Player.#uEye.set([Player.angle*Math.PI/180,8.0,12.0]);
 		Player.#aPos.use();
 		Player.#uEye.use();
-		Player.#angle+=t*0.03;
+		//Player.angle+=t*0.03;
 		Player.#gl.bindBuffer(Player.#gl.ELEMENT_ARRAY_BUFFER,Player.#indexB);
 		Player.#gl.drawElements(Player.#gl.TRIANGLES,6,Player.#gl.UNSIGNED_SHORT,0);
 	}
