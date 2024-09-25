@@ -87,7 +87,7 @@ class BorderShape
 		{
 			return;
 		}
-		BorderShape.#gl.useProgram(OverhangShape.#shader);
+		BorderShape.#gl.useProgram(BorderShape.#shader);
 		BorderShape.#uPos.set(off);
 		BorderShape.#aPos.use();
 		BorderShape.#uPos.use();
