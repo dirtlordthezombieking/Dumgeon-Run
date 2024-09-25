@@ -2,9 +2,10 @@ precision mediump float;
 varying vec2 v_texCoord;
 void main()
 {
-	float val1=v_texCoord.x+v_texCoord.y;
-	float val2=sqrt((v_texCoord.x*v_texCoord.x)+(v_texCoord.y*v_texCoord.y));
-	float xy=v_texCoord.x*v_texCoord.y;
+	vec2 pix=floor(v_texCoord)
+	float val1=pix.x+pix.y;
+	float val2=sqrt((pix.x*pix.x)+(pix.y*pix.y));
+	float xy=pix.x*pix.y;
 	float val3=sqrt((xy+xy)*sign(xy));
 	float red=((sin(val3)+cos(val1))*0.1)+0.1;
 	float green=((sin(val2)+cos(val3))*0.15)+0.15;
