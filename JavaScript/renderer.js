@@ -83,6 +83,7 @@ class Renderer
 		let tis=this;
 		requestAnimationFrame(function(ts){tis.draw(ts);});
 		this.canvas.requestFullscreen();
+		document.onkeypress=this.control;
 	}
 	fullscreen()
 	{
@@ -126,5 +127,8 @@ class Renderer
 			this.errframes++;
 			Utils.logMessage("error:\n"+e.message);
 		}
+	}
+	control(e)
+	{
 	}
 }
