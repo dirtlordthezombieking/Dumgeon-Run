@@ -51,7 +51,8 @@ class Utils
 	}
 	static async getTextData(src,onDone)
 	{
-		const url="https://raw.githubusercontent.com/dirtlordthezombieking/Dumgeon-Run/main/"+src;
+		const url=//"https://raw.githubusercontent.com/dirtlordthezombieking/Dumgeon-Run/main
+		"/"+src;
 		try
 		{
 			const response=await fetch(url);
