@@ -90,7 +90,6 @@ class Renderer
 			WallShape.draw();
 			Player.draw();
 			OverhangShape.draw();
-			setTimeout(this.draw);
 			let time=Date.now()-this.frameTime;
 			this.errframes=0
 		}
