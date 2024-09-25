@@ -3,7 +3,7 @@ uniform vec3 u_pos;
 varying vec2 v_texCoord;
 void main()
 {
-	vec2 pix=floor(v_texCoord)+((u_pos.x+u_pos.y)*0.0);
+	vec2 pix=floor(v_texCoord);
 	float val1=pix.x+pix.y+u_pos.z;
 	float val2=sqrt((pix.x*pix.x)+(pix.y*pix.y))+u_pos.z;
 	float xy=pix.x*pix.y;
