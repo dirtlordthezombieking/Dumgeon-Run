@@ -95,7 +95,6 @@ class FloorShape
 		{
 			return;
 		}
-		//Utils.logMessage("offpos: "+off[0]+", "+off[1]);
 		FloorShape.#gl.useProgram(FloorShape.#shader);
 		FloorShape.#uPos.set(off);
 		FloorShape.#uTexture.use();
@@ -105,5 +104,3 @@ class FloorShape
 		FloorShape.#gl.drawElements(FloorShape.#gl.TRIANGLES,FloorShape.#size,FloorShape.#gl.UNSIGNED_SHORT,0);
 	}
 }
-//FloorShape.gl.
-//FloorShape.#
