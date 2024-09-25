@@ -57,7 +57,6 @@ class Floor
 						{
 							if(this.#rooms[i1].overlapsX(this.#rooms[i2]))
 							{
-								//Utils.logMessage("room x checked\n");
 								let over=this.#rooms[i1].getOverlapX(this.#rooms[i2]);
 								if((over.e-over.s)>=3)
 								{
@@ -99,19 +98,6 @@ class Floor
 										this.#halls.push(r);
 										this.#connected[i1]=true;
 										con++;
-										//Utils.logMessage("room x: "+i1+"\ni1: "+
-										//this.#rooms[i1].x+", "+
-										//this.#rooms[i1].y+", "+
-										//this.#rooms[i1].w+", "+
-										//this.#rooms[i1].h+"\ni2: "+
-										//this.#rooms[i2].x+", "+
-										//this.#rooms[i2].y+", "+
-										//this.#rooms[i2].w+", "+
-										//this.#rooms[i2].h+"\nr: "+
-										//r.x+", "+
-										//r.y+", "+
-										//r.w+", "+
-										//r.h+"\n");
 										i1=0;
 										break;
 									}
@@ -160,19 +146,6 @@ class Floor
 										this.#halls.push(r);
 										this.#connected[i1]=true;
 										con++;
-										//Utils.logMessage("room y: "+i1+"\ni1: "+
-										//this.#rooms[i1].x+", "+
-										//this.#rooms[i1].y+", "+
-										//this.#rooms[i1].w+", "+
-										//this.#rooms[i1].h+"\ni2: "+
-										//this.#rooms[i2].x+", "+
-										//this.#rooms[i2].y+", "+
-										//this.#rooms[i2].w+", "+
-										//this.#rooms[i2].h+"\nr: "+
-										//r.x+", "+
-										//r.y+", "+
-										//r.w+", "+
-										//r.h+"\n");
 										i1=0;
 										break;
 									}
@@ -234,19 +207,6 @@ class Floor
 									this.#halls.push(r);
 									this.#connected[i1]=true;
 									con++;
-									//Utils.logMessage("hall x: "+i1+"\ni1: "+
-									//this.#rooms[i1].x+", "+
-									//this.#rooms[i1].y+", "+
-									//this.#rooms[i1].w+", "+
-									//this.#rooms[i1].h+"\ni2: "+
-									//this.#halls[i2].x+", "+
-									//this.#halls[i2].y+", "+
-									//this.#halls[i2].w+", "+
-									//this.#halls[i2].h+"\nr: "+
-									//r.x+", "+
-									//r.y+", "+
-									//r.w+", "+
-									//r.h+"\n");
 									i1=0;
 									break;
 								}
@@ -298,19 +258,6 @@ class Floor
 									this.#halls.push(r);
 									this.#connected[i1]=true;
 									con++;
-									//Utils.logMessage("hall y: "+i1+"\ni1: "+
-									//this.#rooms[i1].x+", "+
-									//this.#rooms[i1].y+", "+
-									//this.#rooms[i1].w+", "+
-									//this.#rooms[i1].h+"\ni2: "+
-									//this.#halls[i2].x+", "+
-									//this.#halls[i2].y+", "+
-									//this.#halls[i2].w+", "+
-									//this.#halls[i2].h+"\nr: "+
-									//r.x+", "+
-									//r.y+", "+
-									//r.w+", "+
-									//r.h+"\n");
 									i1=0;
 									break;
 								}
@@ -445,7 +392,6 @@ class Floor
 				}
 			}
 		}
-		//Utils.logMessage(""+l+", "+con+", "+lop);
 		for(let i=0;i<l;i++)
 		{
 			this.createWalls(this.#rooms[i]);
@@ -639,7 +585,6 @@ class Floor
 			}
 			let x=sel.x+Math.floor(Math.random()*sel.w)+0.5;
 			let y=sel.y+Math.floor(Math.random()*sel.h)+0.5;
-			//Utils.logMessage("sel: "+sel.x+", "+sel.y+", "+sel.w+", "+sel.h);
 			this.pos=[x*64,y*64];
 		}
 		return this.pos;

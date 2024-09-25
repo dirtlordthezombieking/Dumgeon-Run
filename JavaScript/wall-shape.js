@@ -104,5 +104,3 @@ class WallShape
 		WallShape.#gl.drawElements(WallShape.#gl.TRIANGLES,WallShape.#size,WallShape.#gl.UNSIGNED_SHORT,0);
 	}
 }
-//FloorShape.gl.
-//FloorShape.#

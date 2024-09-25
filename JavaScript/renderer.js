@@ -33,10 +33,13 @@ class Renderer
 					{
 						Player.setup(hold.gl,function()
 						{
-							FloorShape.reset();
-							WallShape.reset();
-							OverhangShape.reset();
-							hold.init();
+							Back.setup(hold.gl,function()
+							{
+								FloorShape.reset();
+								WallShape.reset();
+								OverhangShape.reset();
+								hold.init();
+							});
 						});
 					});
 				});
@@ -65,13 +68,12 @@ class Renderer
 		FloorShape.prep();
 		WallShape.update();
 		WallShape.prep();
-		Player.prep()
+		Player.prep();
+		Back.prep();
 		OverhangShape.update();
 		OverhangShape.prep();
 		this.frameTime=performance.now();
-		//Utils.logMessage("time: "+this.frameTime);
 		this.pos=this.floor.getPos();
-		//Utils.logMessage("inpos: "+this.pos[0]+", "+this.pos[1]);
 		let tis=this;
 		requestAnimationFrame(function(ts){tis.draw(ts);});
 		this.canvas.requestFullscreen();
@@ -84,11 +86,11 @@ class Renderer
 	{
 		let d=t-this.frameTime;
 		this.frameTime=performance.now();
-		//Utils.logMessage("drawpos: "+this.pos[0]+", "+this.pos[1]);
 		try
 		{
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
+			Back.draw(d,this.pos);
 			FloorShape.draw(d,this.pos);
 			WallShape.draw(d,this.pos);
 			Player.draw(d);
@@ -102,8 +104,6 @@ class Renderer
 		}
 		try
 		{
-			//this.gl.flush();
-			//this.gl.bindVertexArray(null);
 			if(this.errframes>30)
 			{
 				Utils.logMessage("Too many consecutive draw errors, stopping render loop.");

@@ -46,8 +46,8 @@ class Player
 	}
 	static draw(t)
 	{
-		Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0])
 		Player.#gl.useProgram(Player.#shader);
+		Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0]);
 		Player.#aPos.use();
 		Player.#uEye.use();
 		Player.#angle+=t*0.03;
@@ -55,11 +55,3 @@ class Player
 		Player.#gl.drawElements(Player.#gl.TRIANGLES,6,Player.#gl.UNSIGNED_SHORT,0);
 	}
 }
-//ss,es,se,ee
-//0,1,2,2,1,3
-
-//sin=o/h
-//sin*h=o
-//cos*h=a
-//x=a
-//y=o
