@@ -5,6 +5,7 @@ class Renderer
 	floor;
 	frameTime;
 	errframes=0;
+	pos;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -78,6 +79,7 @@ class Renderer
 		OverhangShape.prep();
 		this.frameTime=performance.now();
 		//Utils.logMessage("time: "+this.frameTime);
+		this.pos=this.floor.getPos;
 		let tis=this;
 		requestAnimationFrame(function(ts){tis.draw(ts);});//,0);
 		this.canvas.requestFullscreen();
@@ -96,10 +98,10 @@ class Renderer
 		{
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
-			FloorShape.draw(d);
-			WallShape.draw(d);
+			FloorShape.draw(d,this.pos);
+			WallShape.draw(d,this.pos);
 			Player.draw(d);
-			OverhangShape.draw(d);
+			OverhangShape.draw(d,this.pos);
 			//let time=Date.now()-this.frameTime;
 			this.errframes=0
 		}
