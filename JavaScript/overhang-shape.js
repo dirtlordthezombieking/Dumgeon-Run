@@ -81,12 +81,13 @@ class OverhangShape
 		OverhangShape.#aPos=new Attribute(2,OverhangShape.#shader,"a_pos",new Float32Array(OverhangShape.#vertsP),OverhangShape.#gl);
 		OverhangShape.#uPos=new Uniform(2,OverhangShape.#shader,"u_pos",[0.0,0.0],OverhangShape.#gl);
 	}
-	static draw(t)
+	static draw(t,off)
 	{
 		if(OverhangShape.#size===0)
 		{
 			return;
 		}
+		OverhangShape.#uPos.set(off);
 		OverhangShape.#gl.useProgram(OverhangShape.#shader);
 		OverhangShape.#aPos.use();
 		OverhangShape.#uPos.use();
