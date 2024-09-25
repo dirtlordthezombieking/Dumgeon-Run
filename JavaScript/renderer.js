@@ -6,8 +6,9 @@ class Renderer
 	frameTime;
 	errframes=0;
 	pos;
-	arrowsPressed=[false,false,false,false];
-	keyOrder=[0,1,2,3]
+	arrowsPressed=[false,false,false,false,false,false,false,false];
+	keyOrder=[0,1,2,3,4,5,6,7];
+	keyTracker=[0,1,2,3,4,5,6,7]
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -137,10 +138,49 @@ class Renderer
 	}
 	keyUp(e)
 	{
-		
+		switch(e.code)
+		{
+			case "KeyW":
+			case "ArrowUp":
+			case "KeyS":
+			case "ArrowDown":
+			case "KeyA":
+			case "ArrowLeft":
+			case "KeyD":
+			case "ArrowRight":
+		}
 	}
 	moveToBack(key)
 	{
-		
+		let v=this.keyOrder[key];
+		for(let i=0;i<8;i++)
+		{
+			if(this.keyOrder[i]>v)
+			{
+				this.keyOrder[i]--;
+			}
+		}
+		this.keyOrder[key]=7;
+		reorderKeys();
+	}
+	moveToFront(key)
+	{
+		let v=this.keyOrder[key];
+		for(let i=0;i<8;i++)
+		{
+			if(this.keyOrder[i]<v)
+			{
+				this.keyOrder[i]++;
+			}
+		}
+		this.keyOrder[key]=0;
+		reorderKeys();
+	}
+	reorderKeys()
+	{
+		for(let i=0;i<8;i++)
+		{
+			this.keyTracker[this.keyOrder[i]]=i
+		}
 	}
 }
