@@ -118,7 +118,7 @@ class Renderer
 			else
 			{
 				let tis=this;
-				//requestAnimationFrame(function(ts){tis.draw(ts);});
+				requestAnimationFrame(function(ts){tis.draw(ts);});
 			}
 		}
 		catch(e)
