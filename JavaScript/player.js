@@ -46,8 +46,8 @@ class Player
 	}
 	static draw(t)
 	{
-		Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0])
 		Player.#gl.useProgram(Player.#shader);
+		Player.#uEye.set([Player.#angle*Math.PI/180,8.0,12.0]);
 		Player.#aPos.use();
 		Player.#uEye.use();
 		Player.#angle+=t*0.03;
