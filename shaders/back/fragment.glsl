@@ -2,7 +2,7 @@ precision mediump float;
 varying vec2 v_texCoord;
 void main()
 {
-	vec2 pix=floor(v_texCoord)
+	vec2 pix=floor(v_texCoord);
 	float val1=pix.x+pix.y;
 	float val2=sqrt((pix.x*pix.x)+(pix.y*pix.y));
 	float xy=pix.x*pix.y;
