@@ -76,20 +76,22 @@ class Renderer
 		Player.prep()
 		OverhangShape.update();
 		OverhangShape.prep();
-		this.frameTime=Date.now();
+		this.frameTime=performance.now();
 		let tis=this;
 		requestAnimationFrame(function(){tis.draw();});//,0);
 	}
 	draw(t)
 	{
+		let d=t-this.frameTime;
+		this.frameTime=performance.now();
 		try
 		{
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
-			FloorShape.draw();
-			WallShape.draw();
-			Player.draw();
-			OverhangShape.draw();
+			FloorShape.draw(d);
+			WallShape.draw(d);
+			Player.draw(d);
+			OverhangShape.draw(d);
 			//let time=Date.now()-this.frameTime;
 			this.errframes=0
 		}
