@@ -464,25 +464,25 @@ class Floor
 		for(let i=0;i<l;i++)
 		{
 			let r=this.#rooms[i];
-			FloorShape.addFromRectangle((r.x-50)*64,(r.y-50)*64,r.w*64,r.h*64);
+			FloorShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
 		}
 		let hl=this.#halls.length;
 		for(let i=0;i<hl;i++)
 		{
 			let r=this.#halls[i];
-			FloorShape.addFromRectangle((r.x-50)*64,(r.y-50)*64,r.w*64,r.h*64);
+			FloorShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
 		}
 		let wl=this.#walls.length;
 		for(let i=0;i<wl;i++)
 		{
 			let r=this.#walls[i];
-			WallShape.addFromRectangle((r.x-50)*64,(r.y-50)*64,r.w*64,r.h*64);
+			WallShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
 		}
 		let ol=this.#overhangs.length;
 		for(let i=0;i<ol;i++)
 		{
 			let r=this.#overhangs[i];
-			OverhangShape.addFromRectangle((r.x-50)*64,(r.y-50)*64,r.w*64,r.h*64);
+			OverhangShape.addFromRectangle(r.x*64,r.y*64,r.w*64,r.h*64);
 		}
 	}
 	createWalls(rect)
@@ -637,8 +637,8 @@ class Floor
 			{
 				sel=this.#halls[Math.floor(Math.random()*this.#halls.length)];
 			}
-			let x=sel.x+Math.floor(Math.random()*sel.w)-49.5;
-			let y=sel.y+Math.floor(Math.random()*sel.h)-49.5;
+			let x=sel.x+Math.floor(Math.random()*sel.w)+0.5;
+			let y=sel.y+Math.floor(Math.random()*sel.h)+0.5;
 			//Utils.logMessage("sel: "+sel.x+", "+sel.y+", "+sel.w+", "+sel.h);
 			this.pos=[x*64,y*64];
 		}
