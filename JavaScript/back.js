@@ -48,7 +48,7 @@ class Back
 	static draw(t,off)
 	{
 		Back.#gl.useProgram(Back.#shader);
-		Back.#uPos.set([off[0],off[1],Back.#time);
+		Back.#uPos.set([off[0],off[1],Back.#time]);
 		Back.#aPos.use();
 		Back.#uPos.use();
 		Back.#time+=t;
