@@ -77,16 +77,16 @@ class Renderer
 		OverhangShape.update();
 		OverhangShape.prep();
 		this.frameTime=performance.now();
-		Utils.logMessage("time: "+this.frameTime);
+		//Utils.logMessage("time: "+this.frameTime);
 		let tis=this;
-		requestAnimationFrame(function(){tis.draw();});//,0);
+		requestAnimationFrame(function(ts){tis.draw(ts);});//,0);
 	}
 	draw(t)
 	{
-		Utils.logMessage("t: "+t);
+		//Utils.logMessage("t: "+t);
 		let d=t-this.frameTime;
 		this.frameTime=performance.now();
-		Utils.logMessage("t: "+t+", time: "+this.frameTime);
+		/)Utils.logMessage("t: "+t+", time: "+this.frameTime);
 		try
 		{
 			this.gl.clearColor(0,0,0,1);
@@ -118,7 +118,7 @@ class Renderer
 					//time=33;
 				//}
 				let tis=this;
-				//requestAnimationFrame(function(){tis.draw();});//,33-time);
+				requestAnimationFrame(function(ts){tis.draw(ts);});//,33-time);
 			}
 		}
 		catch(e)
