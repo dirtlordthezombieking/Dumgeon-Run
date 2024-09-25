@@ -8,6 +8,7 @@ class BorderShape
 	static #gl;
 	static #shader;
 	static #aPos;
+	static #uPos
 	#x;
 	#y;
 	#w;
@@ -78,6 +79,7 @@ class BorderShape
 		BorderShape.#gl.bindBuffer(BorderShape.#gl.ELEMENT_ARRAY_BUFFER,BorderShape.#indexB);
 		BorderShape.#gl.bufferData(BorderShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(BorderShape.#indexP),BorderShape.#gl.STATIC_DRAW);
 		BorderShape.#aPos=new Attribute(2,BorderShape.#shader,"a_pos",new Float32Array(BorderShape.#vertsP),BorderShape.#gl);
+		BorderShape.#uPos=new Uniform(2,WallShape.#shader,"u_pos",[0.0,0.0],WallShape.#gl);
 	}
 	static draw(t,off)
 	{
@@ -86,7 +88,9 @@ class BorderShape
 			return;
 		}
 		BorderShape.#gl.useProgram(OverhangShape.#shader);
+		BorderShape.#uPos.set(off);
 		BorderShape.#aPos.use();
+		BorderShape.#uPos.use();
 		BorderShape.#gl.bindBuffer(BorderShape.#gl.ELEMENT_ARRAY_BUFFER,BorderShape.#indexB);
 		BorderShape.#gl.drawElements(BorderShape.#gl.TRIANGLES,BorderShape.#size,BorderShape.#gl.UNSIGNED_SHORT,0);
 	}
