@@ -20,11 +20,15 @@ void main()
 	float fy=sin(1.2*ey);
 	float gy=cos(0.9*ey);
 	float hy=(0.05*fy*gy)+0.95;
-	float c=(hx+hy)/2.0;
+	float preRed=((hx*5.0)+hy)/6.0;
+	float preGreen=(hx+hy)/2.0;
+	float preBlue=(hx+(hy*5.0))/6.0;
 	float at=distance(vec2(ex,ey),vec2(0.0,0.0));
 	float bt=sin(1.4*at);
 	float ct=cos(0.7*at);
 	float dt=(0.05*bt*ct)+0.95;
-	float grime=((37.0*c)+(3.0*dt))/40.0;
-	gl_FragColor=texture2D(u_texture,texCoord)*grime;
+	float red=((35.0*preRed)+(5.0*dt))/40.0;
+	float green=((37.0*preGreen)+(3.0*dt))/40.0;
+	float blue=((39.0*preBlue)+(1.0*dt))/40.0;
+	gl_FragColor=texture2D(u_texture,texCoord)*vec4 (red,green,blue,1.0);
 }
