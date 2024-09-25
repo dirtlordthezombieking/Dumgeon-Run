@@ -100,8 +100,8 @@ class Renderer
 		}
 		try
 		{
-			//this.flush();
-			this.gl.bindVertexArray(null);
+			//this.gl.flush();
+			//this.gl.bindVertexArray(null);
 			if(this.errframes>30)
 			{
 				Utils.logMessage("Too many consecutive draw errors, stopping render loop.");
