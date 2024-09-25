@@ -6,9 +6,11 @@ class Renderer
 	frameTime;
 	errframes=0;
 	pos;
+	off=[0,0]
 	arrowsPressed=[false,false,false,false,false,false,false,false];
 	keyOrder=[0,1,2,3,4,5,6,7];
 	keyTracker=[0,1,2,3,4,5,6,7]
+	arrowAdd=[[0,1],[0,1],[0,-1],[0,-1],[-1,0],[-1,0],[1,0],[1,0]]
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -134,6 +136,40 @@ class Renderer
 	}
 	keyDown(e)
 	{
+		switch(e.code)
+		{
+			case "KeyW":
+				this.moveToBack(0);
+				this.arrowsPressed[0]=false;
+				break;
+			case "ArrowUp":
+				this.moveToBack(1);
+				this.arrowsPressed[1]=false;
+				break;
+			case "KeyS":
+				this.moveToBack(2);
+				this.arrowsPressed[2]=false;
+				break;
+			case "ArrowDown":
+				this.moveToBack(3);
+				this.arrowsPressed[3]=false;
+				break;
+			case "KeyA":
+				this.moveToBack(4);
+				this.arrowsPressed[4]=false;
+				break;
+			case "ArrowLeft":
+				this.moveToBack(5);
+				this.arrowsPressed[5]=false;
+				break;
+			case "KeyD":
+				this.moveToBack(6);
+				this.arrowsPressed[6]=false;
+				break;
+			case "ArrowRight":
+				this.moveToBack(7);
+				this.arrowsPressed[7]=false;
+				break;
 		
 	}
 	keyUp(e)
@@ -141,13 +177,37 @@ class Renderer
 		switch(e.code)
 		{
 			case "KeyW":
+				this.moveToFront(0);
+				this.arrowsPressed[0]=true;
+				break;
 			case "ArrowUp":
+				this.moveToFront(1);
+				this.arrowsPressed[1]=true;
+				break;
 			case "KeyS":
+				this.moveToFront(2);
+				this.arrowsPressed[2]=true;
+				break;
 			case "ArrowDown":
+				this.moveToFront(3);
+				this.arrowsPressed[3]=true;
+				break;
 			case "KeyA":
+				this.moveToFront(4);
+				this.arrowsPressed[4]=true;
+				break;
 			case "ArrowLeft":
+				this.moveToFront(5);
+				this.arrowsPressed[5]=true;
+				break;
 			case "KeyD":
+				this.moveToFront(6);
+				this.arrowsPressed[6]=true;
+				break;
 			case "ArrowRight":
+				this.moveToFront(7);
+				this.arrowsPressed[7]=true;
+				break;
 		}
 	}
 	moveToBack(key)
@@ -161,7 +221,7 @@ class Renderer
 			}
 		}
 		this.keyOrder[key]=7;
-		reorderKeys();
+		this.reorderKeys();
 	}
 	moveToFront(key)
 	{
@@ -174,7 +234,7 @@ class Renderer
 			}
 		}
 		this.keyOrder[key]=0;
-		reorderKeys();
+		this.reorderKeys();
 	}
 	reorderKeys()
 	{
