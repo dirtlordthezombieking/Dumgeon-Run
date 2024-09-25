@@ -115,11 +115,11 @@ class Renderer
 				let tis=this;
 				requestAnimationFrame(function(){tis.draw();});//,33-time);
 			}
-			catch(e)
-			{
-				this.errframes++;
-				Utils.logMessage("error:\n"+e.message);
-			}
+		}
+		catch(e)
+		{
+			this.errframes++;
+			Utils.logMessage("error:\n"+e.message);
 		}
 	}
 }
