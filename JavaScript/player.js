@@ -44,9 +44,9 @@ class Player
 		),Player.#gl);
 		Player.#uEye=new Uniform(3,Player.#shader,"u_eye",[Math.PI,8.0,12.0],Player.#gl);
 	}
-	static draw()
+	static draw(t)
 	{
-		Player.#uEye.set([Player.#angle,8.0,12.0])
+		Player.#uEye.set([Player.#angle*Math.PI*t/180,8.0,12.0])
 		Player.#gl.useProgram(Player.#shader);
 		Player.#aPos.use();
 		Player.#uEye.use();
