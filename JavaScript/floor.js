@@ -6,6 +6,7 @@ class Floor
 	#walls=[];
 	#overhangs=[];
 	#pos;
+	fail=false;
 	constructor()
 	{
 		for(let i1=0;i1<15;i1++)
@@ -42,9 +43,15 @@ class Floor
 		let con=1;
 		let failsafe=false;
 		let lop=0;
+		let
 		for(let i1=1;i1<l;i1++)
 		{
-			lop=i1;
+			lop++;
+			if(lop>1000)
+			{
+				fail=true;
+				break;
+			}
 			let r=new RandRect();
 			let hl=this.#halls.length;
 			if(!this.#connected[i1])
