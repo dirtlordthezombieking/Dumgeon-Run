@@ -95,6 +95,7 @@ class Renderer
 		let d=t-this.frameTime;
 		this.frameTime=performance.now();
 		//Utils.logMessage("t: "+t+", time: "+this.frameTime);
+		Utils.logMessage("pos: "+this.pos[0]+", "+this.pos[1]);
 		try
 		{
 			this.gl.clearColor(0,0,0,1);
@@ -132,7 +133,7 @@ class Renderer
 		catch(e)
 		{
 			this.errframes++;
-			Utils.logMessage("error:\n"+e.message);
+			//Utils.logMessage("error:\n"+e.message);
 		}
 	}
 }
