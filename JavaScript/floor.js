@@ -590,8 +590,8 @@ class Floor
 			{
 				sel=this.#halls[Math.floor(Math.random()*this.#halls.length)];
 			}
-			let x=sel.x+Math.floor(Math.random()*sel.w)+0.5;
-			let y=sel.y+Math.floor(Math.random()*sel.h)+0.5;
+			let x=sel.x+Math.floor(Math.random()*sel.w);
+			let y=sel.y+Math.floor(Math.random()*sel.h);
 			this.pos=[x,y];
 		}
 		return this.pos;
