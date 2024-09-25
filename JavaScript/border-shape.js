@@ -1,4 +1,4 @@
-class OverhangShape
+class BorderShape
 {
 	static #list=[];
 	static #vertsP=[];
@@ -8,7 +8,6 @@ class OverhangShape
 	static #gl;
 	static #shader;
 	static #aPos;
-	static #uPos;
 	#x;
 	#y;
 	#w;
@@ -24,10 +23,10 @@ class OverhangShape
 	{
 		try
 		{
-			OverhangShape.#gl=gl;
-			Utils.loadShader(gl,"overhang",function(program)
+			BorderShape.#gl=gl;
+			Utils.loadShader(gl,"border",function(program)
 			{
-				OverhangShape.#shader=program;
+				BorderShape.#shader=program;
 				onDone();
 			});
 		}
@@ -38,60 +37,57 @@ class OverhangShape
 	}
 	static addFromRectangle(x,y,w,h)
 	{
-		OverhangShape.addFromShape(new OverhangShape(x,y,w,h));
+		BorderShape.addFromShape(new BorderShape(x,y,w,h));
 	}
 	static addFromShape(shape)
 	{
-		OverhangShape.#list.push(shape);
+		BorderShape.#list.push(shape);
 	}
 	static reset()
 	{
-		OverhangShape.#list=[];
+		BorderShape.#list=[];
 	}
 	static update()
 	{
-		let l=OverhangShape.#list.length;
-		OverhangShape.#vertsP=[];
-		OverhangShape.#indexP=[];
-		OverhangShape.#size=l*6;
+		let l=BorderShape.#list.length;
+		BorderShape.#vertsP=[];
+		BorderShape.#indexP=[];
+		BorderShape.#size=l*6;
 		for(let i=0;i<l;i++)
 		{
-			OverhangShape.#vertsP.push(OverhangShape.#list[i].#x);
-			OverhangShape.#vertsP.push(OverhangShape.#list[i].#y);
-			OverhangShape.#vertsP.push(OverhangShape.#list[i].#x+OverhangShape.#list[i].#w);
-			OverhangShape.#vertsP.push(OverhangShape.#list[i].#y);
-			OverhangShape.#vertsP.push(OverhangShape.#list[i].#x);
-			OverhangShape.#vertsP.push(OverhangShape.#list[i].#y+OverhangShape.#list[i].#h);
-			OverhangShape.#vertsP.push(OverhangShape.#list[i].#x+OverhangShape.#list[i].#w);
-			OverhangShape.#vertsP.push(OverhangShape.#list[i].#y+OverhangShape.#list[i].#h);
+			BorderShape.#vertsP.push(BorderShape.#list[i].#x);
+			BorderShape.#vertsP.push(BorderShape.#list[i].#y);
+			BorderShape.#vertsP.push(BorderShape.#list[i].#x+BorderShape.#list[i].#w);
+			BorderShape.#vertsP.push(BorderShape.#list[i].#y);
+			BorderShape.#vertsP.push(BorderShape.#list[i].#x);
+			BorderShape.#vertsP.push(BorderShape.#list[i].#y+BorderShape.#list[i].#h);
+			BorderShape.#vertsP.push(BorderShape.#list[i].#x+BorderShape.#list[i].#w);
+			BorderShape.#vertsP.push(BorderShape.#list[i].#y+BorderShape.#list[i].#h);
 			let p=i*4;
-			OverhangShape.#indexP.push(p);
-			OverhangShape.#indexP.push(p+1);
-			OverhangShape.#indexP.push(p+2);
-			OverhangShape.#indexP.push(p+2);
-			OverhangShape.#indexP.push(p+1);
-			OverhangShape.#indexP.push(p+3);
+			BorderShape.#indexP.push(p);
+			BorderShape.#indexP.push(p+1);
+			BorderShape.#indexP.push(p+2);
+			BorderShape.#indexP.push(p+2);
+			BorderShape.#indexP.push(p+1);
+			BorderShape.#indexP.push(p+3);
 		}
 	}
 	static prep()
 	{
-		OverhangShape.#indexB=OverhangShape.#gl.createBuffer();
-		OverhangShape.#gl.bindBuffer(OverhangShape.#gl.ELEMENT_ARRAY_BUFFER,OverhangShape.#indexB);
-		OverhangShape.#gl.bufferData(OverhangShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(OverhangShape.#indexP),OverhangShape.#gl.STATIC_DRAW);
-		OverhangShape.#aPos=new Attribute(2,OverhangShape.#shader,"a_pos",new Float32Array(OverhangShape.#vertsP),OverhangShape.#gl);
-		OverhangShape.#uPos=new Uniform(2,OverhangShape.#shader,"u_pos",[0.0,0.0],OverhangShape.#gl);
+		BorderShape.#indexB=BorderShape.#gl.createBuffer();
+		BorderShape.#gl.bindBuffer(BorderShape.#gl.ELEMENT_ARRAY_BUFFER,BorderShape.#indexB);
+		BorderShape.#gl.bufferData(BorderShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(BorderShape.#indexP),BorderShape.#gl.STATIC_DRAW);
+		BorderShape.#aPos=new Attribute(2,BorderShape.#shader,"a_pos",new Float32Array(BorderShape.#vertsP),BorderShape.#gl);
 	}
 	static draw(t,off)
 	{
-		if(OverhangShape.#size===0)
+		if(BorderShape.#size===0)
 		{
 			return;
 		}
-		OverhangShape.#gl.useProgram(OverhangShape.#shader);
-		OverhangShape.#uPos.set(off);
-		OverhangShape.#aPos.use();
-		OverhangShape.#uPos.use();
-		OverhangShape.#gl.bindBuffer(OverhangShape.#gl.ELEMENT_ARRAY_BUFFER,OverhangShape.#indexB);
-		OverhangShape.#gl.drawElements(OverhangShape.#gl.TRIANGLES,OverhangShape.#size,OverhangShape.#gl.UNSIGNED_SHORT,0);
+		BorderShape.#gl.useProgram(OverhangShape.#shader);
+		BorderShape.#aPos.use();
+		BorderShape.#gl.bindBuffer(BorderShape.#gl.ELEMENT_ARRAY_BUFFER,BorderShape.#indexB);
+		BorderShape.#gl.drawElements(BorderShape.#gl.TRIANGLES,BorderShape.#size,BorderShape.#gl.UNSIGNED_SHORT,0);
 	}
 }
