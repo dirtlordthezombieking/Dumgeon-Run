@@ -16,11 +16,11 @@ class Uniform
 	set(newValue)
 	{
 		this.value=newValue;
-		Utils.logMessage("newpos: "+newValue[0]+", "+newValue[1]);
+		//Utils.logMessage("newpos: "+newValue[0]+", "+newValue[1]);
 	}
 	use()
 	{
-		Utils.logMessage("usepos: "+this.value[0]+", "+this.value[1]);
+		//Utils.logMessage("usepos: "+this.value[0]+", "+this.value[1]);
 		if(this.size===1)
 		{
 			this.gl.uniform1f(this.loc,this.value[0]);
