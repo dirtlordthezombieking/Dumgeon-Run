@@ -4,6 +4,7 @@ class Renderer
 	canvas;
 	floor;
 	frameTime;
+	this.errframes=0;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -81,19 +82,35 @@ class Renderer
 	}
 	draw()
 	{
-		this.gl.clearColor(0,0,0,1);
-		this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
-		FloorShape.draw();
-		WallShape.draw();
-		Player.draw();
-		OverhangShape.draw();
-		setTimeout(this.draw);
-		let time=Date.now()-this.frameTime;
-		if(time>33)
+		try
 		{
-			time=33;
+			this.gl.clearColor(0,0,0,1);
+			this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
+			FloorShape.draw();
+			WallShape.draw();
+			Player.draw();
+			OverhangShape.draw();
+			setTimeout(this.draw);
+			let time=Date.now()-this.frameTime;
+			this.errframes=0
 		}
-		let tis=this;
-		setTimeout(function(){tis.draw();},33-time);
+		catch(e)
+		{
+			this.errframes++;
+			Utils.logMessage("error:\n"+e.message);
+		}
+		if(this.errframes>30)
+		{
+			Utils.logMessage("Too many consecutive draw errors, stopping render loop.");
+		}
+		else
+		{
+			if(time>33)
+			{
+				time=33;
+			}
+			let tis=this;
+			setTimeout(function(){tis.draw();},33-time);
+		}
 	}
 }
