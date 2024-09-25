@@ -105,12 +105,12 @@ class Renderer
 		}
 		else
 		{
-			setTimeout(function(){tis.draw();},33-time);
 			if(time>33)
 			{
 				time=33;
 			}
 			let tis=this;
+			setTimeout(function(){tis.draw();},33-time);
 		}
 	}
 }
