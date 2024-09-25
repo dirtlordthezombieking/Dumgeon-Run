@@ -87,8 +87,8 @@ class OverhangShape
 		{
 			return;
 		}
-		OverhangShape.#uPos.set(off);
 		OverhangShape.#gl.useProgram(OverhangShape.#shader);
+		OverhangShape.#uPos.set(off);
 		OverhangShape.#aPos.use();
 		OverhangShape.#uPos.use();
 		OverhangShape.#gl.bindBuffer(OverhangShape.#gl.ELEMENT_ARRAY_BUFFER,OverhangShape.#indexB);
