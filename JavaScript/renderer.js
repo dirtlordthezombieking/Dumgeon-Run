@@ -35,10 +35,14 @@ class Renderer
 						{
 							Back.setup(hold.gl,function()
 							{
-								FloorShape.reset();
-								WallShape.reset();
-								OverhangShape.reset();
-								hold.init();
+								BorderShape.setup(hold.gl,function()
+								{
+									FloorShape.reset();
+									WallShape.reset();
+									OverhangShape.reset();
+									BorderShape.reset();
+									hold.init();
+								});
 							});
 						});
 					});
@@ -72,6 +76,8 @@ class Renderer
 		Back.prep();
 		OverhangShape.update();
 		OverhangShape.prep();
+		BorderShape.update();
+		BorderShape.prep();
 		this.frameTime=performance.now();
 		this.pos=this.floor.getPos();
 		let tis=this;
@@ -90,6 +96,7 @@ class Renderer
 		{
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
+			BorderShape.draw(d,this.pos);
 			Back.draw(d,this.pos);
 			FloorShape.draw(d,this.pos);
 			WallShape.draw(d,this.pos);
