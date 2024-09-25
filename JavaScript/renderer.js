@@ -6,6 +6,8 @@ class Renderer
 	frameTime;
 	errframes=0;
 	pos;
+	arrowsPressed=[false,false,false,false];
+	keyOrder=[0,1,2,3]
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -83,7 +85,8 @@ class Renderer
 		let tis=this;
 		requestAnimationFrame(function(ts){tis.draw(ts);});
 		this.canvas.requestFullscreen();
-		document.onkeypress=this.control;
+		document.onkeydown=this.keyDown;
+		document.onkeyup=this.keyUp;
 	}
 	fullscreen()
 	{
@@ -128,7 +131,16 @@ class Renderer
 			Utils.logMessage("error:\n"+e.message);
 		}
 	}
-	control(e)
+	keyDown(e)
 	{
+		
+	}
+	keyUp(e)
+	{
+		
+	}
+	moveToBack(key)
+	{
+		
 	}
 }
