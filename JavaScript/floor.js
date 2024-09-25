@@ -625,7 +625,7 @@ class Floor
 	}
 	getPos()
 	{
-		if(!pos);
+		if(!this.pos);
 		{
 			let type=Math.random;
 			let sel=0;
@@ -639,7 +639,8 @@ class Floor
 			}
 			let x=sel.x+Math.floor(Math.random()*sel.w)+0.5;
 			let y=sel.y+Math.floor(Math.random()*sel.h)+0.5;
+			this.pos=[x,y];
 		}
-		return pos;
+		return this.pos;
 	}
 }
