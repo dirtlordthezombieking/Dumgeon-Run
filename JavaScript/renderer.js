@@ -78,9 +78,9 @@ class Renderer
 		OverhangShape.prep();
 		this.frameTime=Date.now();
 		let tis=this;
-		setTimeout(function(){tis.draw();},0);
+		requestAnimationFrame(function(){tis.draw();});//,0);
 	}
-	draw()
+	draw(t)
 	{
 		try
 		{
@@ -111,7 +111,7 @@ class Renderer
 				time=33;
 			}
 			let tis=this;
-			setTimeout(function(){tis.draw();},33-time);
+			requestAnimationFrame(function(){tis.draw();});//,33-time);
 		}
 	}
 }
