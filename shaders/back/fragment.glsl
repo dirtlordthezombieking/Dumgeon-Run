@@ -2,7 +2,12 @@ precision mediump float;
 varying vec2 v_texCoord;
 void main()
 {
-	float val1=v_texCoord.x+v_texCoord.y
-	
+	float val1=v_texCoord.x+v_texCoord.y;
+	float val2=sqrt((v_texCoord.x*v_texCoord.x)+(v_texCoord.y*v_texCoord.y));
+	float xy=v_texCoord.x*v_texCoord.y;
+	float val3=sqrt((xy+xy)*sign(xy));
+	float red=((sin(val3)+cos(val1))*0.1)+0.1;
+	float green=((sin(val2)+cos(val3))*0.15)+0.15;
+	float blue=((sin(val1)+cos(val2))*0.05)+0.05;
 	gl_FragColor=vec4(red,green,blue,1.0);
 }
