@@ -6,6 +6,7 @@ class Back
 	static #gl;
 	static #indexB;
 	static #angle=0;
+	static #time=0;
 	static setup(gl,onDone)
 	{
 		try
@@ -42,15 +43,15 @@ class Back
 				 2, 2
 			]
 		),Back.#gl);
-		Back.#uPos=new Uniform(2,Back.#shader,"u_pos",[0.0,0.0],Back.#gl);
+		Back.#uPos=new Uniform(3,Back.#shader,"u_pos",[0.0,0.0,0.0],Back.#gl);
 	}
 	static draw(t,off)
 	{
 		Back.#gl.useProgram(Back.#shader);
-		Back.#uPos.set(off);
+		Back.#uPos.set([off[0],off[1],Back.#time);
 		Back.#aPos.use();
 		Back.#uPos.use();
-		Back.#angle+=t*0.03;
+		Back.#time+=t;
 		Back.#gl.bindBuffer(Back.#gl.ELEMENT_ARRAY_BUFFER,Back.#indexB);
 		Back.#gl.drawElements(Back.#gl.TRIANGLES,6,Back.#gl.UNSIGNED_SHORT,0);
 	}
