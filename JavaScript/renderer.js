@@ -99,11 +99,6 @@ class Renderer
 			this.errframes++;
 			Utils.logMessage("error:\n"+e.message);
 		}
-		if(time>33)
-		{
-			time=33;
-		}
-		let tis=this;
 		if(this.errframes>30)
 		{
 			Utils.logMessage("Too many consecutive draw errors, stopping render loop.");
@@ -111,6 +106,11 @@ class Renderer
 		else
 		{
 			setTimeout(function(){tis.draw();},33-time);
+			if(time>33)
+			{
+				time=33;
+			}
+			let tis=this;
 		}
 	}
 }
