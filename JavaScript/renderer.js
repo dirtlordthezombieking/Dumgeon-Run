@@ -33,7 +33,7 @@ class Renderer
 					{
 						Player.setup(hold.gl,function()
 						{
-							back.setup(hold.gl,function()
+							Back.setup(hold.gl,function()
 							{
 								FloorShape.reset();
 								WallShape.reset();
@@ -69,7 +69,7 @@ class Renderer
 		WallShape.update();
 		WallShape.prep();
 		Player.prep();
-		back.prep();
+		Back.prep();
 		OverhangShape.update();
 		OverhangShape.prep();
 		this.frameTime=performance.now();
