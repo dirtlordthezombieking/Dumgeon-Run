@@ -5,6 +5,7 @@ class Floor
 	#connected=[];
 	#walls=[];
 	#overhangs=[];
+	#pos;
 	constructor()
 	{
 		for(let i1=0;i1<15;i1++)
@@ -621,5 +622,24 @@ class Floor
 			r.h=1;
 			this.#overhangs.push(r);
 		}
+	}
+	getPos()
+	{
+		if(!pos);
+		{
+			let type=Math.random;
+			let sel=0;
+			if(type>0.5)
+			{
+				sel=this.#rooms[Math.floor(Math.random()*this.#rooms.length)]
+			}
+			else
+			{
+				sel=this.#halls[Math.floor(Math.random()*this.#halls.length)]
+			}
+			let x=sel.x+Math.floor(Math.random()*sel.w)+0.5;
+			let y=sel.y+Math.floor(Math.random()*sel.h)+0.5;
+		}
+		return pos;
 	}
 }
