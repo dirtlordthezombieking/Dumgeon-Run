@@ -639,7 +639,7 @@ class Floor
 			}
 			let x=sel.x+Math.floor(Math.random()*sel.w)+0.5;
 			let y=sel.y+Math.floor(Math.random()*sel.h)+0.5;
-			utils.logMessage("sel: "+sel.x", "+sel.y", "+sel.w", "+sel.h);
+			utils.logMessage("sel: "+sel.x+", "+sel.y+", "+sel.w+", "+sel.h);
 			this.pos=[x*64,y*64];
 		}
 		return this.pos;
