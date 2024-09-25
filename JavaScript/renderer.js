@@ -90,7 +90,7 @@ class Renderer
 			WallShape.draw();
 			Player.draw();
 			OverhangShape.draw();
-			let time=Date.now()-this.frameTime;
+			//let time=Date.now()-this.frameTime;
 			this.errframes=0
 		}
 		catch(e)
@@ -98,20 +98,28 @@ class Renderer
 			this.errframes++;
 			Utils.logMessage("error:\n"+e.message);
 		}
-		//this.flush();
-		this.gl.bindVertexArray(null);
-		if(this.errframes>30)
+		try
 		{
-			Utils.logMessage("Too many consecutive draw errors, stopping render loop.");
-		}
-		else
-		{
-			if(time>33)
+			//this.flush();
+			this.gl.bindVertexArray(null);
+			if(this.errframes>30)
 			{
-				time=33;
+				Utils.logMessage("Too many consecutive draw errors, stopping render loop.");
 			}
-			let tis=this;
-			requestAnimationFrame(function(){tis.draw();});//,33-time);
+			else
+			{
+				//if(time>33)
+				//{
+					//time=33;
+				//}
+				let tis=this;
+				requestAnimationFrame(function(){tis.draw();});//,33-time);
+			}
+			catch(e)
+			{
+				this.errframes++;
+				Utils.logMessage("error:\n"+e.message);
+			}
 		}
 	}
 }
