@@ -52,7 +52,7 @@ class Back
 		Back.#uPos.set([off[0],off[1],Back.#time]);
 		Back.#aPos.use();
 		Back.#uPos.use();
-		Back.#time=(Back.#time+(t/10000))%(Math.PI*2);
+		Back.#time=(Back.#time+(t/1000))%(Math.PI*2);
 		//Utils.logMessage(""+Back.#time);
 		Back.#gl.bindBuffer(Back.#gl.ELEMENT_ARRAY_BUFFER,Back.#indexB);
 		Back.#gl.drawElements(Back.#gl.TRIANGLES,6,Back.#gl.UNSIGNED_SHORT,0);
