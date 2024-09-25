@@ -45,6 +45,7 @@ class Player
 	}
 	static draw()
 	{
+		Player.#uEye.set([])
 		Player.#gl.useProgram(Player.#shader);
 		Player.#aPos.use();
 		Player.#uEye.use();
