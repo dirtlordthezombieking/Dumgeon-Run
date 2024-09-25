@@ -26,5 +26,5 @@ void main()
 	float ct=cos(0.7*at);
 	float dt=(0.25*bt*ct)+0.75;
 	float grime=((13.0*c)+(7.0*dt))/20.0;
-	gl_FragColor=texture2D(u_texture,texCoord)*grime;
+	gl_FragColor=texture2D(u_texture,texCoord)*vec4(grime,grime,grime,1.0);
 }
