@@ -17,7 +17,7 @@ class Utils
 		gl.deleteShader(shader);
 		throw new Error("Shader failed:\n"+gl.getShaderInfoLog(shader)+"\nIn:\n"+source);
 	}
-	static createShaderProgram(gl,vertexCode,fragmentCode)
+	static createShaderProgram(gl,vertexCode,fragmentCode,name)
 	{
 		let vertexShader=Utils.createShader(gl,gl.VERTEX_SHADER,vertexCode);
 		let fragmentShader=Utils.createShader(gl,gl.FRAGMENT_SHADER,fragmentCode);
@@ -31,7 +31,7 @@ class Utils
 			return program;
 		}
 		gl.deleteProgram(program);
-		throw new Error("shader failed to compile");
+		throw new Error("shader '"+name+"' failed to compile");
 	}
 	static loadImage(src,onDone)
 	{
@@ -80,7 +80,7 @@ class Utils
 				Utils.getTextData("shaders/"+src+"/fragment.glsl",function(text)
 				{
 					frag=text;
-					let ret=Utils.createShaderProgram(gl,vert,frag);
+					let ret=Utils.createShaderProgram(gl,vert,frag,src);
 					onDone(ret);
 				});
 			});
