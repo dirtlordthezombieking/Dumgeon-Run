@@ -31,7 +31,7 @@ class Utils
 			return program;
 		}
 		gl.deleteProgram(program);
-		throw new Error("shader '"+name+"' failed to compile");
+		throw new Error("shader '"+name+"' failed to compile:\n"+gl.getShaderInfoLog(program));
 	}
 	static loadImage(src,onDone)
 	{
