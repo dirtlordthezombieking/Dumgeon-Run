@@ -78,13 +78,13 @@ class Renderer
 		OverhangShape.prep();
 		this.frameTime=Date.now();
 		let tis=this;
-		setTimeout(function(){tis.draw();},0);
+		requestAnimationFrame(function(){tis.draw();});//,0);
 	}
-	draw()
+	draw(t)
 	{
 		try
 		{
-			//this.gl.clearColor(0,0,0,1);
+			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);//|this.gl.DEPTH_BUFFER_BIT);
 			FloorShape.draw();
 			WallShape.draw();
@@ -99,6 +99,7 @@ class Renderer
 			this.errframes++;
 			Utils.logMessage("error:\n"+e.message);
 		}
+		this.flush()
 		if(this.errframes>30)
 		{
 			Utils.logMessage("Too many consecutive draw errors, stopping render loop.");
@@ -110,7 +111,7 @@ class Renderer
 				time=33;
 			}
 			let tis=this;
-			setTimeout(function(){tis.draw();},33-time);
+			requestAnimationFrame(function(){tis.draw();});//,33-time);
 		}
 	}
 }
