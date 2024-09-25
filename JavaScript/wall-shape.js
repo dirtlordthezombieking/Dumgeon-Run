@@ -89,12 +89,13 @@ class WallShape
 		WallShape.#aPos=new Attribute(2,WallShape.#shader,"a_pos",new Float32Array(WallShape.#vertsP),WallShape.#gl);
 		WallShape.#uPos=new Uniform(2,WallShape.#shader,"u_pos",[0.0,0.0],WallShape.#gl);
 	}
-	static draw(t)
+	static draw(t,off)
 	{
 		if(WallShape.#size===0)
 		{
 			return;
 		}
+		WallShape.#uPos.set(off);
 		WallShape.#gl.useProgram(WallShape.#shader);
 		WallShape.#uTexture.use();
 		WallShape.#aPos.use();
