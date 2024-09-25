@@ -89,7 +89,7 @@ class FloorShape
 		FloorShape.#aPos=new Attribute(2,FloorShape.#shader,"a_pos",new Float32Array(FloorShape.#vertsP),FloorShape.#gl);
 		FloorShape.#uPos=new Uniform(2,FloorShape.#shader,"u_pos",[0.0,0.0],FloorShape.#gl);
 	}
-	static draw()
+	static draw(t)
 	{
 		if(FloorShape.#size===0)
 		{
