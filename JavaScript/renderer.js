@@ -86,7 +86,7 @@ class Renderer
 		//Utils.logMessage("t: "+t);
 		let d=t-this.frameTime;
 		this.frameTime=performance.now();
-		/)Utils.logMessage("t: "+t+", time: "+this.frameTime);
+		//Utils.logMessage("t: "+t+", time: "+this.frameTime);
 		try
 		{
 			this.gl.clearColor(0,0,0,1);
