@@ -155,6 +155,8 @@ class Renderer
 	}
 	keyUp(e)
 	{
+		try
+		{
 		//Utils.logMessage("up"+e.code);
 		switch(e.code)
 		{
@@ -192,9 +194,16 @@ class Renderer
 				break;
 		}
 		Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
+		}
+		catch(e)
+		{
+			Utils.logMessage("error:\n"+e.message);
+		}
 	}
 	keyDown(e)
 	{
+		try
+		{
 		//Utils.logMessage("up"+e.code);
 		switch(e.code)
 		{
@@ -232,6 +241,11 @@ class Renderer
 				break;
 		}
 		Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
+		}
+		catch(e)
+		{
+			Utils.logMessage("error:\n"+e.message);
+		}
 	}
 	moveToBack(key)
 	{
