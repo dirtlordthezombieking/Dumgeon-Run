@@ -15,9 +15,9 @@ class Renderer
 	keyOrder=[0,1,2,3,4,5,6,7];
 	keyTracker=[0,1,2,3,4,5,6,7]
 	arrowAdd=[[0,1],[0,1],[0,-1],[0,-1],[-1,0],[-1,0],[1,0],[1,0]]
-	angles[0,0,180,180,270,270,90,90];
+	angles=[0,0,180,180,270,270,90,90];
 	turn=[[0,90,180,-90],[-90,0,90,180],[180,-90,0,90],[90,180,-90,0]];
-	angle=/;
+	angle=0;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -292,10 +292,10 @@ class Renderer
 			else
 			{
 				this.angle=this.angles[this.activeKey];
-				this.bufferAngle=0:
+				this.bufferAngle=0;
 			}
 		}
-		else if(this action==2)
+		else if(this.action==2)
 		{
 			if(this.actTime>0)
 			{
