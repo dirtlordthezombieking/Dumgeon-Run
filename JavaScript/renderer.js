@@ -155,7 +155,7 @@ class Renderer
 	}
 	keyUp(e)
 	{
-		Utils.logMessage("up"+e.code);
+		//Utils.logMessage("up"+e.code);
 		switch(e.code)
 		{
 			case "KeyW":
@@ -191,10 +191,11 @@ class Renderer
 				this.arrowsPressed[7]=false;
 				break;
 		}
+		Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
 	}
 	keyDown(e)
 	{
-		Utils.logMessage("up"+e.code);
+		//Utils.logMessage("up"+e.code);
 		switch(e.code)
 		{
 			case "KeyW":
@@ -230,6 +231,7 @@ class Renderer
 				this.arrowsPressed[7]=true;
 				break;
 		}
+		Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
 	}
 	moveToBack(key)
 	{
