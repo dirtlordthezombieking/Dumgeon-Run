@@ -121,7 +121,7 @@ class Renderer
 				this.startAct();
 			}
 			let playPos=[this.pos[0]+this.off[0]+0.5,this.pos[1]+this.off[1]+0.5];
-			document.getElementById("data").innerHTML=(this.pos.toString())+"\n"+(this.off.toString())+"\n"+(playPos.toString())
+			//document.getElementById("data").innerHTML=(this.pos.toString())+"\n"+(this.off.toString())+"\n"+(playPos.toString())
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
 			Back.draw(d,playPos);
