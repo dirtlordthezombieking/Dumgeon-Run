@@ -286,7 +286,7 @@ class Renderer
 	}
 	startAct()
 	{
-		this.activeKey=this.keyOrder[this.keyTracker[0]];
+		this.activeKey=this.keyTracker[0];
 		if(this.arrowsPressed[this.activeKey])
 		{
 			if(this.angles[this.activeKey]==this.angle)
