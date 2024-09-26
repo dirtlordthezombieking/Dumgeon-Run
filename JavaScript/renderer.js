@@ -242,7 +242,7 @@ class Renderer
 				//Renderer.main.arrowsPressed[7]=true;
 				break;
 		}
-		Utils.logMessage(Renderer.main.arrowsPressed.toString+"\n"+Renderer.main.keyOrder.toString+"\n"+Renderer.main.keyTracker.toString+"\n"+Renderer.main.activeKey);
+		Utils.logMessage((Renderer.main.arrowsPressed.toString())+"\n"+(Renderer.main.keyOrder.toString())+"\n"+(Renderer.main.keyTracker.toString())+"\n"+Renderer.main.activeKey);
 		}
 		catch(e)
 		{
