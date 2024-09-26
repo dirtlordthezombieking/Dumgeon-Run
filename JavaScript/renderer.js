@@ -195,7 +195,7 @@ class Renderer
 				//Renderer.main.arrowsPressed[7]=false;
 				break;
 		}
-		Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
+		//Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
 		}
 		catch(e)
 		{
@@ -242,7 +242,7 @@ class Renderer
 				//Renderer.main.arrowsPressed[7]=true;
 				break;
 		}
-		Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
+		//Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
 		}
 		catch(e)
 		{
