@@ -6,7 +6,7 @@ uniform vec3 u_alphamod;
 void main()
 {
 	float pi=3.1415926535897932384626433832795;
-	vec2 pix=floor(v_texCoord/2.0);
+	vec2 pix=floor(v_texCoord);
 	float rad1=distance(pix,vec2(0.0,0.0));
 	float clip1=pi*min(rad1,u_data.x+0.5);
 	float flat1=clip1/u_data.x+0.5;
