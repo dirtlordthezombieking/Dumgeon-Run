@@ -2,20 +2,42 @@ V: 0.0.0
 
 render code
 -shaders
+--player✓
+--background✓
+--walls✓
+--floors✓
+--border✓
+--wall back(overhang)✓
+--bubble
+--basic
 
-sprites/timesheets
+sprites/tilesheets
 -floors✓
 -walls✓
--player
 -enemies
---
+--semicolon
+--colon
+-minbosses
+--yes
+-bosses
+--cheater
 
 gameplay
 -generation
+--shape✓
+--content
 -player
---controls
+--controls✓
+--colision✓
+--stats
+-items
 -enemies
---
+--semicolon
+--colon
+-minbosses
+--yes
+-bosses
+--cheater
 
 other
 -utils✓
