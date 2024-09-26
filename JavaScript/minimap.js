@@ -1,4 +1,4 @@
-class FloorShape
+class Minimap
 {
 	static #list=[];
 	static #vertsP=[];
@@ -40,7 +40,7 @@ class FloorShape
 	}
 	static set(rooms,halls)
 	{
-		
+		FloorShape.#uTexture=gl.createTexture();
 	}
 	static addFromRectangle(x,y,w,h)
 	{
