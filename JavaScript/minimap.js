@@ -55,10 +55,12 @@ class Minimap
 		if(Minimap.#aPos)
 		{
 			minimap.#aPos.clear;
+			minimap.#aPos=null;
 		}
 		if(Minimap.#indexB)
 		{
 			Minimap.#gl.deleteBuffer(minimap.#indexB);
+			minimap.#indexB=null;
 		}
 	}
 	static update()
