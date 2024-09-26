@@ -6,11 +6,18 @@ class Renderer
 	frameTime;
 	errframes=0;
 	pos;
+	action=-1;
 	off=[0,0]
+	actTime=0;
+	bufferAngle=0;
+	activeKey=-1;
 	arrowsPressed=[false,false,false,false,false,false,false,false];
 	keyOrder=[0,1,2,3,4,5,6,7];
 	keyTracker=[0,1,2,3,4,5,6,7]
 	arrowAdd=[[0,1],[0,1],[0,-1],[0,-1],[-1,0],[-1,0],[1,0],[1,0]]
+	angles[0,0,180,180,270,270,90,90];
+	turn=[[0,90,180,-90],[-90,0,90,180],[180,-90,0,90],[90,180,-90,0]];
+	angle=/;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -101,12 +108,24 @@ class Renderer
 		this.frameTime=performance.now();
 		try
 		{
+			if(this.actTime>0)
+			{
+				this.actTime-=d;
+				this.act(d);
+			}
+			else
+			{
+				this.startAct();
+				this.actTime=0;
+			}
+			let playPos=[this.pos[0]+this.off[0]+0.5,this.pos[1]+this.off[1]+0.5];
 			this.gl.clearColor(0,0,0,1);
 			this.gl.clear(this.gl.COLOR_BUFFER_BIT);
-			Back.draw(d,this.pos);
-			BorderShape.draw(d,this.pos);
-			FloorShape.draw(d,this.pos);
-			WallShape.draw(d,this.pos);
+			Back.draw(d,playPos);
+			BorderShape.draw(d,playPos);
+			FloorShape.draw(d,playPos);
+			WallShape.draw(d,playPos);
+			Player.angle=this.angle+this.bufferAngle;
 			Player.draw(d);
 			OverhangShape.draw(d,this.pos);
 			this.errframes=0
@@ -134,7 +153,7 @@ class Renderer
 			Utils.logMessage("error:\n"+e.message);
 		}
 	}
-	keyDown(e)
+	keyUp(e)
 	{
 		switch(e.code)
 		{
@@ -172,7 +191,7 @@ class Renderer
 				break;
 		
 	}
-	keyUp(e)
+	keyDown(e)
 	{
 		switch(e.code)
 		{
@@ -241,6 +260,53 @@ class Renderer
 		for(let i=0;i<8;i++)
 		{
 			this.keyTracker[this.keyOrder[i]]=i
+		}
+	}
+	startAct()
+	{
+		this.activeKey=this.keyOrder[this.keyTracker[0]];
+		if(this.arrowsPressed[this.activeKey]);
+		{
+			if(this.angles[this.activeKey]==angle)
+			{
+				this.action=1;
+				this.actTime=1000;
+			}
+			else
+			{
+				this.action=2;
+				this.actTime=1000;
+			}
+		}
+	}
+	act(d)
+	{
+		if(this.action=1)
+		{
+			if(this.actTime>0)
+			{
+				let mult=(1000-this.actTime)/1000;
+				this.bufferAngle=this.turn[this.angle/90][this.angles[this.activeKey]/90]*mult;
+				
+			}
+			else
+			{
+				this.angle=this.angles[this.activeKey];
+				this.bufferAngle=0:
+			}
+		}
+		else if(this action==2)
+		{
+			if(this.actTime>0)
+			{
+				let mult=(1000-this.actTime)/1000;
+				off=[this.arrowAdd[this.activeKey][1]*mult,this.arrowAdd[this.activeKey][1]*mult];
+			}
+			else
+			{
+				off=[0,0]
+				this.pos=[this.pos+this.arrowAdd[this.activeKey][1],this.pos+this.arrowAdd[this.activeKey][1]];
+			}
 		}
 	}
 }
