@@ -195,7 +195,7 @@ class Renderer
 				//Renderer.main.arrowsPressed[7]=false;
 				break;
 		}
-		Utils.logMessage((Renderer.main.arrowsPressed.toString())+"\n"+(Renderer.main.keyOrder.toString())+"\n"+(Renderer.main.keyTracker.toString())+"\n"+Renderer.main.activeKey+", "+Renderer.main.action+", "+Renderer.main.actTime);
+		//Utils.logMessage((Renderer.main.arrowsPressed.toString())+"\n"+(Renderer.main.keyOrder.toString())+"\n"+(Renderer.main.keyTracker.toString())+"\n"+Renderer.main.activeKey+", "+Renderer.main.action+", "+Renderer.main.actTime);
 		}
 		catch(e)
 		{
@@ -242,7 +242,7 @@ class Renderer
 				//Renderer.main.arrowsPressed[7]=true;
 				break;
 		}
-		Utils.logMessage((Renderer.main.arrowsPressed.toString())+"\n"+(Renderer.main.keyOrder.toString())+"\n"+(Renderer.main.keyTracker.toString())+"\n"+Renderer.main.activeKey+", "+Renderer.main.action+", "+Renderer.main.actTime);
+		//Utils.logMessage((Renderer.main.arrowsPressed.toString())+"\n"+(Renderer.main.keyOrder.toString())+"\n"+(Renderer.main.keyTracker.toString())+"\n"+Renderer.main.activeKey+", "+Renderer.main.action+", "+Renderer.main.actTime);
 		}
 		catch(e)
 		{
@@ -292,12 +292,12 @@ class Renderer
 			if(this.angles[this.activeKey]==this.angle)
 			{
 				this.action=1;
-				this.actTime=10000;
+				this.actTime=1000;
 			}
 			else
 			{
 				this.action=2;
-				this.actTime=10000;
+				this.actTime=1000;
 			}
 		}
 	}
@@ -307,7 +307,7 @@ class Renderer
 		{
 			if(this.actTime>0)
 			{
-				let mult=(10000-this.actTime)/10000;
+				let mult=(1000-this.actTime)/1000;
 				this.bufferAngle=this.turn[this.angle/90][this.angles[this.activeKey]/90]*mult;
 				
 			}
@@ -321,13 +321,13 @@ class Renderer
 		{
 			if(this.actTime>0)
 			{
-				let mult=(10000-this.actTime)/10000;
+				let mult=(1000-this.actTime)/1000;
 				this.off=[this.arrowAdd[this.activeKey][1]*mult,this.arrowAdd[this.activeKey][1]*mult];
 			}
 			else
 			{
 				this.off=[0,0];
-				this.pos=[this.pos+this.arrowAdd[this.activeKey][1],this.pos+this.arrowAdd[this.activeKey][1]];
+				this.pos=[this.pos[0]+this.arrowAdd[this.activeKey][0],this.pos[0]+this.arrowAdd[this.activeKey][1]];
 			}
 		}
 	}
