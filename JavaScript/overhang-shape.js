@@ -47,15 +47,15 @@ class OverhangShape
 	static reset()
 	{
 		OverhangShape.#list=[];
-		if(Minimap.#aPos)
+		if(OverhangShape.#aPos)
 		{
-			minimap.#aPos.clear;
-			minimap.#aPos=null;
+			OverhangShape.#aPos.clear;
+			OverhangShape.#aPos=null;
 		}
-		if(Minimap.#indexB)
+		if(OverhangShape.#indexB)
 		{
-			Minimap.#gl.deleteBuffer(minimap.#indexB);
-			minimap.#indexB=null;
+			OverhangShape.#gl.deleteBuffer(OverhangShape.#indexB);
+			OverhangShape.#indexB=null;
 		}
 	}
 	static update()
