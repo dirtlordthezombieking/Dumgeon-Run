@@ -54,13 +54,13 @@ class Minimap
 		Minimap.#list=[];
 		if(Minimap.#aPos)
 		{
-			minimap.#aPos.clear;
-			minimap.#aPos=null;
+			Minimap.#aPos.clear;
+			Minimap.#aPos=null;
 		}
 		if(Minimap.#indexB)
 		{
-			Minimap.#gl.deleteBuffer(minimap.#indexB);
-			minimap.#indexB=null;
+			Minimap.#gl.deleteBuffer(Minimap.#indexB);
+			Minimap.#indexB=null;
 		}
 	}
 	static update()
