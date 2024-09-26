@@ -25,6 +25,14 @@ class Attribute
 			this.buff=null;
 		}
 	}
+	set(newValue)
+	{
+		this.clear();
+		this.value=newValue;
+		this.buff=this.gl.createBuffer();
+		this.gl.bindBuffer(this.gl.ARRAY_BUFFER,this.buff);
+		this.gl.bufferData(this.gl.ARRAY_BUFFER,this.value,this.gl.STATIC_DRAW);
+	}
 	use()
 	{
 		this.gl.bindBuffer(this.gl.ARRAY_BUFFER,this.buff);
