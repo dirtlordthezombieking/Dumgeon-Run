@@ -195,7 +195,7 @@ class Renderer
 				//Renderer.main.arrowsPressed[7]=false;
 				break;
 		}
-		Utils.logMessage(Renderer.main.arrowsPressed.toString+"\n"+Renderer.main.keyOrder.toString+"\n"+Renderer.main.keyTracker.toString+"\n"+Renderer.main.activeKey);
+		Utils.logMessage((Renderer.main.arrowsPressed.toString())+"\n"+(Renderer.main.keyOrder.toString())+"\n"+(Renderer.main.keyTracker.toString())+"\n"+Renderer.main.activeKey+", "+Renderer.main.action+", "+Renderer.main.actTime);
 		}
 		catch(e)
 		{
