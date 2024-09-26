@@ -53,15 +53,15 @@ class FloorShape
 	static reset()
 	{
 		FloorShape.#list=[];
-		if(Minimap.#aPos)
+		if(FloorShape.#aPos)
 		{
-			minimap.#aPos.clear;
-			minimap.#aPos=null;
+			FloorShape.#aPos.clear;
+			FloorShape.#aPos=null;
 		}
 		if(Minimap.#indexB)
 		{
-			Minimap.#gl.deleteBuffer(minimap.#indexB);
-			minimap.#indexB=null;
+			FloorShape.#gl.deleteBuffer(FloorShape.#indexB);
+			FloorShape.#indexB=null;
 		}
 	}
 	static update()
