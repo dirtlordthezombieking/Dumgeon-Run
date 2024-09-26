@@ -322,12 +322,12 @@ class Renderer
 			if(this.actTime>0)
 			{
 				let mult=(1000-this.actTime)/1000;
-				this.off=[this.arrowAdd[this.activeKey][1]*mult,this.arrowAdd[this.activeKey][1]*mult];
+				this.off=[this.arrowAdd[this.activeKey][0]*mult,this.arrowAdd[this.activeKey][1]*mult];
 			}
 			else
 			{
 				this.off=[0,0];
-				this.pos=[this.pos[0]+this.arrowAdd[this.activeKey][0],this.pos[0]+this.arrowAdd[this.activeKey][1]];
+				this.pos=[this.pos[0]+this.arrowAdd[this.activeKey][0],this.pos[1]+this.arrowAdd[this.activeKey][1]];
 			}
 		}
 	}
