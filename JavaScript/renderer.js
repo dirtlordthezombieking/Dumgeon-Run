@@ -292,13 +292,16 @@ class Renderer
 		{
 			if(this.angles[this.activeKey]==this.angle)
 			{
-				this.action=1;
-				this.actTime=1000;
+				if(floor.canWalk(this.pos[0]+this.arrowAdd[this.activeKey[0]][0]+0.5,this.pos[1]+this.arrowAdd[this.activeKey[0]][1]+0.5))
+				{
+					this.action=1;
+					this.actTime=500;
+				}
 			}
 			else
 			{
 				this.action=2;
-				this.actTime=1000;
+				this.actTime=500;
 			}
 		}
 	}
@@ -308,7 +311,7 @@ class Renderer
 		{
 			if(this.actTime>0)
 			{
-				let mult=(1000-this.actTime)/1000;
+				let mult=(500-this.actTime)/500;
 				this.bufferAngle=this.turn[this.angle/90][this.angles[this.activeKey]/90]*mult;
 				
 			}
@@ -322,8 +325,8 @@ class Renderer
 		{
 			if(this.actTime>0)
 			{
-				let mult=(1000-this.actTime)/1000;
-				this.off=[this.arrowAdd[this.activeKey][0]*mult,this.arrowAdd[this.activeKey][1]*mult];
+				let mult=(500-this.actTime)/500;
+				this.off=[this.arrowAdd[this.activeKey[0]]*mult,this.arrowAdd[this.activeKey][1]*mult];
 			}
 			else
 			{
