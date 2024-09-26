@@ -9,13 +9,15 @@ class Renderer
 	action=-1;
 	off=[0,0]
 	actTime=0;
+	bufferAngle=0;
 	activeKey=-1;
 	arrowsPressed=[false,false,false,false,false,false,false,false];
 	keyOrder=[0,1,2,3,4,5,6,7];
 	keyTracker=[0,1,2,3,4,5,6,7]
 	arrowAdd=[[0,1],[0,1],[0,-1],[0,-1],[-1,0],[-1,0],[1,0],[1,0]]
 	angles[0,0,180,180,270,270,90,90];
-	angle;
+	turn=[[0,90,180,-90],[-90,0,90,180],[180,-90,0,90],[90,180,-90,0]];
+	angle=/;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -123,6 +125,7 @@ class Renderer
 			BorderShape.draw(d,playPos);
 			FloorShape.draw(d,playPos);
 			WallShape.draw(d,playPos);
+			Player.angle=this.angle+this.bufferAngle;
 			Player.draw(d);
 			OverhangShape.draw(d,this.pos);
 			this.errframes=0
@@ -278,10 +281,19 @@ class Renderer
 	}
 	act(d)
 	{
-		if(this.action=1
+		if(this.action=1)
 		{
-			let a=this angles[this.activeKey]
-			if
+			if(this.actTime>0)
+			{
+				let mult=(1000-this.actTime)/1000;
+				this.bufferAngle=this.turn[this.angle/90][this.angles[this.activeKey]/90]*mult;
+				
+			}
+			else
+			{
+				this.angle=this.angles[this.activeKey];
+				this.bufferAngle=0:
+			}
 		}
 		else if(this action==2)
 		{
@@ -296,9 +308,5 @@ class Renderer
 				this.pos=[this.pos+this.arrowAdd[this.activeKey][1],this.pos+this.arrowAdd[this.activeKey][1]];
 			}
 		}
-	}
-	getDir(a)
-	{
-		
 	}
 }
