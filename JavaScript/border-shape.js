@@ -47,15 +47,15 @@ class BorderShape
 	static reset()
 	{
 		BorderShape.#list=[];
-		if(Minimap.#aPos)
+		if(BorderShape.#aPos)
 		{
-			minimap.#aPos.clear;
-			minimap.#aPos=null;
+			BorderShape.#aPos.clear;
+			BorderShape.#aPos=null;
 		}
 		if(Minimap.#indexB)
 		{
-			Minimap.#gl.deleteBuffer(minimap.#indexB);
-			minimap.#indexB=null;
+			BorderShape.#gl.deleteBuffer(BorderShape.#indexB);
+			BorderShape.#indexB=null;
 		}
 	}
 	static update()
