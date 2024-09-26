@@ -259,7 +259,7 @@ class Renderer
 	{
 		for(let i=0;i<8;i++)
 		{
-			this.keyTracker[this.keyOrder[i]]=i
+			this.keyTracker[this.keyOrder[i]]=i;
 		}
 	}
 	startAct()
