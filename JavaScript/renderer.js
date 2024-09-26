@@ -117,8 +117,8 @@ class Renderer
 			}
 			else
 			{
-				this.startAct();
 				this.actTime=0;
+				this.startAct();
 			}
 			let playPos=[this.pos[0]+this.off[0]+0.5,this.pos[1]+this.off[1]+0.5];
 			this.gl.clearColor(0,0,0,1);
