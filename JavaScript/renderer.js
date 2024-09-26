@@ -199,7 +199,7 @@ class Renderer
 		}
 		catch(e)
 		{
-			Utils.logMessage("error:\n"+e.message);
+			Utils.logMessage("key up error:\n"+e.message);
 		}
 	}
 	keyDown(e)
@@ -246,7 +246,7 @@ class Renderer
 		}
 		catch(e)
 		{
-			Utils.logMessage("error:\n"+e.message);
+			Utils.logMessage("key down error:\n"+e.message);
 		}
 	}
 	moveToBack(key)
