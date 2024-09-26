@@ -303,7 +303,7 @@ class Renderer
 	}
 	act(d)
 	{
-		if(this.action==1)
+		if(this.action==2)
 		{
 			if(this.actTime>0)
 			{
@@ -317,7 +317,7 @@ class Renderer
 				this.bufferAngle=0;
 			}
 		}
-		else if(this.action==2)
+		else if(this.action==1)
 		{
 			if(this.actTime>0)
 			{
