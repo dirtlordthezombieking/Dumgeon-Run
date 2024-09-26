@@ -17,6 +17,14 @@ class Attribute
 		this.gl.bindBuffer(this.gl.ARRAY_BUFFER,this.buff);
 		this.gl.bufferData(this.gl.ARRAY_BUFFER,this.value,this.gl.STATIC_DRAW);
 	}
+	clear()
+	{
+		if(this.buff)
+		{
+			this.gl.deleteBuffer(this.buff);
+			this.buff=null;
+		}
+	}
 	use()
 	{
 		this.gl.bindBuffer(this.gl.ARRAY_BUFFER,this.buff);
