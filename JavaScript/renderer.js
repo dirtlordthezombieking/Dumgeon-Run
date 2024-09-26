@@ -128,7 +128,7 @@ class Renderer
 			Player.angle=this.angle+this.bufferAngle;
 			Player.draw(d);
 			OverhangShape.draw(d,this.pos);
-			this.errframes=0
+			this.errframes=0;
 		}
 		catch(e)
 		{
@@ -189,7 +189,7 @@ class Renderer
 				this.moveToBack(7);
 				this.arrowsPressed[7]=false;
 				break;
-		
+		}
 	}
 	keyDown(e)
 	{
@@ -265,7 +265,7 @@ class Renderer
 	startAct()
 	{
 		this.activeKey=this.keyOrder[this.keyTracker[0]];
-		if(this.arrowsPressed[this.activeKey]);
+		if(this.arrowsPressed[this.activeKey])
 		{
 			if(this.angles[this.activeKey]==angle)
 			{
@@ -281,7 +281,7 @@ class Renderer
 	}
 	act(d)
 	{
-		if(this.action=1)
+		if(this.action==1)
 		{
 			if(this.actTime>0)
 			{
@@ -300,11 +300,11 @@ class Renderer
 			if(this.actTime>0)
 			{
 				let mult=(1000-this.actTime)/1000;
-				off=[this.arrowAdd[this.activeKey][1]*mult,this.arrowAdd[this.activeKey][1]*mult];
+				this.off=[this.arrowAdd[this.activeKey][1]*mult,this.arrowAdd[this.activeKey][1]*mult];
 			}
 			else
 			{
-				off=[0,0]
+				this.off=[0,0];
 				this.pos=[this.pos+this.arrowAdd[this.activeKey][1],this.pos+this.arrowAdd[this.activeKey][1]];
 			}
 		}
