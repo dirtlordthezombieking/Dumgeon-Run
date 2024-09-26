@@ -15,9 +15,9 @@ class Renderer
 	keyOrder=[0,1,2,3,4,5,6,7];
 	keyTracker=[0,1,2,3,4,5,6,7]
 	arrowAdd=[[0,1],[0,1],[0,-1],[0,-1],[-1,0],[-1,0],[1,0],[1,0]]
-	angles[0,0,180,180,270,270,90,90];
+	angles=[0,0,180,180,270,270,90,90];
 	turn=[[0,90,180,-90],[-90,0,90,180],[180,-90,0,90],[90,180,-90,0]];
-	angle=/;
+	angle=0;
 	constructor(canvas)
 	{
 		this.canvas=canvas;
@@ -128,7 +128,7 @@ class Renderer
 			Player.angle=this.angle+this.bufferAngle;
 			Player.draw(d);
 			OverhangShape.draw(d,this.pos);
-			this.errframes=0
+			this.errframes=0;
 		}
 		catch(e)
 		{
@@ -189,7 +189,7 @@ class Renderer
 				this.moveToBack(7);
 				this.arrowsPressed[7]=false;
 				break;
-		
+		}
 	}
 	keyDown(e)
 	{
@@ -259,15 +259,15 @@ class Renderer
 	{
 		for(let i=0;i<8;i++)
 		{
-			this.keyTracker[this.keyOrder[i]]=i
+			this.keyTracker[this.keyOrder[i]]=i;
 		}
 	}
 	startAct()
 	{
 		this.activeKey=this.keyOrder[this.keyTracker[0]];
-		if(this.arrowsPressed[this.activeKey]);
+		if(this.arrowsPressed[this.activeKey])
 		{
-			if(this.angles[this.activeKey]==angle)
+			if(this.angles[this.activeKey]==this.angle)
 			{
 				this.action=1;
 				this.actTime=1000;
@@ -281,7 +281,7 @@ class Renderer
 	}
 	act(d)
 	{
-		if(this.action=1)
+		if(this.action==1)
 		{
 			if(this.actTime>0)
 			{
@@ -292,19 +292,19 @@ class Renderer
 			else
 			{
 				this.angle=this.angles[this.activeKey];
-				this.bufferAngle=0:
+				this.bufferAngle=0;
 			}
 		}
-		else if(this action==2)
+		else if(this.action==2)
 		{
 			if(this.actTime>0)
 			{
 				let mult=(1000-this.actTime)/1000;
-				off=[this.arrowAdd[this.activeKey][1]*mult,this.arrowAdd[this.activeKey][1]*mult];
+				this.off=[this.arrowAdd[this.activeKey][1]*mult,this.arrowAdd[this.activeKey][1]*mult];
 			}
 			else
 			{
-				off=[0,0]
+				this.off=[0,0];
 				this.pos=[this.pos+this.arrowAdd[this.activeKey][1],this.pos+this.arrowAdd[this.activeKey][1]];
 			}
 		}
