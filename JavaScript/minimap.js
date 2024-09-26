@@ -26,10 +26,10 @@ class Minimap
 	{
 		try
 		{
-			FloorShape.#gl=gl;
+			Minimap.#gl=gl;
 			Utils.loadShader(gl,"boxes",function(program)
 			{
-				FloorShape.#shader=program;
+				Minimap.#shader=program;
 				onDone();
 			});
 		}
@@ -40,54 +40,60 @@ class Minimap
 	}
 	static set(rooms,halls)
 	{
-		FloorShape.#uTexture=gl.createTexture();
+		Minimap.#uTexture=Minimap.gl.createTexture();
 	}
 	static addFromRectangle(x,y,w,h)
 	{
-		FloorShape.addFromShape(new FloorShape(x,y,w,h));
+		Minimap.addFromShape(new Minimap(x,y,w,h));
 	}
 	static addFromShape(shape)
 	{
-		FloorShape.#list.push(shape);
+		Minimap.#list.push(shape);
 	}
 	static reset()
 	{
-		FloorShape.#list=[];
+		Minimap.#list=[];
 	}
 	static update()
 	{
-		let l=FloorShape.#list.length;
-		FloorShape.#vertsP=[];
-		FloorShape.#indexP=[];
-		FloorShape.#size=l*6;
+		let l=Minimap.#list.length;
+		Minimap.#vertsP=[];
+		Minimap.#indexP=[];
+		Minimap.#size=l*6;
 		for(let i=0;i<l;i++)
 		{
-			FloorShape.#vertsP.push(FloorShape.#list[i].#x);
-			FloorShape.#vertsP.push(FloorShape.#list[i].#y);
-			FloorShape.#vertsP.push(FloorShape.#list[i].#x+FloorShape.#list[i].#w);
-			FloorShape.#vertsP.push(FloorShape.#list[i].#y);
-			FloorShape.#vertsP.push(FloorShape.#list[i].#x);
-			FloorShape.#vertsP.push(FloorShape.#list[i].#y+FloorShape.#list[i].#h);
-			FloorShape.#vertsP.push(FloorShape.#list[i].#x+FloorShape.#list[i].#w);
-			FloorShape.#vertsP.push(FloorShape.#list[i].#y+FloorShape.#list[i].#h);
+			Minimap.#vertsP.push(Minimap.#list[i].#x);
+			Minimap.#vertsP.push(Minimap.#list[i].#y);
+			Minimap.#vertsP.push(Minimap.#list[i].#x+Minimap.#list[i].#w);
+			Minimap.#vertsP.push(Minimap.#list[i].#y);
+			Minimap.#vertsP.push(Minimap.#list[i].#x);
+			Minimap.#vertsP.push(Minimap.#list[i].#y+Minimap.#list[i].#h);
+			Minimap.#vertsP.push(Minimap.#list[i].#x+Minimap.#list[i].#w);
+			Minimap.#vertsP.push(Minimap.#list[i].#y+Minimap.#list[i].#h);
 			let p=i*4;
-			FloorShape.#indexP.push(p);
-			FloorShape.#indexP.push(p+1);
-			FloorShape.#indexP.push(p+2);
-			FloorShape.#indexP.push(p+2);
-			FloorShape.#indexP.push(p+1);
-			FloorShape.#indexP.push(p+3);
+			Minimap.#indexP.push(p);
+			Minimap.#indexP.push(p+1);
+			Minimap.#indexP.push(p+2);
+			Minimap.#indexP.push(p+2);
+			Minimap.#indexP.push(p+1);
+			Minimap.#indexP.push(p+3);
+		}
+	}
+	static refresh()
+	{
+		if(Minimap.#aPos)
+		{
+			Minimap.#aPos.set(new Float32Array(Minimap.#vertsP))
 		}
 	}
 	static prep()
 	{
-		FloorShape.#indexB=FloorShape.#gl.createBuffer();
-		FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
-		FloorShape.#gl.bufferData(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(FloorShape.#indexP),FloorShape.#gl.STATIC_DRAW);
-		FloorShape.#uTexture=new Texture(FloorShape.#shader,"u_texture",FloorShape.#tex,0,FloorShape.#gl);
-		FloorShape.#uTexture.push();
-		FloorShape.#aPos=new Attribute(2,FloorShape.#shader,"a_pos",new Float32Array(FloorShape.#vertsP),FloorShape.#gl);
-		FloorShape.#uPos=new Uniform(2,FloorShape.#shader,"u_pos",[0.0,0.0],FloorShape.#gl);
+		Minimap.#indexB=Minimap.#gl.createBuffer();
+		Minimap.#gl.bindBuffer(Minimap.#gl.ELEMENT_ARRAY_BUFFER,Minimap.#indexB);
+		Minimap.#gl.bufferData(Minimap.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(Minimap.#indexP),Minimap.#gl.STATIC_DRAW);
+		Minimap.#uTexture=new Texture(Minimap.#shader,"u_texture",Minimap.#tex,0,Minimap.#gl);
+		Minimap.#uTexture.push();
+		Minimap.#aPos=new Attribute(2,Minimap.#shader,"a_pos",new Float32Array(Minimap.#vertsP),Minimap.#gl);
 	}
 	static draw(t,off)
 	{
@@ -95,12 +101,11 @@ class Minimap
 		{
 			return;
 		}
-		FloorShape.#gl.useProgram(FloorShape.#shader);
-		FloorShape.#uPos.set(off);
-		FloorShape.#uTexture.use();
-		FloorShape.#aPos.use();
-		FloorShape.#uPos.use();
-		FloorShape.#gl.bindBuffer(FloorShape.#gl.ELEMENT_ARRAY_BUFFER,FloorShape.#indexB);
-		FloorShape.#gl.drawElements(FloorShape.#gl.TRIANGLES,FloorShape.#size,FloorShape.#gl.UNSIGNED_SHORT,0);
+		Minimap.#gl.useProgram(Minimap.#shader);
+		Minimap.#uPos.set(off);
+		Minimap.#uTexture.use();
+		Minimap.#aPos.use();
+		Minimap.#gl.bindBuffer(Minimap.#gl.ELEMENT_ARRAY_BUFFER,Minimap.#indexB);
+		Minimap.#gl.drawElements(Minimap.#gl.TRIANGLES,Minimap.#size,Minimap.#gl.UNSIGNED_SHORT,0);
 	}
 }
