@@ -596,4 +596,27 @@ class Floor
 		}
 		return this.pos;
 	}
+	canWalk(x,y)
+	{
+		
+		let l=this.#rooms.length;
+		for(let i=0;i<l;i++)
+		{
+			let r=this.#rooms[i];
+			if(r.contains(x,y))
+			{
+				return true
+			}
+		}
+		let hl=this.#halls.length;
+		for(let i=0;i<hl;i++)
+		{
+			let r=this.#halls[i];
+			if(r.contains(x,y))
+			{
+				return true
+			}
+		}
+		return false;
+  }
 }
