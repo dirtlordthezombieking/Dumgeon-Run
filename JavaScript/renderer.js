@@ -164,7 +164,7 @@ class Renderer
 		{
 			case "KeyW":
 				Renderer.main.moveToBack(0);
-				Renderer.main.arrowsPressed[0]=false;
+				//Renderer.main.arrowsPressed[0]=false;
 				break;
 			case "ArrowUp":
 				Renderer.main.moveToBack(1);
@@ -172,27 +172,27 @@ class Renderer
 				break;
 			case "KeyS":
 				Renderer.main.moveToBack(2);
-				Renderer.main.arrowsPressed[2]=false;
+				//Renderer.main.arrowsPressed[2]=false;
 				break;
 			case "ArrowDown":
 				Renderer.main.moveToBack(3);
-				Renderer.main.arrowsPressed[3]=false;
+				/0Renderer.main.arrowsPressed[3]=false;
 				break;
 			case "KeyA":
 				Renderer.main.moveToBack(4);
-				Renderer.main.arrowsPressed[4]=false;
+				//Renderer.main.arrowsPressed[4]=false;
 				break;
 			case "ArrowLeft":
 				Renderer.main.moveToBack(5);
-				Renderer.main.arrowsPressed[5]=false;
+				//Renderer.main.arrowsPressed[5]=false;
 				break;
 			case "KeyD":
 				Renderer.main.moveToBack(6);
-				Renderer.main.arrowsPressed[6]=false;
+				//Renderer.main.arrowsPressed[6]=false;
 				break;
 			case "ArrowRight":
 				Renderer.main.moveToBack(7);
-				Renderer.main.arrowsPressed[7]=false;
+				//Renderer.main.arrowsPressed[7]=false;
 				break;
 		}
 		Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
@@ -211,35 +211,35 @@ class Renderer
 		{
 			case "KeyW":
 				Renderer.main.moveToFront(0);
-				Renderer.main.arrowsPressed[0]=true;
+				//Renderer.main.arrowsPressed[0]=true;
 				break;
 			case "ArrowUp":
 				Renderer.main.moveToFront(1);
-				Renderer.main.arrowsPressed[1]=true;
+				//Renderer.main.arrowsPressed[1]=true;
 				break;
 			case "KeyS":
 				Renderer.main.moveToFront(2);
-				Renderer.main.arrowsPressed[2]=true;
+				//Renderer.main.arrowsPressed[2]=true;
 				break;
 			case "ArrowDown":
 				Renderer.main.moveToFront(3);
-				Renderer.main.arrowsPressed[3]=true;
+				//Renderer.main.arrowsPressed[3]=true;
 				break;
 			case "KeyA":
 				Renderer.main.moveToFront(4);
-				Renderer.main.arrowsPressed[4]=true;
+				//Renderer.main.arrowsPressed[4]=true;
 				break;
 			case "ArrowLeft":
 				Renderer.main.moveToFront(5);
-				Renderer.main.arrowsPressed[5]=true;
+				//Renderer.main.arrowsPressed[5]=true;
 				break;
 			case "KeyD":
 				Renderer.main.moveToFront(6);
-				Renderer.main.arrowsPressed[6]=true;
+				//Renderer.main.arrowsPressed[6]=true;
 				break;
 			case "ArrowRight":
 				Renderer.main.moveToFront(7);
-				Renderer.main.arrowsPressed[7]=true;
+				//Renderer.main.arrowsPressed[7]=true;
 				break;
 		}
 		Utils.logMessage(arrowsPressed.toString+"\n"+keyOrder.toString+"\n"+keyTracker.toString+"\n"+activeKey);
@@ -251,6 +251,7 @@ class Renderer
 	}
 	moveToBack(key)
 	{
+		this.arrowsPressed[key]=false;
 		let v=this.keyOrder[key];
 		for(let i=0;i<8;i++)
 		{
@@ -264,6 +265,7 @@ class Renderer
 	}
 	moveToFront(key)
 	{
+		this.arrowsPressed[key]=true;
 		let v=this.keyOrder[key];
 		for(let i=0;i<8;i++)
 		{
