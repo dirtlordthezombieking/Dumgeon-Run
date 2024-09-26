@@ -10,7 +10,6 @@ class Minimap
 	static #tex;
 	static #uTexture;
 	static #aPos;
-	static #uPos;
 	#x;
 	#y;
 	#w;
@@ -53,6 +52,14 @@ class Minimap
 	static reset()
 	{
 		Minimap.#list=[];
+		if(Minimap.#aPos)
+		{
+			minimap.#aPos.clear;
+		}
+		if(Minimap.#indexB)
+		{
+			Minimap.#gl.deleteBuffer(minimap.#indexB);
+		}
 	}
 	static update()
 	{
