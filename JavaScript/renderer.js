@@ -168,7 +168,7 @@ class Renderer
 				break;
 			case "ArrowUp":
 				Renderer.main.moveToBack(1);
-				Renderer.main.arrowsPressed[1]=false;
+				//Renderer.main.arrowsPressed[1]=false;
 				break;
 			case "KeyS":
 				Renderer.main.moveToBack(2);
