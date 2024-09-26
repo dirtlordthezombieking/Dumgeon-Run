@@ -127,7 +127,7 @@ class Renderer
 			WallShape.draw(d,playPos);
 			Player.angle=this.angle+this.bufferAngle;
 			Player.draw(d);
-			OverhangShape.draw(d,this.pos);
+			OverhangShape.draw(d,playPos);
 			this.errframes=0;
 		}
 		catch(e)
@@ -155,6 +155,7 @@ class Renderer
 	}
 	keyUp(e)
 	{
+		Utils.logMessage("up"+e.code);
 		switch(e.code)
 		{
 			case "KeyW":
@@ -193,6 +194,7 @@ class Renderer
 	}
 	keyDown(e)
 	{
+		Utils.logMessage("up"+e.code);
 		switch(e.code)
 		{
 			case "KeyW":
