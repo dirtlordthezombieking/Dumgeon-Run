@@ -297,4 +297,8 @@ class Renderer
 			}
 		}
 	}
+	getDir(a)
+	{
+		
+	}
 }
