@@ -10,6 +10,7 @@ class Minimap
 	static #tex;
 	static #uTexture;
 	static #aPos;
+	static #boxes;
 	#x;
 	#y;
 	#w;
@@ -26,7 +27,7 @@ class Minimap
 		try
 		{
 			Minimap.#gl=gl;
-			Utils.loadShader(gl,"boxes",function(program)
+			Utils.loadShader(gl,"minimap",function(program)
 			{
 				Minimap.#shader=program;
 				onDone();
@@ -39,6 +40,7 @@ class Minimap
 	}
 	static set(rooms,halls)
 	{
+		Minimap.#boxes=rooms.concat(halls);
 		Minimap.#uTexture=Minimap.gl.createTexture();
 		Minimap.#gl.bindTexture(Minimap.#gl.TEXTURE_2D,#uTexture);
 		Minimap.#gl.texImage2D(Minimap.#gl.TEXTURE_2D,0,Minimap.#gl.RGBA,150,150,0,Minimap.#gl.RGBA,Minimap.#gl.UNSIGNED_BYTE,null);
