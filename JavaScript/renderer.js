@@ -292,7 +292,7 @@ class Renderer
 		{
 			if(this.angles[this.activeKey]==this.angle)
 			{
-				if(floor.canWalk(this.pos[0]+this.arrowAdd[this.activeKey[0]][0]+0.5,this.pos[1]+this.arrowAdd[this.activeKey[0]][1]+0.5))
+				if(this.floor.canWalk(this.pos[0]+this.arrowAdd[this.activeKey[0]][0]+0.5,this.pos[1]+this.arrowAdd[this.activeKey[0]][1]+0.5))
 				{
 					this.action=1;
 					this.actTime=500;
