@@ -47,6 +47,16 @@ class OverhangShape
 	static reset()
 	{
 		OverhangShape.#list=[];
+		if(OverhangShape.#aPos)
+		{
+			OverhangShape.#aPos.clear;
+			OverhangShape.#aPos=null;
+		}
+		if(OverhangShape.#indexB)
+		{
+			OverhangShape.#gl.deleteBuffer(OverhangShape.#indexB);
+			OverhangShape.#indexB=null;
+		}
 	}
 	static update()
 	{

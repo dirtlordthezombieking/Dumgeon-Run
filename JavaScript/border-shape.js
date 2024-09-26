@@ -47,6 +47,16 @@ class BorderShape
 	static reset()
 	{
 		BorderShape.#list=[];
+		if(BorderShape.#aPos)
+		{
+			BorderShape.#aPos.clear;
+			BorderShape.#aPos=null;
+		}
+		if(Minimap.#indexB)
+		{
+			BorderShape.#gl.deleteBuffer(BorderShape.#indexB);
+			BorderShape.#indexB=null;
+		}
 	}
 	static update()
 	{

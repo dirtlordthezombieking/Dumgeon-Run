@@ -53,6 +53,16 @@ class WallShape
 	static reset()
 	{
 		WallShape.#list=[];
+		if(WallShape.#aPos)
+		{
+			WallShape.#aPos.clear;
+			WallShape.#aPos=null;
+		}
+		if(WallShape.#indexB)
+		{
+			WallShape.#gl.deleteBuffer(WallShape.#indexB);
+			WallShape.#indexB=null;
+		}
 	}
 	static update()
 	{

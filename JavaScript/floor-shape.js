@@ -53,6 +53,16 @@ class FloorShape
 	static reset()
 	{
 		FloorShape.#list=[];
+		if(FloorShape.#aPos)
+		{
+			FloorShape.#aPos.clear;
+			FloorShape.#aPos=null;
+		}
+		if(Minimap.#indexB)
+		{
+			FloorShape.#gl.deleteBuffer(FloorShape.#indexB);
+			FloorShape.#indexB=null;
+		}
 	}
 	static update()
 	{
