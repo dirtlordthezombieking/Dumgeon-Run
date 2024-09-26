@@ -40,6 +40,15 @@ class Minimap
 	static set(rooms,halls)
 	{
 		Minimap.#uTexture=Minimap.gl.createTexture();
+		Minimap.#gl.bindTexture(Minimap.#gl.TEXTURE_2D,#uTexture);
+		Minimap.#gl.texImage2D(Minimap.#gl.TEXTURE_2D,0,Minimap.#gl.RGBA,150,150,0,Minimap.#gl.RGBA,Minimap.#gl.UNSIGNED_BYTE,null);
+		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_MIN_FILTER,Minimap.#gl.LINEAR);
+		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_WRAP_S,Minimap.#gl.CLAMP_TO_EDGE);
+		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_WRAP_T,Minimap.#gl.CLAMP_TO_EDGE);
+		let fBuff=Minimap.#gl.createFramebuffer();
+		Minimap.#gl.bindFramebuffer(Minimap.#gl.FRAMEBUFFER,fBuff);
+		let colourAtt=Minimap.#gl.COLOR_ATTACHMENT0
+		Minimap.#gl.framebufferTexture2D(Minimap.#gl.FRAMEBUFFER, colourAtt,Minimap.#gl.TEXTURE_2D,Minimap.#uTexture, level);
 	}
 	static addFromRectangle(x,y,w,h)
 	{
