@@ -49,7 +49,7 @@ class OverhangShape
 		OverhangShape.#list=[];
 		if(OverhangShape.#aPos)
 		{
-			OverhangShape.#aPos.clear;
+			OverhangShape.#aPos.clear();
 			OverhangShape.#aPos=null;
 		}
 		if(OverhangShape.#indexB)
