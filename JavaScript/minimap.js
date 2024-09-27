@@ -47,11 +47,6 @@ class Minimap
 	}
 	static set(rooms,halls)
 	{
-		Minimap.#gl.useProgram(Minimap.#genshader)
-		Minimap.#gl.viewport(0,0,150,150);
-		Minimap.#gl.clearColor(0.5,0.5,0.5,1);
-		Minimap.#gl.clear(Minimap.#gl.COLOR_BUFFER_BIT
-		Minimap.#boxes=rooms.concat(halls);
 		Minimap.#uTexture=Minimap.gl.createTexture();
 		Minimap.#gl.bindTexture(Minimap.#gl.TEXTURE_2D,#uTexture);
 		Minimap.#gl.texImage2D(Minimap.#gl.TEXTURE_2D,0,Minimap.#gl.RGBA,150,150,0,Minimap.#gl.RGBA,Minimap.#gl.UNSIGNED_BYTE,null);
@@ -62,6 +57,12 @@ class Minimap
 		let colourAtt=Minimap.#gl.COLOR_ATTACHMENT0
 		Minimap.#gl.framebufferTexture2D(Minimap.#gl.FRAMEBUFFER,colourAtt,Minimap.#gl.TEXTURE_2D,Minimap.#uTexture,0);
 		let l=Minimap.#boxes.length[]
+		Minimap.#gl.useProgram(Minimap.#genshader)
+		Minimap.#gl.viewport(0,0,150,150);
+		Minimap.#gl.clearColor(0.5,0.5,0.5,1);
+		Minimap.#gl.clear(Minimap.#gl.COLOR_BUFFER_BIT
+		Minimap.#boxes=rooms.concat(halls);
+		
 	}
 	static addFromRectangle(x,y,w,h)
 	{
