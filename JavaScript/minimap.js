@@ -7,10 +7,12 @@ class Minimap
 	static #size=0;
 	static #gl;
 	static #shader;
+	static #genshader;
 	static #tex;
 	static #uTexture;
 	static #aPos;
 	static #boxes;
+	static #fBuff
 	#x;
 	#y;
 	#w;
@@ -27,10 +29,15 @@ class Minimap
 		try
 		{
 			Minimap.#gl=gl;
-			Utils.loadShader(gl,"minimap",function(program)
+			Utils.loadShader(gl,"minimap",function(genprogram)
 			{
-				Minimap.#shader=program;
-				onDone();
+				Minimap.#genshader=genprogram;
+				Utils.loadShader(gl,"minimapdraw",function(program)
+				{
+					Minimap.#shader=program;
+					Minimap.#fBuff=Minimap.#gl.createFramebuffer();
+					onDone();
+				});
 			});
 		}
 		catch(e)
@@ -40,6 +47,10 @@ class Minimap
 	}
 	static set(rooms,halls)
 	{
+		Minimap.#gl.useProgram(Minimap.#genshader)
+		Minimap.#gl.viewport(0,0,150,150);
+		Minimap.#gl.clearColor(0.5,0.5,0.5,1);
+		Minimap.#gl.clear(Minimap.#gl.COLOR_BUFFER_BIT
 		Minimap.#boxes=rooms.concat(halls);
 		Minimap.#uTexture=Minimap.gl.createTexture();
 		Minimap.#gl.bindTexture(Minimap.#gl.TEXTURE_2D,#uTexture);
@@ -47,10 +58,10 @@ class Minimap
 		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_MIN_FILTER,Minimap.#gl.nearest);
 		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_WRAP_S,Minimap.#gl.CLAMP_TO_EDGE);
 		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_WRAP_T,Minimap.#gl.CLAMP_TO_EDGE);
-		let fBuff=Minimap.#gl.createFramebuffer();
 		Minimap.#gl.bindFramebuffer(Minimap.#gl.FRAMEBUFFER,fBuff);
 		let colourAtt=Minimap.#gl.COLOR_ATTACHMENT0
-		Minimap.#gl.framebufferTexture2D(Minimap.#gl.FRAMEBUFFER, colourAtt,Minimap.#gl.TEXTURE_2D,Minimap.#uTexture, level);
+		Minimap.#gl.framebufferTexture2D(Minimap.#gl.FRAMEBUFFER,colourAtt,Minimap.#gl.TEXTURE_2D,Minimap.#uTexture,0);
+		let l=Minimap.#boxes.length[]
 	}
 	static addFromRectangle(x,y,w,h)
 	{
@@ -72,6 +83,11 @@ class Minimap
 		{
 			Minimap.#gl.deleteBuffer(Minimap.#indexB);
 			Minimap.#indexB=null;
+		}
+		if(Minimap.#fBuff)
+		{
+			Minimap.#gl.deleteBuffer(Minimap.#fBuff);
+			Minimap.#fBuff=null;
 		}
 	}
 	static update()
