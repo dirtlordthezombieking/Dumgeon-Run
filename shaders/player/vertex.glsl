@@ -4,5 +4,5 @@ void main()
 {
 	vec2 pos=a_pos/vec2(320.0,240.0);
 	v_texCoord=a_pos;
-	gl_Position=vec4(pos,0,1);
+	gl_Position=vec4(pos,0.0,1.0);
 }
