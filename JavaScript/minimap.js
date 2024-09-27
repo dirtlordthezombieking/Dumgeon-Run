@@ -47,6 +47,7 @@ class Minimap
 	}
 	static set(rooms,halls)
 	{
+		Minimap.#boxes=rooms.concat(halls);
 		Minimap.#uTexture=Minimap.gl.createTexture();
 		Minimap.#gl.bindTexture(Minimap.#gl.TEXTURE_2D,#uTexture);
 		Minimap.#gl.texImage2D(Minimap.#gl.TEXTURE_2D,0,Minimap.#gl.RGBA,150,150,0,Minimap.#gl.RGBA,Minimap.#gl.UNSIGNED_BYTE,null);
@@ -61,8 +62,11 @@ class Minimap
 		Minimap.#gl.viewport(0,0,150,150);
 		Minimap.#gl.clearColor(0.5,0.5,0.5,1);
 		Minimap.#gl.clear(Minimap.#gl.COLOR_BUFFER_BIT
-		Minimap.#boxes=rooms.concat(halls);
-		
+		let uColour=new Uniform(4,Minimap.#genshader,"u_pos",[0,0,0,0.75],Minimap.#gl);
+		for(let i=0,i<l;i++)
+		{
+			
+		}
 	}
 	static addFromRectangle(x,y,w,h)
 	{
@@ -77,7 +81,7 @@ class Minimap
 		Minimap.#list=[];
 		if(Minimap.#aPos)
 		{
-			Minimap.#aPos.clear;
+			Minimap.#aPos.clear();
 			Minimap.#aPos=null;
 		}
 		if(Minimap.#indexB)
@@ -122,12 +126,13 @@ class Minimap
 		{
 			Minimap.#aPos.set(new Float32Array(Minimap.#vertsP))
 		}
+		Minimap.#indexB=Minimap.#gl.createBuffer();
+		Minimap.#gl.bindBuffer(Minimap.#gl.ELEMENT_ARRAY_BUFFER,Minimap.#indexB);
+		Minimap.#gl.bufferData(Minimap.#gl.ELEMENT_ARRAY_BUFFER,new
+Uint16Array(Minimap.#indexP),Minimap.#gl.STATIC_DRAW);
 	}
 	static prep()
 	{
-		Minimap.#indexB=Minimap.#gl.createBuffer();
-		Minimap.#gl.bindBuffer(Minimap.#gl.ELEMENT_ARRAY_BUFFER,Minimap.#indexB);
-		Minimap.#gl.bufferData(Minimap.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(Minimap.#indexP),Minimap.#gl.STATIC_DRAW);
 		Minimap.#uTexture=new Texture(Minimap.#shader,"u_texture",Minimap.#tex,0,Minimap.#gl);
 		Minimap.#uTexture.push();
 		Minimap.#aPos=new Attribute(2,Minimap.#shader,"a_pos",new Float32Array(Minimap.#vertsP),Minimap.#gl);
