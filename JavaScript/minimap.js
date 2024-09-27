@@ -44,7 +44,7 @@ class Minimap
 		Minimap.#uTexture=Minimap.gl.createTexture();
 		Minimap.#gl.bindTexture(Minimap.#gl.TEXTURE_2D,#uTexture);
 		Minimap.#gl.texImage2D(Minimap.#gl.TEXTURE_2D,0,Minimap.#gl.RGBA,150,150,0,Minimap.#gl.RGBA,Minimap.#gl.UNSIGNED_BYTE,null);
-		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_MIN_FILTER,Minimap.#gl.LINEAR);
+		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_MIN_FILTER,Minimap.#gl.nearest);
 		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_WRAP_S,Minimap.#gl.CLAMP_TO_EDGE);
 		Minimap.#gl.texParameteri(Minimap.#gl.TEXTURE_2D,Minimap.#gl.TEXTURE_WRAP_T,Minimap.#gl.CLAMP_TO_EDGE);
 		let fBuff=Minimap.#gl.createFramebuffer();
