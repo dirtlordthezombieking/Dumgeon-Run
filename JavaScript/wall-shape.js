@@ -55,7 +55,7 @@ class WallShape
 		WallShape.#list=[];
 		if(WallShape.#aPos)
 		{
-			WallShape.#aPos.clear;
+			WallShape.#aPos.clear();
 			WallShape.#aPos=null;
 		}
 		if(WallShape.#indexB)
