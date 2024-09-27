@@ -49,7 +49,7 @@ class BorderShape
 		BorderShape.#list=[];
 		if(BorderShape.#aPos)
 		{
-			BorderShape.#aPos.clear;
+			BorderShape.#aPos.clear();
 			BorderShape.#aPos=null;
 		}
 		if(Minimap.#indexB)

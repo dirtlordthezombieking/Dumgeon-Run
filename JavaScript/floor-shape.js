@@ -55,7 +55,7 @@ class FloorShape
 		FloorShape.#list=[];
 		if(FloorShape.#aPos)
 		{
-			FloorShape.#aPos.clear;
+			FloorShape.#aPos.clear();
 			FloorShape.#aPos=null;
 		}
 		if(Minimap.#indexB)

@@ -3,6 +3,7 @@ class Minimap
 	static #list=[];
 	static #vertsP=[];
 	static #indexP=[];
+	static #used=[];
 	static #indexB;
 	static #size=0;
 	static #gl;
@@ -35,7 +36,6 @@ class Minimap
 				Utils.loadShader(gl,"minimapdraw",function(program)
 				{
 					Minimap.#shader=program;
-					Minimap.#fBuff=Minimap.#gl.createFramebuffer();
 					onDone();
 				});
 			});
@@ -47,10 +47,6 @@ class Minimap
 	}
 	static set(rooms,halls)
 	{
-		Minimap.#gl.useProgram(Minimap.#genshader)
-		Minimap.#gl.viewport(0,0,150,150);
-		Minimap.#gl.clearColor(0.5,0.5,0.5,1);
-		Minimap.#gl.clear(Minimap.#gl.COLOR_BUFFER_BIT
 		Minimap.#boxes=rooms.concat(halls);
 		Minimap.#uTexture=Minimap.gl.createTexture();
 		Minimap.#gl.bindTexture(Minimap.#gl.TEXTURE_2D,#uTexture);
@@ -62,6 +58,16 @@ class Minimap
 		let colourAtt=Minimap.#gl.COLOR_ATTACHMENT0
 		Minimap.#gl.framebufferTexture2D(Minimap.#gl.FRAMEBUFFER,colourAtt,Minimap.#gl.TEXTURE_2D,Minimap.#uTexture,0);
 		let l=Minimap.#boxes.length[]
+		Minimap.#gl.useProgram(Minimap.#genshader)
+		Minimap.#gl.viewport(0,0,150,150);
+		Minimap.#gl.clearColor(0.5,0.5,0.5,1);
+		Minimap.#gl.clear(Minimap.#gl.COLOR_BUFFER_BIT
+		let uColour=new Uniform(4,Minimap.#genshader,"u_pos",[0,0,0,0.75],Minimap.#gl);
+		for(let i=0,i<l;i++)
+		{
+			used.push(false);
+			addFromRectangle(
+		}
 	}
 	static addFromRectangle(x,y,w,h)
 	{
@@ -76,8 +82,8 @@ class Minimap
 		Minimap.#list=[];
 		if(Minimap.#aPos)
 		{
-			Minimap.#aPos.clear;
-			Minimap.#aPos=null;
+			Minimap.#aPos.clear();
+			//Minimap.#aPos=null;
 		}
 		if(Minimap.#indexB)
 		{
@@ -117,19 +123,21 @@ class Minimap
 	}
 	static refresh()
 	{
+		Minimap.#fBuff=Minimap.#gl.createFramebuffer();
 		if(Minimap.#aPos)
 		{
 			Minimap.#aPos.set(new Float32Array(Minimap.#vertsP))
 		}
+		Minimap.#indexB=Minimap.#gl.createBuffer();
+		Minimap.#gl.bindBuffer(Minimap.#gl.ELEMENT_ARRAY_BUFFER,Minimap.#indexB);
+		Minimap.#gl.bufferData(Minimap.#gl.ELEMENT_ARRAY_BUFFER,new
+Uint16Array(Minimap.#indexP),Minimap.#gl.STATIC_DRAW);
 	}
 	static prep()
 	{
-		Minimap.#indexB=Minimap.#gl.createBuffer();
-		Minimap.#gl.bindBuffer(Minimap.#gl.ELEMENT_ARRAY_BUFFER,Minimap.#indexB);
-		Minimap.#gl.bufferData(Minimap.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(Minimap.#indexP),Minimap.#gl.STATIC_DRAW);
+					Minimap.#aPos=new Attribute(2,Minimap.#shader,"a_pos",new Float32Array(Minimap.#vertsP),Minimap.#gl);
 		Minimap.#uTexture=new Texture(Minimap.#shader,"u_texture",Minimap.#tex,0,Minimap.#gl);
 		Minimap.#uTexture.push();
-		Minimap.#aPos=new Attribute(2,Minimap.#shader,"a_pos",new Float32Array(Minimap.#vertsP),Minimap.#gl);
 	}
 	static draw(t,off)
 	{
