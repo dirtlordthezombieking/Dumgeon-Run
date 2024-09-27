@@ -3,6 +3,7 @@ class Minimap
 	static #list=[];
 	static #vertsP=[];
 	static #indexP=[];
+	static #used=[];
 	static #indexB;
 	static #size=0;
 	static #gl;
@@ -35,7 +36,6 @@ class Minimap
 				Utils.loadShader(gl,"minimapdraw",function(program)
 				{
 					Minimap.#shader=program;
-					Minimap.#fBuff=Minimap.#gl.createFramebuffer();
 					onDone();
 				});
 			});
@@ -65,7 +65,8 @@ class Minimap
 		let uColour=new Uniform(4,Minimap.#genshader,"u_pos",[0,0,0,0.75],Minimap.#gl);
 		for(let i=0,i<l;i++)
 		{
-			
+			used.push(false);
+			addFromRectangle(
 		}
 	}
 	static addFromRectangle(x,y,w,h)
@@ -82,7 +83,7 @@ class Minimap
 		if(Minimap.#aPos)
 		{
 			Minimap.#aPos.clear();
-			Minimap.#aPos=null;
+			//Minimap.#aPos=null;
 		}
 		if(Minimap.#indexB)
 		{
@@ -122,6 +123,7 @@ class Minimap
 	}
 	static refresh()
 	{
+		Minimap.#fBuff=Minimap.#gl.createFramebuffer();
 		if(Minimap.#aPos)
 		{
 			Minimap.#aPos.set(new Float32Array(Minimap.#vertsP))
@@ -133,9 +135,9 @@ Uint16Array(Minimap.#indexP),Minimap.#gl.STATIC_DRAW);
 	}
 	static prep()
 	{
+					Minimap.#aPos=new Attribute(2,Minimap.#shader,"a_pos",new Float32Array(Minimap.#vertsP),Minimap.#gl);
 		Minimap.#uTexture=new Texture(Minimap.#shader,"u_texture",Minimap.#tex,0,Minimap.#gl);
 		Minimap.#uTexture.push();
-		Minimap.#aPos=new Attribute(2,Minimap.#shader,"a_pos",new Float32Array(Minimap.#vertsP),Minimap.#gl);
 	}
 	static draw(t,off)
 	{
