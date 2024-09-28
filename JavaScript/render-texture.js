@@ -5,6 +5,7 @@ class Texture
 	id;
 	gl;
 	texture;
+	fBuff;
 	constructor(shaderProgram,location,imageSrc,referenceID,glCore)
 	{
 		this.prog=shaderProgram;
@@ -12,10 +13,16 @@ class Texture
 		this.id=referenceID;
 		this.gl=glCore;
 	}
-	push()
+	reset()
+	{
+		if(this.texture)
+		{
+			this.gl.deleteTexture(this.texture);
+		}
+	}
+	start()
 	{
 		this.texture=this.gl.createTexture();
-		this.gl.bindTexture(this.gl.TEXTURE_2D,this.texture);
 		this.gl.texParameteri(this.gl.TEXTURE_2D,this.gl.TEXTURE_WRAP_S,this.gl.CLAMP_TO_EDGE);
 		this.gl.texParameteri(this.gl.TEXTURE_2D,this.gl.TEXTURE_WRAP_T,this.gl.CLAMP_TO_EDGE);
 		this.gl.texParameteri(this.gl.TEXTURE_2D,this.gl.TEXTURE_MIN_FILTER,this.gl.NEAREST);
