@@ -18,6 +18,7 @@ class Texture
 		if(this.texture)
 		{
 			this.gl.deleteTexture(this.texture);
+			this.texture=null;
 		}
 	}
 	start()
