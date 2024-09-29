@@ -28,6 +28,7 @@ class BorderShape
 			Utils.loadShader(gl,"border",function(program)
 			{
 				BorderShape.#shader=program;
+				BorderShape.#aPos=new Attribute(2,BorderShape.#shader,"a_pos",BorderShape.#gl);
 				onDone();
 			});
 		}
@@ -84,7 +85,7 @@ class BorderShape
 		BorderShape.#indexB=BorderShape.#gl.createBuffer();
 		BorderShape.#gl.bindBuffer(BorderShape.#gl.ELEMENT_ARRAY_BUFFER,BorderShape.#indexB);
 		BorderShape.#gl.bufferData(BorderShape.#gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(BorderShape.#indexP),BorderShape.#gl.STATIC_DRAW);
-		BorderShape.#aPos=new Attribute(2,BorderShape.#shader,"a_pos",new Float32Array(BorderShape.#vertsP),BorderShape.#gl);
+		BorderShape.#aPos.set(new Float32Array(BorderShape.#vertsP));
 		BorderShape.#uPos=new Uniform(2,BorderShape.#shader,"u_pos",[0.0,0.0],BorderShape.#gl);
 	}
 	static draw(t,off)

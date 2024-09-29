@@ -6,15 +6,15 @@ class Attribute
 	value;
 	gl;
 	buff;
-	constructor(attributeSize,shaderProgram,location,attributeValue,glCore)
+	constructor(attributeSize,shaderProgram,location,glCore)
 	{
 		this.size=attributeSize;
 		this.prog=shaderProgram;
 		this.loc=glCore.getAttribLocation(shaderProgram,location);
 		this.value=attributeValue;
 		this.gl=glCore;
-		this.buff=this.gl.createBuffer();
-		this.gl.bindBuffer(this.gl.ARRAY_BUFFER,this.buff);
+		//this.buff=this.gl.createBuffer();
+		//this.gl.bindBuffer(this.gl.ARRAY_BUFFER,this.buff);
 		this.gl.bufferData(this.gl.ARRAY_BUFFER,this.value,this.gl.STATIC_DRAW);
 	}
 	clear()
