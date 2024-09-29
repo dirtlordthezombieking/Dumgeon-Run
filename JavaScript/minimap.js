@@ -80,11 +80,7 @@ class Minimap
 	static reset()
 	{
 		Minimap.#list=[];
-		if(Minimap.#aPos)
-		{
-			Minimap.#aPos.clear();
-			//Minimap.#aPos=null;
-		}
+		Minimap.#aPos.clear();
 		if(Minimap.#indexB)
 		{
 			Minimap.#gl.deleteBuffer(Minimap.#indexB);
