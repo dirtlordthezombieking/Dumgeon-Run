@@ -14,6 +14,14 @@ class Texture
 		this.id=referenceID;
 		this.gl=glCore;
 	}
+	reset()
+	{
+		if(this.texture)
+		{
+			this.gl.deleteTexture(this.texture);
+			this.texture=null;
+		}
+	}
 	push()
 	{
 		this.texture=this.gl.createTexture();
