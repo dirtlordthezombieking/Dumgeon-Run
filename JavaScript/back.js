@@ -15,6 +15,7 @@ class Back
 			Utils.loadShader(gl,"back",function(program)
 			{
 				Back.#shader=program;
+				Back.#aPos=new Attribute(2,Back.#shader,"a_pos",Back.#gl);
 				onDone();
 			});
 		}
@@ -34,7 +35,7 @@ class Back
 				2,1,3
 			]
 		),Back.#gl.STATIC_DRAW);
-		Back.#aPos=new Attribute(2,Back.#shader,"a_pos",new Float32Array
+		Back.#aPos=.set(new Float32Array
 		(
 			[
 				-2,-2,
@@ -42,7 +43,7 @@ class Back
 				-2, 2,
 				 2, 2
 			]
-		),Back.#gl);
+		));
 		Back.#uPos=new Uniform(3,Back.#shader,"u_pos",[0.0,0.0,0.0],Back.#gl);
 	}
 	static draw(t,off)
